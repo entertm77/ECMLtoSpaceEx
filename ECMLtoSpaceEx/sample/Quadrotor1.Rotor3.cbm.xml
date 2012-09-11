@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="Rotor3" type="3" parent_name="Quadrotor1.domain">
+  <entry id="13221230723681" name="[A] ThrustControl3 : double" type="38" x="431" y="727" width="145" height="16"/>
+  <entry id="13221252926921" name="[A] Thrust3 : double =0.0" type="39" x="973" y="259" width="0" height="0" is_properties="0"/>
+  <entry id="132212557387822" name="Behavior Model" type="10" x="35" y="35" width="933" height="673">
+    <entry id="13221255738780" name="Rotor3" type="11" x="19" y="19" width="893" height="633">
+      <entry id="13221255738781" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0">
+        <entry id="132212557387802" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0">
+          <entry id="1322125986329" name="[C] PowerIncreasingRate : double = 5.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
+          <entry id="1322125986843" name="[C] PowerDecreasingRate : double = -50.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
+          <entry id="1322125987371" name="[C] PowerDecreasingRate : double = -50.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
+        </entry>
+        <entry id="132212557387813" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0">
+          <entry id="1322125988257" name="[C] Power : double = 10.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/>
+        </entry>
+      </entry>
+      <entry id="1322125961873" name="Increasing" type="17" x="428" y="112" width="221" height="73" is_define_model="0" define_model_name="">
+        <entry id="13221259618730" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221259618731" name="d(Power) = PowerIncreasingRate" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322125978936" name="Thrust3= Power" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322125966959" name="Holding" type="17" x="444" y="275" width="146" height="87" is_define_model="0" define_model_name="">
+        <entry id="13221259669590" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221259669591" name="d(Power) =0" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322125980715" name="Thrust3 = Power" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322125974635" name="Decreasing" type="17" x="375" y="464" width="246" height="76" is_define_model="0" define_model_name="">
+        <entry id="13221259746350" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221259746351" name="d(Power) = PowerDecreasingRate" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322125982651" name="Thrust3 = Power" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322126129691" name="Intial State" type="3" x="351" y="305" width="26" height="26"/>
+    </entry>
+    <entry id="13221230723680" name="Port" type="40" x="440" y="651" width="20" height="20" hils="QuadroterBravo::SWThrustOut"/>
+    <entry id="13221252926920" name="Port" type="8" x="911" y="222" width="20" height="20" hils=""/>
+  </entry>
+  <connection id="1322126060633" type="2" source_id="1322125961873" target_id="1322125966959" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="HoldThrust [ThrustControl3 &lt;= (Power / MaximumPower)] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="443" y="283"/>
+  </connection>
+  <connection id="1322126063104" type="2" source_id="1322125966959" target_id="1322125974635" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="DecreaseThrust [ThrustControl3 &lt; (Power / MaximumPower)] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="396" y="459"/>
+  </connection>
+  <connection id="1322126084061" type="2" source_id="1322125966959" target_id="1322125961873" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="IncreaseThrust [ThrustControl3  &gt; (Power / MaximumPower)] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="719" y="302"/>
+  </connection>
+  <connection id="1322126084901" type="2" source_id="1322125974635" target_id="1322125966959" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="HoldThrust [ThrustControl3 &lt;= (Power / MaximumPower)] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="706" y="483"/>
+  </connection>
+  <connection id="1322126137179" type="2" source_id="1322126129691" target_id="1322125966959" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>
+  <connection id="1322125573878" type="27" source_id="13221230723680" target_id="13221230723681" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322125573878" type="27" source_id="13221252926920" target_id="13221252926921" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+</root>

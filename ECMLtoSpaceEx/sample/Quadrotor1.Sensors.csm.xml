@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="Sensors" type="2" parent_name="Quadrotor1.domain"> 
+  <entry id="13221211672291" name="[A] EulerAngles : Angle3D" type="38" x="-50" y="209" width="0" height="0"/>  
+  <entry id="13221211789071" name="[A] Acceleration : double" type="38" x="-50" y="285" width="0" height="0"/>  
+  <entry id="13221211943131" name="[A] MeasuredMotion : Angle3D" type="39" x="748" y="217" width="0" height="0" is_properties="0"/>  
+  <entry id="13221211977721" name="[A] MeasuredVelocity : double" type="39" x="748" y="293" width="0" height="0" is_properties="0"/>  
+  <entry id="132212122221922" name="Structural Model" type="9" x="28" y="35" width="700" height="558"> 
+    <entry id="13221212222190" name="Sensors" type="1" x="19" y="19" width="660" height="518"> 
+      <entry id="1322121226859" name="Structural Children Model" type="30" x="193" y="97" width="256" height="157" is_define_model="1" define_model_name="Quadrotor1.Sensors.GyroSensor.cbm"> 
+        <entry id="13221212268590" name="GyroSensor" type="29" x="19" y="19" width="216" height="117"/>  
+        <entry id="13221212374340" name="Port" type="7" x="0" y="72" width="20" height="20" hils=""/>  
+        <entry id="13221212444250" name="Port" type="8" x="234" y="71" width="20" height="20" hils=""/> 
+      </entry>  
+      <entry id="13221212374341" name="[A] EulerAngles : Angle3D" type="38" x="44" y="160" width="138" height="16"/>  
+      <entry id="13221212444251" name="[A] MeasuredMotion : Angle3D" type="39" x="454" y="156" width="162" height="16" is_properties="0"/>  
+      <entry id="1322121260865" name="Structural Children Model" type="30" x="198" y="282" width="251" height="171" is_define_model="1" define_model_name="Quadrotor1.Sensors.AccelerationSensor.cbm"> 
+        <entry id="13221212608650" name="AccelerationSensor" type="29" x="19" y="19" width="211" height="131"/>  
+        <entry id="13221212816060" name="Port" type="7" x="0" y="76" width="20" height="20" hils=""/>  
+        <entry id="13221212876710" name="Port" type="8" x="229" y="75" width="20" height="20" hils=""/> 
+      </entry>  
+      <entry id="13221212816061" name="[A] Acceleration : double" type="38" x="56" y="369" width="129" height="16"/>  
+      <entry id="13221212876711" name="[A] MeasuredVelocity : double" type="39" x="453" y="372" width="158" height="16" is_properties="0"/> 
+    </entry>  
+    <entry id="13221211672290" name="Port" type="7" x="0" y="174" width="20" height="20" hils=""/>  
+    <entry id="13221211789070" name="Port" type="7" x="0" y="250" width="20" height="20" hils=""/>  
+    <entry id="13221211943130" name="Port" type="8" x="678" y="182" width="20" height="20" hils=""/>  
+    <entry id="13221211977720" name="Port" type="8" x="678" y="258" width="20" height="20" hils=""/> 
+  </entry>  
+  <connection id="1322121239242" type="27" source_id="13221212374340" target_id="13221212374341" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322121245426" type="27" source_id="13221212444250" target_id="13221212444251" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322121308580" type="2" source_id="13221212444250" target_id="13221211943130" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="683" y="234"/> 
+  </connection>  
+  <connection id="1322121282581" type="27" source_id="13221212816060" target_id="13221212816061" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322121288405" type="27" source_id="13221212876710" target_id="13221212876711" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322121310113" type="2" source_id="13221212876710" target_id="13221211977720" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="666" y="421"/>  
+    <bendpoint x="667" y="303"/> 
+  </connection>  
+  <connection id="1322121222219" type="27" source_id="13221211672290" target_id="13221211672291" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322121305338" type="2" source_id="13221211672290" target_id="13221212374340" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="97" y="235"/> 
+  </connection>  
+  <connection id="1322121222219" type="27" source_id="13221211789070" target_id="13221211789071" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322121306760" type="2" source_id="13221211789070" target_id="13221212816060" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="129" y="422"/> 
+  </connection>  
+  <connection id="1322121222219" type="27" source_id="13221211943130" target_id="13221211943131" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322121222219" type="27" source_id="13221211977720" target_id="13221211977721" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/> 
+</root>

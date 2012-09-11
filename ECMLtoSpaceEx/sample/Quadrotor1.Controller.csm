@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="Controller" type="2" parent_name="Quadrotor1.domain"> 
+  <entry id="13221222800161" name="[A] Location : Point3D" type="38" x="-89" y="123" width="0" height="0"/>  
+  <entry id="13221222838971" name="[A] Motion : Angle3D" type="38" x="-78" y="168" width="0" height="0"/>  
+  <entry id="13221222874811" name="[A] Velocity : double" type="38" x="-78" y="197" width="0" height="0"/>  
+  <entry id="13221222893641" name="[D] FoeDetected : bool" type="38" x="-95" y="435" width="0" height="0"/>  
+  <entry id="13221222909901" name="[A] FoeLocation : Point3D" type="38" x="-110" y="471" width="0" height="0"/>  
+  <entry id="13221222929961" name="[D] Orders : String" type="38" x="-78" y="278" width="0" height="0"/>  
+  <entry id="13221222949421" name="[A] Destination : Point3D" type="38" x="-107" y="315" width="0" height="0"/>  
+  <entry id="13221229087761" name="[A] ThrustControl1 : double" type="39" x="299" y="730" width="0" height="0" is_properties="0"/>  
+  <entry id="13221229429801" name="[A] ThrustControl2 : double" type="39" x="898" y="730" width="0" height="0" is_properties="0"/>  
+  <entry id="13221230003701" name="[A] ThrustControl3 : double" type="39" x="1183" y="237" width="0" height="0" is_properties="0"/>  
+  <entry id="13221230601201" name="[A] ThrustControl4 : double" type="39" x="1181" y="267" width="0" height="0" is_properties="0"/>  
+  <entry id="132212328007422" name="Structural Model" type="9" x="35" y="35" width="1143" height="717"> 
+    <entry id="13221232800740" name="Controller" type="1" x="19" y="19" width="1103" height="677"> 
+      <entry id="1322123292815" name="Structural Children Model" type="30" x="151" y="316" width="361" height="284" is_define_model="1" define_model_name="Quadrotor1.Controller.NavigationController.cbm"> 
+        <entry id="13221232928150" name="NavigationController" type="29" x="19" y="19" width="321" height="244"/>  
+        <entry id="13221233698260" name="Port" type="7" x="0" y="67" width="20" height="20" hils=""/>  
+        <entry id="13221233752320" name="Port" type="7" x="0" y="197" width="20" height="20" hils=""/>  
+        <entry id="13221233770760" name="Port" type="7" x="0" y="240" width="20" height="20" hils=""/>  
+        <entry id="13221233786620" name="Port" type="7" x="0" y="110" width="20" height="20" hils=""/>  
+        <entry id="13221233806840" name="Port" type="7" x="0" y="146" width="20" height="20" hils=""/>  
+        <entry id="13221234276080" name="Port" type="8" x="339" y="58" width="20" height="20" hils=""/>  
+        <entry id="13221234300820" name="Port" type="8" x="339" y="94" width="20" height="20" hils=""/>  
+        <entry id="13221234321740" name="Port" type="8" x="339" y="145" width="20" height="20" hils=""/>  
+        <entry id="13221234347180" name="Port" type="8" x="339" y="189" width="20" height="20" hils=""/> 
+      </entry>  
+      <entry id="1322123314186" name="Structural Children Model" type="30" x="574" y="55" width="344" height="283" is_define_model="1" define_model_name="Quadrotor1.Controller.ThrustController.cbm"> 
+        <entry id="13221233141860" name="ThrustController" type="29" x="19" y="19" width="304" height="243"/>  
+        <entry id="13221234663200" name="Port" type="7" x="0" y="95" width="20" height="20" hils=""/>  
+        <entry id="13221234737080" name="Port" type="7" x="0" y="154" width="20" height="20" hils=""/>  
+        <entry id="13221235080120" name="Port" type="7" x="64" y="261" width="20" height="20" hils=""/>  
+        <entry id="13221235095440" name="Port" type="7" x="133" y="261" width="20" height="20" hils=""/>  
+        <entry id="13221236388380" name="Port" type="8" x="322" y="111" width="20" height="20" hils=""/>  
+        <entry id="13221236406420" name="Port" type="8" x="322" y="166" width="20" height="20" hils=""/>  
+        <entry id="13221236452860" name="Port" type="8" x="192" y="261" width="20" height="20" hils=""/>  
+        <entry id="13221236477280" name="Port" type="8" x="251" y="261" width="20" height="20" hils=""/> 
+      </entry>  
+      <entry id="13221233698261" name="[A] Location : Point3D" type="38" x="37" y="398" width="116" height="16"/>  
+      <entry id="13221233752321" name="[D] FoeDetected : bool" type="38" x="27" y="531" width="121" height="16"/>  
+      <entry id="13221233770761" name="[A] FoeLocation : Point3D" type="38" x="13" y="571" width="137" height="16"/>  
+      <entry id="13221233786621" name="[D] Orders : String" type="38" x="38" y="441" width="97" height="16"/>  
+      <entry id="13221233806841" name="[A] Destination : Point3D" type="38" x="12" y="479" width="132" height="16"/>  
+      <entry id="13221234276081" name="[A] XMovement : double" type="39" x="520" y="387" width="126" height="16" is_properties="0"/>  
+      <entry id="13221234300821" name="[A] ZMovement : double" type="39" x="523" y="421" width="126" height="16" is_properties="0"/>  
+      <entry id="13221234321741" name="[A] Altitude : double" type="39" x="520" y="461" width="0" height="0" is_properties="0"/>  
+      <entry id="13221234347181" name="[A] AltitudeSetting : double" type="39" x="520" y="505" width="0" height="0" is_properties="0"/>  
+      <entry id="13221234663201" name="[A] Motion : Angle3D" type="38" x="451" y="166" width="107" height="16"/>  
+      <entry id="13221234737081" name="[A] Velocity : double" type="38" x="455" y="220" width="103" height="16"/>  
+      <entry id="13221235080121" name="[A] XMovement : double" type="38" x="520" y="349" width="126" height="16"/>  
+      <entry id="13221235095441" name="[A] ZMovement : double" type="38" x="660" y="348" width="126" height="16"/>  
+      <entry id="13221236388381" name="[A] ThrustControl3 : double" type="39" x="926" y="154" width="145" height="16" is_properties="0"/>  
+      <entry id="13221236406421" name="[A] ThrustControl4 : double" type="39" x="928" y="212" width="145" height="16" is_properties="0"/>  
+      <entry id="13221236452861" name="[A] ThrustControl1 : double" type="39" x="712" y="370" width="145" height="16" is_properties="0"/>  
+      <entry id="13221236477281" name="[A] ThrustControl2 : double" type="39" x="763" y="397" width="145" height="16" is_properties="0"/> 
+    </entry>  
+    <entry id="13221222800160" name="Port" type="7" x="0" y="71" width="20" height="20" hils=""/>  
+    <entry id="13221222838970" name="Port" type="7" x="0" y="114" width="20" height="20" hils=""/>  
+    <entry id="13221222874810" name="Port" type="7" x="0" y="143" width="20" height="20" hils=""/>  
+    <entry id="13221222893640" name="Port" type="7" x="0" y="381" width="20" height="20" hils=""/>  
+    <entry id="13221222909900" name="Port" type="7" x="0" y="414" width="20" height="20" hils=""/>  
+    <entry id="13221222929960" name="Port" type="7" x="0" y="224" width="20" height="20" hils=""/>  
+    <entry id="13221222949420" name="Port" type="7" x="0" y="268" width="20" height="20" hils=""/>  
+    <entry id="13221229087760" name="Port" type="8" x="229" y="695" width="20" height="20" hils=""/>  
+    <entry id="13221229429800" name="Port" type="8" x="828" y="695" width="20" height="20" hils=""/>  
+    <entry id="13221230003700" name="Port" type="8" x="1121" y="187" width="20" height="20" hils=""/>  
+    <entry id="13221230601200" name="Port" type="8" x="1121" y="244" width="20" height="20" hils=""/> 
+  </entry>  
+  <connection id="1322123374116" type="27" source_id="13221233698260" target_id="13221233698261" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123376088" type="27" source_id="13221233752320" target_id="13221233752321" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123377687" type="27" source_id="13221233770760" target_id="13221233770761" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123379491" type="27" source_id="13221233786620" target_id="13221233786621" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123381607" type="27" source_id="13221233806840" target_id="13221233806841" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123428391" type="27" source_id="13221234276080" target_id="13221234276081" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123583674" type="2" source_id="13221234276080" target_id="13221235080120" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="705" y="439"/> 
+  </connection>  
+  <connection id="1322123431129" type="27" source_id="13221234300820" target_id="13221234300821" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123588824" type="2" source_id="13221234300820" target_id="13221235095440" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="774" y="477"/> 
+  </connection>  
+  <connection id="1322123433381" type="27" source_id="13221234321740" target_id="13221234321741" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123435641" type="27" source_id="13221234347180" target_id="13221234347181" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123467380" type="27" source_id="13221234663200" target_id="13221234663201" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123476793" type="27" source_id="13221234737080" target_id="13221234737081" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123508709" type="27" source_id="13221235080120" target_id="13221235080121" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123510483" type="27" source_id="13221235095440" target_id="13221235095441" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123639712" type="27" source_id="13221236388380" target_id="13221236388381" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123714880" type="2" source_id="13221236388380" target_id="13221230003700" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"/>  
+  <connection id="1322123642327" type="27" source_id="13221236406420" target_id="13221236406421" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123717400" type="2" source_id="13221236406420" target_id="13221230601200" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"/>  
+  <connection id="1322123646539" type="27" source_id="13221236452860" target_id="13221236452861" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123710386" type="2" source_id="13221236452860" target_id="13221229087760" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="834" y="662"/>  
+    <bendpoint x="273" y="666"/> 
+  </connection>  
+  <connection id="1322123648533" type="27" source_id="13221236477280" target_id="13221236477281" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123713256" type="2" source_id="13221236477280" target_id="13221229429800" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="894" y="661"/>  
+    <bendpoint x="871" y="661"/> 
+  </connection>  
+  <connection id="1322123280074" type="27" source_id="13221222800160" target_id="13221222800161" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123548612" type="2" source_id="13221222800160" target_id="13221233698260" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="78" y="115"/>  
+    <bendpoint x="83" y="447"/> 
+  </connection>  
+  <connection id="1322123280074" type="27" source_id="13221222838970" target_id="13221222838971" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123591234" type="2" source_id="13221222838970" target_id="13221234663200" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="340" y="160"/>  
+    <bendpoint x="339" y="214"/> 
+  </connection>  
+  <connection id="1322123280074" type="27" source_id="13221222874810" target_id="13221222874811" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123620916" type="2" source_id="13221222874810" target_id="13221234737080" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="339" y="187"/>  
+    <bendpoint x="341" y="274"/> 
+  </connection>  
+  <connection id="1322123280074" type="27" source_id="13221222893640" target_id="13221222893641" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123549856" type="2" source_id="13221222893640" target_id="13221233752320" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="82" y="427"/>  
+    <bendpoint x="83" y="578"/> 
+  </connection>  
+  <connection id="1322123280074" type="27" source_id="13221222909900" target_id="13221222909901" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123552928" type="2" source_id="13221222909900" target_id="13221233770760" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="82" y="459"/>  
+    <bendpoint x="83" y="622"/> 
+  </connection>  
+  <connection id="1322123280074" type="27" source_id="13221222929960" target_id="13221222929961" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123578151" type="2" source_id="13221222929960" target_id="13221233786620" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="80" y="268"/>  
+    <bendpoint x="82" y="493"/> 
+  </connection>  
+  <connection id="1322123280074" type="27" source_id="13221222949420" target_id="13221222949421" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123580765" type="2" source_id="13221222949420" target_id="13221233806840" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"> 
+    <bendpoint x="80" y="313"/>  
+    <bendpoint x="83" y="527"/> 
+  </connection>  
+  <connection id="1322123280074" type="27" source_id="13221229087760" target_id="13221229087761" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123280074" type="27" source_id="13221229429800" target_id="13221229429801" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123280074" type="27" source_id="13221230003700" target_id="13221230003701" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322123280074" type="27" source_id="13221230601200" target_id="13221230601201" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/> 
+</root>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="NavigationController" type="3" parent_name="Quadrotor1.Controller.csm">
+  <entry id="13221233698261" name="[A] Location : Point3D" type="38" x="-100" y="147" width="0" height="0"/>
+  <entry id="13221233752321" name="[D] FoeDetected : bool" type="38" x="-100" y="376" width="0" height="0"/>
+  <entry id="13221233770761" name="[A] FoeLocation : Point3D" type="38" x="-114" y="452" width="0" height="0"/>
+  <entry id="13221233786621" name="[D] Orders : String" type="38" x="-100" y="223" width="0" height="0"/>
+  <entry id="13221233806841" name="[A] Destination : Point3D" type="38" x="-124" y="284" width="0" height="0"/>
+  <entry id="13221234276081" name="[A] XMovement : double = 0.0" type="39" x="1376" y="131" width="0" height="0" is_properties="0"/>
+  <entry id="13221234300821" name="[A] ZMovement : double = 0.0" type="39" x="1376" y="195" width="0" height="0" is_properties="0"/>
+  <entry id="13221234321741" name="[A] Altitude : double = 0.0" type="39" x="1376" y="285" width="0" height="0" is_properties="0"/>
+  <entry id="13221234347181" name="[A] AltitudeSetting : double = 0.0" type="39" x="1376" y="362" width="0" height="0" is_properties="0"/>
+  <entry id="132212373427222" name="Behavior Model" type="10" x="13" y="26" width="1358" height="731">
+    <entry id="13221237342720" name="NavigationController" type="11" x="19" y="19" width="1318" height="691">
+      <entry id="13221237342721" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0">
+        <entry id="132212373427202" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0">
+          <entry id="1322124346228" name="[D] LastOrders : String = &quot;MoveTo&quot;" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
+          <entry id="1322124346538" name="[D] LastDestination : Point3D = Point3D (1000.0, 0.0, 1000.0)" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
+          <entry id="1322124347113" name="[C] TrackingAltitude : double = 500.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
+        </entry>
+        <entry id="132212373427213" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0">
+          <entry id="1322124348163" name="[A] XMovement : double = 0.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/>
+          <entry id="1322124348707" name="[A] ZMovement : double = 0.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124153508" name="Intial State" type="3" x="55" y="244" width="26" height="26"/>
+      <entry id="1322124155522" name="ReceivingOrders" type="17" x="178" y="221" width="185" height="71" is_define_model="0" define_model_name="">
+        <entry id="13221241555220" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="1322124203662" name="LastOrders = Orders" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="13221241555221" name="LastDestination = Destination" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124164592" name="MovingToX" type="17" x="131" y="386" width="296" height="83" is_define_model="0" define_model_name="">
+        <entry id="13221241645920" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221241645921" name="XMovement = (Destination.GetX() - Location.GetX())" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124171888" name="MovingToZ" type="17" x="578" y="379" width="284" height="89" is_define_model="0" define_model_name="">
+        <entry id="13221241718880" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221241718881" name="ZMovement = (Destination.GetZ() - Location.GetZ())" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124216806" name="Altitude = Location.GetZ()" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124214458" name="AltitudeSetting = Destination.GetZ()" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124178718" name="PatrollingFrom" type="17" x="519" y="79" width="294" height="70" is_define_model="0" define_model_name="">
+        <entry id="13221241787180" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221241787181" name="XMovement = Destination.Get(X) - Location.GetX()" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124206198" name="Phase = &quot;Patrolling&quot;" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124186294" name="PatrollingTo" type="17" x="949" y="71" width="290" height="70" is_define_model="0" define_model_name="">
+        <entry id="13221241862940" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221241862941" name="ZMovement = Destination.GetZ() - Location.GetZ()" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124211377" name="Phase = &quot;Patrolling&quot;" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124194188" name="TrackingFoe" type="17" x="999" y="378" width="241" height="89" is_define_model="0" define_model_name="">
+        <entry id="13221241941880" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221241941881" name="FoePosition = (FoeLocation - Location)" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124221458" name="Altitude = Location.GetZ()" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124219124" name="AltitudeSetting = TrackingAltitude" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+    </entry>
+    <entry id="13221233698260" name="Port" type="7" x="0" y="119" width="20" height="20" hils=""/>
+    <entry id="13221233752320" name="Port" type="7" x="0" y="348" width="20" height="20" hils=""/>
+    <entry id="13221233770760" name="Port" type="7" x="0" y="424" width="20" height="20" hils=""/>
+    <entry id="13221233786620" name="Port" type="7" x="0" y="195" width="20" height="20" hils=""/>
+    <entry id="13221233806840" name="Port" type="7" x="0" y="258" width="20" height="20" hils=""/>
+    <entry id="13221234276080" name="Port" type="8" x="1336" y="103" width="20" height="20" hils=""/>
+    <entry id="13221234300820" name="Port" type="8" x="1336" y="167" width="20" height="20" hils=""/>
+    <entry id="13221234321740" name="Port" type="8" x="1336" y="257" width="20" height="20" hils=""/>
+    <entry id="13221234347180" name="Port" type="8" x="1336" y="334" width="20" height="20" hils=""/>
+  </entry>
+  <connection id="1322124341040" type="2" source_id="1322124153508" target_id="1322124155522" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>
+  <connection id="1322124420023" type="2" source_id="1322124155522" target_id="1322124164592" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="[true] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="198" y="369"/>
+  </connection>
+  <connection id="1322124593509" type="2" source_id="1322124155522" target_id="1322124178718" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="MoveToPatrol [ LastOrders == &quot;PatrolAround&quot;]" is_source_point="0" is_target_point="1">
+    <bendpoint x="515" y="256"/>
+  </connection>
+  <connection id="1322124431862" type="2" source_id="1322124164592" target_id="1322124155522" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="ReceiveOrders [Orders != LastOrders || Destination != LastDestination] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="421" y="385"/>
+  </connection>
+  <connection id="1322124469892" type="2" source_id="1322124164592" target_id="1322124171888" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="MoveToZ [Location.GetX() == Destination.GetX() ] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="535" y="569"/>
+  </connection>
+  <connection id="1322124495076" type="2" source_id="1322124171888" target_id="1322124194188" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="TrackFoe [FoeDetected == true &amp;&amp; LastOrders == &quot;PatrolOver&quot;] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="960" y="386"/>
+  </connection>
+  <connection id="1322124617022" type="2" source_id="1322124171888" target_id="1322124155522" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="ReceiveOrders [Orders != LastOrders || Destination != LastDestination] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="618" y="341"/>
+  </connection>
+  <connection id="1322124644564" type="2" source_id="1322124178718" target_id="1322124186294" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="PatrolFrom [ Location.GetX() == Destination.GetX()] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="910" y="118"/>
+  </connection>
+  <connection id="1322124661582" type="2" source_id="1322124186294" target_id="1322124155522" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="ReceiveOrders [ LastOrders != Orders || LastDestination != Destination] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="1130" y="304"/>
+  </connection>
+  <connection id="1322124681079" type="2" source_id="1322124186294" target_id="1322124194188" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="TrackFoe [FoeDetected == true &amp;&amp; LastOrders == &quot;PatrolOver&quot;] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="1150" y="249"/>
+  </connection>
+  <connection id="1322124537596" type="2" source_id="1322124194188" target_id="1322124164592" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="LostFoe [ FoeDetected == false] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="1156" y="632"/>
+    <bendpoint x="315" y="633"/>
+  </connection>
+  <connection id="1322124713048" type="2" source_id="1322124194188" target_id="1322124178718" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="LostFoe [ FoeDetected == false] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="776" y="268"/>
+  </connection>
+  <connection id="1322123734272" type="27" source_id="13221233698260" target_id="13221233698261" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123734272" type="27" source_id="13221233752320" target_id="13221233752321" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123734272" type="27" source_id="13221233770760" target_id="13221233770761" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123734272" type="27" source_id="13221233786620" target_id="13221233786621" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123734272" type="27" source_id="13221233806840" target_id="13221233806841" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123734272" type="27" source_id="13221234276080" target_id="13221234276081" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123734272" type="27" source_id="13221234300820" target_id="13221234300821" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123734272" type="27" source_id="13221234321740" target_id="13221234321741" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123734272" type="27" source_id="13221234347180" target_id="13221234347181" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+</root>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="PitchDynamics" type="3" parent_name="Quadrotor1.Dynamics.PoseDynamics.csm"> 
+  <entry id="13221326217851" name="[A] Thrust3 : double" type="38" x="-50" y="208" width="0" height="0"/>  
+  <entry id="13221326244531" name="[A] Thrust1 : double" type="38" x="-50" y="304" width="0" height="0"/>  
+  <entry id="13221327161131" name="[A] Pitch : double = 0.0" type="39" x="748" y="241" width="0" height="0" is_properties="0"/>  
+  <entry id="132213371155222" name="Behavior Model" type="10" x="35" y="35" width="700" height="500"> 
+    <entry id="13221337115520" name="PitchDynamics" type="11" x="19" y="19" width="660" height="460"> 
+      <entry id="13221337115521" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0"> 
+        <entry id="132213371155202" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0"/>  
+        <entry id="132213371155213" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0"> 
+          <entry id="1322133910140" name="[C] Inertia : double = 1.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/>  
+          <entry id="1322133911222" name="[C] deltaPitch : double = 0.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/> 
+        </entry> 
+      </entry>  
+      <entry id="1322133820508" name="Intial State" type="3" x="348" y="103" width="26" height="26"/>  
+      <entry id="1322133822142" name="Pitch" type="17" x="242" y="214" width="240" height="70" is_define_model="0" define_model_name=""> 
+        <entry id="13221338221420" name="State Model" type="18" x="0" y="0" width="0" height="0"> 
+          <entry id="13221338221421" name="d(deltaPitch) = (-Thrust1 + Thrust3) / Inertia" type="19" x="0" y="0" width="0" height="0"/>  
+          <entry id="1322133835767" name="d(Pitch) = deltaPitch" type="19" x="0" y="0" width="0" height="0"/> 
+        </entry> 
+      </entry> 
+    </entry>  
+    <entry id="13221326217850" name="Port" type="7" x="0" y="173" width="20" height="20" hils=""/>  
+    <entry id="13221326244530" name="Port" type="7" x="0" y="269" width="20" height="20" hils=""/>  
+    <entry id="13221327161130" name="Port" type="8" x="678" y="206" width="20" height="20" hils=""/> 
+  </entry>  
+  <connection id="1322133879368" type="2" source_id="1322133820508" target_id="1322133822142" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>  
+  <connection id="1322133711552" type="27" source_id="13221326217850" target_id="13221326217851" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322133711552" type="27" source_id="13221326244530" target_id="13221326244531" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322133711552" type="27" source_id="13221327161130" target_id="13221327161131" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/> 
+</root>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="DetectionSystem" type="3" parent_name="Quadrotor1.domain"> 
+  <entry id="13221218641851" name="[A] MeasuredLocation : Point3D" type="38" x="-129" y="184" width="0" height="0"/>  
+  <entry id="13221218685321" name="[A] NearestFoeLocation : Point3D" type="38" x="-137" y="306" width="0" height="0"/>  
+  <entry id="13221218718751" name="[A] FoeDistance : double = 0.0" type="39" x="1101" y="332" width="0" height="0" is_properties="0"/>  
+  <entry id="13221218761911" name="[A] FoeLocation : Point3D = Point3D::Origin" type="39" x="1093" y="181" width="0" height="0" is_properties="0"/>  
+  <entry id="132212201481922" name="Behavior Model" type="10" x="35" y="35" width="1053" height="553"> 
+    <entry id="13221220148190" name="DetectionSystem" type="11" x="19" y="19" width="1013" height="513"> 
+      <entry id="13221220148191" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0"> 
+        <entry id="132212201481902" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0"/>  
+        <entry id="132212201481913" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0"> 
+          <entry id="1322122090343" name="[A] FoeX : double = 0.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/>  
+          <entry id="1322122090593" name="[A] FoeY : double = 0.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/>  
+          <entry id="1322122090989" name="[A] FoeZ : double = 0.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/> 
+        </entry> 
+      </entry>  
+      <entry id="1322122016661" name="Intial State" type="3" x="489" y="99" width="26" height="26"/>  
+      <entry id="1322122018325" name="CalculatingFoeDistance" type="17" x="172" y="201" width="702" height="147" is_define_model="0" define_model_name=""> 
+        <entry id="13221220183250" name="State Model" type="18" x="0" y="0" width="0" height="0"> 
+          <entry id="13221220183251" name="FoeX = (NearestFoeLocation.GetX() - MeasuredLocation.GetX()) * (NearestFoeLocation.GetX() - MeasuredLocation.GetX())" type="19" x="0" y="0" width="0" height="0"/>  
+          <entry id="1322122032287" name="FoeY =  (NearestFoeLocation.GetY() - MeasuredLocation.GetY()) * (NearestFoeLocation.GetY() - MeasuredLocation.GetY())" type="19" x="0" y="0" width="0" height="0"/>  
+          <entry id="1322122034893" name="FoeZ =  (NearestFoeLocation.GetZ() - MeasuredLocation.GetZ()) * (NearestFoeLocation.GetZ() - MeasuredLocation.GetZ())" type="19" x="0" y="0" width="0" height="0"/>  
+          <entry id="1322122039177" name="FoeDistance = sqrt((FoeX + FoeY + FoeZ)" type="19" x="0" y="0" width="0" height="0"/>  
+          <entry id="1322122030219" name="FoeLocation = MeasuredLocation" type="19" x="0" y="0" width="0" height="0"/> 
+        </entry> 
+      </entry> 
+    </entry>  
+    <entry id="13221218641850" name="Port" type="7" x="0" y="170" width="20" height="20" hils=""/>  
+    <entry id="13221218685320" name="Port" type="7" x="0" y="287" width="20" height="20" hils=""/>  
+    <entry id="13221218718750" name="Port" type="8" x="1031" y="283" width="20" height="20" hils=""/>  
+    <entry id="13221218761910" name="Port" type="8" x="1031" y="161" width="20" height="20" hils=""/> 
+  </entry>  
+  <connection id="1322122077549" type="2" source_id="1322122016661" target_id="1322122018325" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>  
+  <connection id="1322122014819" type="27" source_id="13221218641850" target_id="13221218641851" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322122014819" type="27" source_id="13221218685320" target_id="13221218685321" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322122014819" type="27" source_id="13221218718750" target_id="13221218718751" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322122014819" type="27" source_id="13221218761910" target_id="13221218761911" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/> 
+</root>

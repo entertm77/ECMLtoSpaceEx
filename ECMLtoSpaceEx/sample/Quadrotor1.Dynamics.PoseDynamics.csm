@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="PoseDynamics" type="2" parent_name="Quadrotor1.Dynamics.csm">
+  <entry id="13221318351551" name="[A] ThrustControl2 : double" type="38" x="-50" y="187" width="0" height="0"/>
+  <entry id="13221318376831" name="[A] ThrustControl1 : double" type="38" x="-50" y="465" width="0" height="0"/>
+  <entry id="13221318401971" name="[A] ThrustControl3 : double" type="38" x="343" y="35" width="0" height="0"/>
+  <entry id="13221318426391" name="[A] ThrustControl4 : double" type="38" x="768" y="35" width="0" height="0"/>
+  <entry id="132213205125422" name="Structural Model" type="9" x="35" y="35" width="1197" height="764">
+    <entry id="13221320512540" name="PoseDynamics" type="1" x="19" y="19" width="1157" height="724">
+      <entry id="1322132169487" name="Structural Children Model" type="30" x="134" y="500" width="194" height="137" is_define_model="1" define_model_name="Quadrotor1.Dynamics.PoseDynamics.Thrust1.cbm">
+        <entry id="13221321694870" name="Thrust1" type="29" x="19" y="19" width="154" height="97"/>
+        <entry id="13221324284420" name="Port" type="7" x="0" y="60" width="20" height="20" hils=""/>
+        <entry id="13221324579400" name="Port" type="8" x="172" y="53" width="20" height="20" hils=""/>
+      </entry>
+      <entry id="1322132174085" name="Structural Children Model" type="30" x="131" y="341" width="191" height="142" is_define_model="1" define_model_name="Quadrotor1.Dynamics.PoseDynamics.Thrust2.cbm">
+        <entry id="13221321740850" name="Thrust2" type="29" x="19" y="19" width="151" height="102"/>
+        <entry id="13221324261560" name="Port" type="7" x="0" y="59" width="20" height="20" hils=""/>
+        <entry id="13221324642170" name="Port" type="8" x="169" y="62" width="20" height="20" hils=""/>
+      </entry>
+      <entry id="1322132179800" name="Structural Children Model" type="30" x="128" y="209" width="194" height="134" is_define_model="1" define_model_name="Quadrotor1.Dynamics.PoseDynamics.Thrust3.cbm">
+        <entry id="13221321798000" name="Thrust3" type="29" x="19" y="19" width="154" height="94"/>
+        <entry id="13221324231460" name="Port" type="7" x="0" y="61" width="20" height="20" hils=""/>
+        <entry id="13221324663710" name="Port" type="8" x="172" y="50" width="20" height="20" hils=""/>
+      </entry>
+      <entry id="1322132188557" name="Structural Children Model" type="30" x="124" y="70" width="189" height="139" is_define_model="1" define_model_name="Quadrotor1.Dynamics.PoseDynamics.Thrust4.cbm">
+        <entry id="13221321885570" name="Thrust4" type="29" x="19" y="19" width="149" height="99"/>
+        <entry id="13221323348200" name="Port" type="7" x="0" y="59" width="20" height="20" hils=""/>
+        <entry id="13221324693030" name="Port" type="8" x="167" y="53" width="20" height="20" hils=""/>
+      </entry>
+      <entry id="13221323348201" name="[A] Thrust4 : double" type="38" x="21" y="117" width="105" height="16"/>
+      <entry id="13221324231461" name="[A] Thrust3 : double" type="38" x="14" y="254" width="105" height="16"/>
+      <entry id="13221324261561" name="[A] Thrust2 : double" type="38" x="16" y="382" width="105" height="16"/>
+      <entry id="13221324284421" name="[A] Thrust1 : double" type="38" x="20" y="582" width="105" height="16"/>
+      <entry id="13221324579401" name="[A] MeasuredThrust1 : double" type="39" x="311" y="581" width="160" height="16" is_properties="0"/>
+      <entry id="13221324642171" name="[A] MeasuredThrust2 : double" type="39" x="323" y="419" width="160" height="15" is_properties="0"/>
+      <entry id="13221324663711" name="[A] MeasuredThrust3 : double" type="39" x="324" y="274" width="160" height="16" is_properties="0"/>
+      <entry id="13221324693031" name="[A] MeasuredThrust4 : double" type="39" x="318" y="111" width="160" height="16" is_properties="0"/>
+      <entry id="1322132503965" name="Structural Children Model" type="30" x="516" y="99" width="206" height="155" is_define_model="1" define_model_name="Quadrotor1.Dynamics.PoseDynamics.RollDynamics.cbm">
+        <entry id="13221325039650" name="RollDynamics" type="29" x="19" y="19" width="166" height="115"/>
+        <entry id="13221326175840" name="Port" type="7" x="0" y="51" width="20" height="20" hils=""/>
+        <entry id="13221326198400" name="Port" type="7" x="0" y="79" width="20" height="20" hils=""/>
+        <entry id="13221327141690" name="Port" type="8" x="184" y="61" width="20" height="20" hils=""/>
+      </entry>
+      <entry id="1322132547296" name="Structural Children Model" type="30" x="520" y="254" width="214" height="167" is_define_model="1" define_model_name="Quadrotor1.Dynamics.PoseDynamics.PitchDynamics.cbm">
+        <entry id="13221325472960" name="PitchDynamics" type="29" x="19" y="19" width="174" height="127"/>
+        <entry id="13221326217850" name="Port" type="7" x="0" y="58" width="20" height="20" hils=""/>
+        <entry id="13221326244530" name="Port" type="7" x="0" y="90" width="20" height="20" hils=""/>
+        <entry id="13221327161130" name="Port" type="8" x="192" y="69" width="20" height="20" hils=""/>
+      </entry>
+      <entry id="1322132570937" name="Structural Children Model" type="30" x="525" y="420" width="212" height="184" is_define_model="1" define_model_name="Quadrotor1.Dynamics.PoseDynamics.YawDynamics.cbm">
+        <entry id="13221325709370" name="YawDynamics" type="29" x="19" y="19" width="172" height="144"/>
+        <entry id="13221326265070" name="Port" type="7" x="0" y="57" width="20" height="20" hils=""/>
+        <entry id="13221326285130" name="Port" type="7" x="0" y="81" width="20" height="20" hils=""/>
+        <entry id="13221326698460" name="Port" type="7" x="0" y="105" width="20" height="20" hils=""/>
+        <entry id="13221326720640" name="Port" type="7" x="0" y="128" width="20" height="20" hils=""/>
+        <entry id="13221327179000" name="Port" type="8" x="190" y="85" width="20" height="20" hils=""/>
+      </entry>
+      <entry id="13221326175841" name="[A] Thrust4 : double" type="38" x="403" y="138" width="0" height="0"/>
+      <entry id="13221326198401" name="[A] Thrust2 : double" type="38" x="403" y="190" width="0" height="0"/>
+      <entry id="13221326217851" name="[A] Thrust3 : double" type="38" x="413" y="303" width="0" height="0"/>
+      <entry id="13221326244531" name="[A] Thrust1 : double" type="38" x="409" y="356" width="105" height="16"/>
+      <entry id="13221326265071" name="[A] Thrust4 : double" type="38" x="410" y="491" width="0" height="0"/>
+      <entry id="13221326285131" name="[A] Thrust3 : double" type="38" x="412" y="516" width="0" height="0"/>
+      <entry id="13221326698461" name="[A] Thrust2 : double" type="38" x="412" y="539" width="0" height="0"/>
+      <entry id="13221326720641" name="[A] Thrust1 : double" type="38" x="411" y="561" width="0" height="0"/>
+      <entry id="13221327141691" name="[A] Roll : double" type="39" x="727" y="162" width="0" height="0" is_properties="0"/>
+      <entry id="13221327161131" name="[A] Pitch : double" type="39" x="739" y="315" width="90" height="16" is_properties="0"/>
+      <entry id="13221327179001" name="[A] Yaw : double" type="39" x="742" y="507" width="0" height="0" is_properties="0"/>
+      <entry id="1322134117211" name="Structural Children Model" type="30" x="899" y="231" width="170" height="202" is_define_model="1" define_model_name="Quadrotor1.Dynamics.PoseDynamics.Merger.cbm">
+        <entry id="13221341172110" name="Merger" type="29" x="19" y="19" width="130" height="162"/>
+        <entry id="13221341284330" name="Port" type="7" x="0" y="58" width="20" height="20" hils=""/>
+        <entry id="13221341303690" name="Port" type="7" x="0" y="91" width="20" height="20" hils=""/>
+        <entry id="13221341319170" name="Port" type="7" x="0" y="144" width="20" height="20" hils=""/>
+        <entry id="13221341611950" name="Port" type="8" x="81" y="0" width="20" height="20" hils=""/>
+      </entry>
+      <entry id="13221341284331" name="[A] Roll : double" type="38" x="796" y="275" width="0" height="0"/>
+      <entry id="13221341303691" name="[A] Pitch : double" type="38" x="801" y="342" width="0" height="0"/>
+      <entry id="13221341319171" name="[A] Yaw : double" type="38" x="791" y="392" width="0" height="0"/>
+      <entry id="13221341611951" name="[A] RollPitchYaw : Angle3D" type="39" x="986" y="206" width="0" height="0" is_properties="0"/>
+    </entry>
+    <entry id="13221318351550" name="Port" type="7" x="0" y="152" width="20" height="20" hils=""/>
+    <entry id="13221318376830" name="Port" type="7" x="0" y="430" width="20" height="20" hils=""/>
+    <entry id="13221318401970" name="Port" type="7" x="273" y="0" width="20" height="20" hils=""/>
+    <entry id="13221318426390" name="Port" type="7" x="698" y="0" width="20" height="20" hils=""/>
+    <entry id="13221321264620" name="Port" type="8" x="1175" y="253" width="20" height="20" hils=""/>
+  </entry>
+  <entry id="13221321264621" name="[A] RollPitchYaw : Angle3D" type="39" x="1245" y="288" width="0" height="0" is_properties="0"/>
+  <connection id="1322132429621" type="27" source_id="13221324284420" target_id="13221324284421" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132460978" type="27" source_id="13221324579400" target_id="13221324579401" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322133142778" type="2" source_id="13221324579400" target_id="13221326720640" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"/>
+  <connection id="1322133145384" type="2" source_id="13221324579400" target_id="13221326244530" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="462" y="618"/>
+    <bendpoint x="461" y="410"/>
+  </connection>
+  <connection id="1322132427124" type="27" source_id="13221324261560" target_id="13221324261561" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132465327" type="27" source_id="13221324642170" target_id="13221324642171" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322133141098" type="2" source_id="13221324642170" target_id="13221326698460" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="460" y="469"/>
+    <bendpoint x="463" y="592"/>
+  </connection>
+  <connection id="1322133482675" type="2" source_id="13221324642170" target_id="13221326198400" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="461" y="469"/>
+    <bendpoint x="458" y="245"/>
+  </connection>
+  <connection id="1322132424114" type="27" source_id="13221324231460" target_id="13221324231461" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132468142" type="27" source_id="13221324663710" target_id="13221324663711" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322133137412" type="2" source_id="13221324663710" target_id="13221326285130" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="457" y="325"/>
+    <bendpoint x="462" y="567"/>
+  </connection>
+  <connection id="1322133504724" type="2" source_id="13221324663710" target_id="13221326217850" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="459" y="325"/>
+    <bendpoint x="460" y="379"/>
+  </connection>
+  <connection id="1322132335882" type="27" source_id="13221323348200" target_id="13221323348201" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132470808" type="27" source_id="13221324693030" target_id="13221324693031" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322133130881" type="2" source_id="13221324693030" target_id="13221326175840" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="457" y="188"/>
+    <bendpoint x="457" y="217"/>
+  </connection>
+  <connection id="1322133132653" type="2" source_id="13221324693030" target_id="13221326265070" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="456" y="187"/>
+    <bendpoint x="460" y="541"/>
+  </connection>
+  <connection id="1322132618568" type="27" source_id="13221326175840" target_id="13221326175841" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132620847" type="27" source_id="13221326198400" target_id="13221326198401" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132715225" type="27" source_id="13221327141690" target_id="13221327141691" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322134180059" type="2" source_id="13221327141690" target_id="13221341284330" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"/>
+  <connection id="1322132622815" type="27" source_id="13221326217850" target_id="13221326217851" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132625524" type="27" source_id="13221326244530" target_id="13221326244531" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132717012" type="27" source_id="13221327161130" target_id="13221327161131" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322134181521" type="2" source_id="13221327161130" target_id="13221341303690" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"/>
+  <connection id="1322132627513" type="27" source_id="13221326265070" target_id="13221326265071" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132629824" type="27" source_id="13221326285130" target_id="13221326285131" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132670794" type="27" source_id="13221326698460" target_id="13221326698461" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132672994" type="27" source_id="13221326720640" target_id="13221326720641" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132719236" type="27" source_id="13221327179000" target_id="13221327179001" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322134183557" type="2" source_id="13221327179000" target_id="13221341319170" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"/>
+  <connection id="1322134129315" type="27" source_id="13221341284330" target_id="13221341284331" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322134131020" type="27" source_id="13221341303690" target_id="13221341303691" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322134132714" type="27" source_id="13221341319170" target_id="13221341319171" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322134162420" type="27" source_id="13221341611950" target_id="13221341611951" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322134211932" type="2" source_id="13221341611950" target_id="13221321264620" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1"/>
+  <connection id="1322132051254" type="27" source_id="13221318351550" target_id="13221318351551" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132922943" type="2" source_id="13221318351550" target_id="13221324261560" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="117" y="195"/>
+    <bendpoint x="115" y="467"/>
+  </connection>
+  <connection id="1322132051254" type="27" source_id="13221318376830" target_id="13221318376831" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132921123" type="2" source_id="13221318376830" target_id="13221324284420" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="117" y="474"/>
+    <bendpoint x="117" y="627"/>
+  </connection>
+  <connection id="1322132051254" type="27" source_id="13221318401970" target_id="13221318401971" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132924388" type="2" source_id="13221318401970" target_id="13221324231460" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="318" y="102"/>
+    <bendpoint x="117" y="103"/>
+    <bendpoint x="115" y="337"/>
+  </connection>
+  <connection id="1322132051254" type="27" source_id="13221318426390" target_id="13221318426391" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322132926326" type="2" source_id="13221318426390" target_id="13221323348200" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="1">
+    <bendpoint x="742" y="101"/>
+    <bendpoint x="117" y="103"/>
+    <bendpoint x="118" y="195"/>
+  </connection>
+  <connection id="132213212646211" type="27" source_id="13221321264620" target_id="13221321264621" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+</root>

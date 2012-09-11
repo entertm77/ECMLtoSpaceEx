@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="ThrustController" type="3" parent_name="Quadrotor1.Controller.csm">
+  <entry id="13221234663201" name="[A] Motion : Angle3D" type="38" x="-78" y="206" width="0" height="0"/>
+  <entry id="13221234737081" name="[A] Velocity : double" type="38" x="-78" y="310" width="0" height="0"/>
+  <entry id="13221235080121" name="[A] XMovement : double" type="38" x="105" y="779" width="0" height="0"/>
+  <entry id="13221235095441" name="[A] ZMovement : double" type="38" x="291" y="771" width="0" height="0"/>
+  <entry id="13221236388381" name="[A] ThrustControl3 : double  = LevelFlightThrust" type="39" x="1405" y="322" width="0" height="0" is_properties="0"/>
+  <entry id="13221236406421" name="[A] ThrustControl4 : double  = LevelFlightThrust" type="39" x="1397" y="332" width="0" height="0" is_properties="0"/>
+  <entry id="13221236452861" name="[A] ThrustControl1 : double  = LevelFlightThrust" type="39" x="410" y="803" width="0" height="0" is_properties="0"/>
+  <entry id="13221236477281" name="[A] ThrustControl2 : double  = LevelFlightThrust" type="39" x="568" y="780" width="0" height="0" is_properties="0"/>
+  <entry id="132212374411722" name="Behavior Model" type="10" x="35" y="35" width="1357" height="733">
+    <entry id="13221237441170" name="ThrustController" type="11" x="19" y="19" width="1317" height="693">
+      <entry id="13221237441171" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0">
+        <entry id="132212374411702" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0">
+          <entry id="1322125162148" name="[C] AscendingThrust : double = 1.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
+          <entry id="1322125162442" name="[C] LevelFlightThrust : double = 0.9" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
+          <entry id="1322125162902" name="[C] DescendingThrust : double = 0.7" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
+          <entry id="1322125165158" name="[C] MinimumVelocity : double = 5.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
+        </entry>
+        <entry id="132212374411713" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0">
+          <entry id="1322125164380" name="[A] Velocity : double = 3.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124761453" name="MovingUp" type="17" x="537" y="75" width="237" height="110" is_define_model="0" define_model_name="">
+        <entry id="13221247614530" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221247614531" name="ThrustControl1 = AscendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124811354" name="ThrustControl2 = AscendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124809464" name="ThrustControl3 = AscendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124806517" name="ThrustControl4 = AscendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124766608" name="MovingLeft" type="17" x="87" y="266" width="236" height="110" is_define_model="0" define_model_name="">
+        <entry id="13221247666080" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221247666081" name="ThrustControl1 = LevelFlightThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124815608" name="ThrustControl2 = AscendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124817762" name="ThrustControl3 = LevelFlightThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124813360" name="ThrustControl4 = DescendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124775002" name="MovingRight" type="17" x="998" y="249" width="218" height="111" is_define_model="0" define_model_name="">
+        <entry id="13221247750020" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221247750021" name="ThrustControl1 = LevelFlightThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124821473" name="ThrustControl2 = DescendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124823595" name="ThrustControl3 = LevelFlightThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124819418" name="ThrustControl4 = AscendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124779108" name="MovingBottom" type="17" x="549" y="498" width="238" height="121" is_define_model="0" define_model_name="">
+        <entry id="13221247791080" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="1322124826846" name="ThrustControl1= DescendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124828968" name="ThrustControl2= DescendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124830678" name="ThrustControl3= DescendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="13221247791081" name="ThrustControl4= DescendingThrust" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322124783480" name="CruisingThrust" type="17" x="543" y="257" width="221" height="110" is_define_model="0" define_model_name="">
+        <entry id="13221247834800" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221247834801" name="ThrustControl1 = LevelFlightThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124796452" name="ThrustControl2 = LevelFlightThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124798312" name="ThrustControl3 = LevelFlightThrust" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322124794298" name="ThrustControl4 = LevelFlightThrust" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322125154518" name="Intial State" type="3" x="980" y="54" width="26" height="26"/>
+    </entry>
+    <entry id="13221234663200" name="Port" type="7" x="0" y="169" width="20" height="20" hils=""/>
+    <entry id="13221234737080" name="Port" type="7" x="0" y="273" width="20" height="20" hils=""/>
+    <entry id="13221235080120" name="Port" type="7" x="132" y="711" width="20" height="20" hils=""/>
+    <entry id="13221235095440" name="Port" type="7" x="272" y="711" width="20" height="20" hils=""/>
+    <entry id="13221236388380" name="Port" type="8" x="1335" y="287" width="20" height="20" hils=""/>
+    <entry id="13221236406420" name="Port" type="8" x="1335" y="295" width="20" height="20" hils=""/>
+    <entry id="13221236452860" name="Port" type="8" x="392" y="711" width="20" height="20" hils=""/>
+    <entry id="13221236477280" name="Port" type="8" x="512" y="711" width="20" height="20" hils=""/>
+  </entry>
+  <connection id="1322125044624" type="2" source_id="1322124761453" target_id="1322124783480" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="BackToCruise [ZMovement == 0 &amp;&amp; Velocity &gt;= MinimumVelocity] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="803" y="294"/>
+  </connection>
+  <connection id="1322125066515" type="2" source_id="1322124766608" target_id="1322124783480" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="BackToCruise [Motion.GetRoll() &lt; -5] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="505" y="449"/>
+  </connection>
+  <connection id="1322125102659" type="2" source_id="1322124775002" target_id="1322124783480" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="BackToCruise [Motion.GetRoll() &gt; 5] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="943" y="435"/>
+  </connection>
+  <connection id="1322125012660" type="2" source_id="1322124779108" target_id="1322124783480" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="BackToCruise [ZMovement == 0 || Velocity &lt; MinimumVelocity] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="590" y="488"/>
+  </connection>
+  <connection id="1322125010428" type="2" source_id="1322124783480" target_id="1322124761453" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="MoveToUp [ZMovement &gt; 0 || Velocity &lt; MinimumVelocity] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="622" y="277"/>
+  </connection>
+  <connection id="1322125014051" type="2" source_id="1322124783480" target_id="1322124766608" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="MoveToLeft [XMovement &lt; 0] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="491" y="348"/>
+  </connection>
+  <connection id="1322125015037" type="2" source_id="1322124783480" target_id="1322124775002" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="MoveToRight [XMovement &gt; 0] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="933" y="334"/>
+  </connection>
+  <connection id="1322125134430" type="2" source_id="1322124783480" target_id="1322124779108" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="MoveBottom [ZMovement &lt; 0 &amp;&amp; Velocity &gt;=  MinimumVelocity] //" is_source_point="0" is_target_point="1">
+    <bendpoint x="812" y="512"/>
+  </connection>
+  <connection id="1322125156804" type="2" source_id="1322125154518" target_id="1322124783480" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>
+  <connection id="1322123744117" type="27" source_id="13221234663200" target_id="13221234663201" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123744117" type="27" source_id="13221234737080" target_id="13221234737081" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123744118" type="27" source_id="13221235080120" target_id="13221235080121" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123744118" type="27" source_id="13221235095440" target_id="13221235095441" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123744118" type="27" source_id="13221236388380" target_id="13221236388381" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123744118" type="27" source_id="13221236406420" target_id="13221236406421" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123744118" type="27" source_id="13221236452860" target_id="13221236452861" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322123744118" type="27" source_id="13221236477280" target_id="13221236477281" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+</root>

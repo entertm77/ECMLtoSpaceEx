@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="Group" type="3" parent_name="Quadrotor1.domain"> 
+  <entry id="13221355581381" name="[C] Side : String =&quot; Red&quot;" type="39" x="740" y="187" width="0" height="0" is_properties="0"/>  
+  <entry id="13221355598111" name="[C] Team : String = &quot;Alpha&quot;" type="39" x="737" y="314" width="0" height="0" is_properties="0"/>  
+  <entry id="132213560914422" name="Behavior Model" type="10" x="35" y="35" width="700" height="500"> 
+    <entry id="13221356091440" name="Group" type="11" x="19" y="19" width="660" height="460"> 
+      <entry id="13221356091441" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0"> 
+        <entry id="132213560914402" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0"/>  
+        <entry id="132213560914413" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0"/> 
+      </entry> 
+    </entry>  
+    <entry id="13221355581380" name="Port" type="8" x="678" y="137" width="20" height="20" hils=""/>  
+    <entry id="13221355598110" name="Port" type="8" x="678" y="266" width="20" height="20" hils=""/> 
+  </entry>  
+  <connection id="1322135609144" type="27" source_id="13221355581380" target_id="13221355581381" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322135609144" type="27" source_id="13221355598110" target_id="13221355598111" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/> 
+</root>

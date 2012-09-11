@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="RollDynamics" type="3" parent_name="Quadrotor1.Dynamics.PoseDynamics.csm"> 
+  <entry id="13221326175841" name="[A] Thrust4 : double" type="38" x="-50" y="199" width="0" height="0"/>  
+  <entry id="13221326198401" name="[A] Thrust2 : double" type="38" x="-50" y="289" width="0" height="0"/>  
+  <entry id="13221327141691" name="[A] Roll : double = 0.0" type="39" x="748" y="231" width="0" height="0" is_properties="0"/>  
+  <entry id="132213364995022" name="Behavior Model" type="10" x="35" y="35" width="700" height="500"> 
+    <entry id="13221336499500" name="RollDynamics" type="11" x="19" y="19" width="660" height="460"> 
+      <entry id="13221336499501" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0"> 
+        <entry id="132213364995002" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0"/>  
+        <entry id="132213364995013" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0"> 
+          <entry id="1322133684012" name="[C] Inertia : double = 1.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/>  
+          <entry id="1322133684502" name="[C] deltaRoll : double = 0.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/> 
+        </entry> 
+      </entry>  
+      <entry id="1322133652919" name="Intial State" type="3" x="291" y="106" width="26" height="26"/>  
+      <entry id="1322133654305" name="Roll" type="17" x="257" y="205" width="228" height="70" is_define_model="0" define_model_name=""> 
+        <entry id="13221336543050" name="State Model" type="18" x="0" y="0" width="0" height="0"> 
+          <entry id="13221336543051" name="d(deltaRoll) = (Thrust2 - Thrust4) / Inertia" type="19" x="0" y="0" width="0" height="0"/>  
+          <entry id="1322133668116" name="d(Roll) = deltaRoll" type="19" x="0" y="0" width="0" height="0"/> 
+        </entry> 
+      </entry> 
+    </entry>  
+    <entry id="13221326175840" name="Port" type="7" x="0" y="164" width="20" height="20" hils=""/>  
+    <entry id="13221326198400" name="Port" type="7" x="0" y="254" width="20" height="20" hils=""/>  
+    <entry id="13221327141690" name="Port" type="8" x="678" y="196" width="20" height="20" hils=""/> 
+  </entry>  
+  <connection id="1322133672331" type="2" source_id="1322133652919" target_id="1322133654305" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>  
+  <connection id="1322133649950" type="27" source_id="13221326175840" target_id="13221326175841" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322133649950" type="27" source_id="13221326198400" target_id="13221326198401" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322133649950" type="27" source_id="13221327141690" target_id="13221327141691" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/> 
+</root>

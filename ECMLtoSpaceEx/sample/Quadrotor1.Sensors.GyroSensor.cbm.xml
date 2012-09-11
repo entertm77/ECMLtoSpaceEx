@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="GyroSensor" type="3" parent_name="Quadrotor1.Sensors.csm"> 
+  <entry id="13221212374341" name="[A] EulerAngles : Angle3D" type="38" x="-50" y="264" width="0" height="0"/>  
+  <entry id="13221212444251" name="[A] MeasuredMotion : Angle3D = Angle3D::Zero" type="39" x="748" y="261" width="0" height="0" is_properties="0"/>  
+  <entry id="132212131653822" name="Behavior Model" type="10" x="35" y="35" width="700" height="500"> 
+    <entry id="13221213165380" name="GyroSensor" type="11" x="19" y="19" width="660" height="460"> 
+      <entry id="13221213165381" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0"> 
+        <entry id="132212131653802" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0"/>  
+        <entry id="132212131653813" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0"/> 
+      </entry>  
+      <entry id="1322121318247" name="Intial State" type="3" x="305" y="128" width="26" height="26"/>  
+      <entry id="1322121320261" name="Sensing" type="17" x="242" y="219" width="177" height="70" is_define_model="0" define_model_name=""> 
+        <entry id="13221213202610" name="State Model" type="18" x="0" y="0" width="0" height="0"> 
+          <entry id="13221213202611" name="MeasuredMotion = EulerAngles" type="19" x="0" y="0" width="0" height="0"/> 
+        </entry> 
+      </entry> 
+    </entry>  
+    <entry id="13221212374340" name="Port" type="7" x="0" y="229" width="20" height="20" hils=""/>  
+    <entry id="13221212444250" name="Port" type="8" x="678" y="226" width="20" height="20" hils=""/> 
+  </entry>  
+  <connection id="1322121330961" type="2" source_id="1322121318247" target_id="1322121320261" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>  
+  <connection id="1322121316538" type="27" source_id="13221212374340" target_id="13221212374341" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322121316538" type="27" source_id="13221212444250" target_id="13221212444251" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/> 
+</root>

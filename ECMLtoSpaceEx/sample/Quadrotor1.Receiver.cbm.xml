@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="Receiver" type="3" parent_name="Quadrotor1.domain">
+  <entry id="13221210388951" name="[D] IncomingOrders : String" type="38" x="-45" y="179" width="0" height="0"/>
+  <entry id="13221210416871" name="[D] IncomingCoordinates : Point3D" type="38" x="-45" y="309" width="0" height="0"/>
+  <entry id="13221210599201" name="[D] Orders : String = &quot;MoveTo&quot;" type="39" x="753" y="189" width="0" height="0" is_properties="0"/>
+  <entry id="13221210648051" name="[D] Destination : Point3D = Point3D::Origin" type="39" x="753" y="319" width="0" height="0" is_properties="0"/>
+  <entry id="132212108344122" name="Behavior Model" type="10" x="40" y="26" width="700" height="500">
+    <entry id="13221210834410" name="Receiver" type="11" x="19" y="19" width="660" height="460">
+      <entry id="13221210834411" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0">
+        <entry id="132212108344102" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0"/>
+        <entry id="132212108344113" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0"/>
+      </entry>
+      <entry id="1322121087063" name="Receiving" type="17" x="222" y="184" width="201" height="70" is_define_model="0" define_model_name="">
+        <entry id="13221210870630" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221210870631" name="Orders = IncomingOrders" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322121104575" name="Destination = IncomingCoordinates" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322121088617" name="Intial State" type="3" x="312" y="103" width="26" height="26"/>
+    </entry>
+    <entry id="13221210388950" name="Port" type="7" x="0" y="153" width="20" height="20" hils=""/>
+    <entry id="13221210416870" name="Port" type="7" x="0" y="283" width="20" height="20" hils=""/>
+    <entry id="13221210599200" name="Port" type="8" x="678" y="163" width="20" height="20" hils=""/>
+    <entry id="13221210648050" name="Port" type="8" x="678" y="293" width="20" height="20" hils=""/>
+  </entry>
+  <connection id="1322121110235" type="2" source_id="1322121088617" target_id="1322121087063" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>
+  <connection id="1322121083441" type="27" source_id="13221210388950" target_id="13221210388951" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322121083441" type="27" source_id="13221210416870" target_id="13221210416871" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322121083441" type="27" source_id="13221210599200" target_id="13221210599201" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322121083441" type="27" source_id="13221210648050" target_id="13221210648051" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+</root>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="Merger" type="3" parent_name="Quadrotor1.Dynamics.PoseDynamics.csm">
+  <entry id="13221341284331" name="[A] Roll : double" type="38" x="-68" y="164" width="0" height="0"/>
+  <entry id="13221341303691" name="[A] Pitch : double" type="38" x="-63" y="280" width="0" height="0"/>
+  <entry id="13221341319171" name="[A] Yaw : double" type="38" x="-73" y="408" width="0" height="0"/>
+  <entry id="13221341611951" name="[A] RollPitchYaw : Angle3D = Angle3D::Zero" type="39" x="374" y="10" width="0" height="0" is_properties="0"/>
+  <entry id="132213423056522" name="Behavior Model" type="10" x="35" y="35" width="700" height="500">
+    <entry id="13221342305650" name="Merger" type="11" x="19" y="19" width="660" height="460">
+      <entry id="13221342305651" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0">
+        <entry id="132213423056502" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0"/>
+        <entry id="132213423056513" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0"/>
+      </entry>
+      <entry id="1322134234219" name="Intial State" type="3" x="337" y="103" width="26" height="26"/>
+      <entry id="1322134235767" name="Merging" type="17" x="239" y="218" width="159" height="83" is_define_model="0" define_model_name="">
+        <entry id="13221342357670" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221342357671" name="RollPitchYaw.SetRoll(Roll)" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322134244840" name="RollPitchYaw.SetPitch(Pitch)" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322134247166" name="RollPitchYaw.SetYaw(Yaw)" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+    </entry>
+    <entry id="13221341284330" name="Port" type="7" x="0" y="143" width="20" height="20" hils=""/>
+    <entry id="13221341303690" name="Port" type="7" x="0" y="225" width="20" height="20" hils=""/>
+    <entry id="13221341319170" name="Port" type="7" x="0" y="356" width="20" height="20" hils=""/>
+    <entry id="13221341611950" name="Port" type="8" x="333" y="0" width="20" height="20" hils=""/>
+  </entry>
+  <connection id="1322134267485" type="2" source_id="1322134234219" target_id="1322134235767" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>
+  <connection id="1322134230565" type="27" source_id="13221341284330" target_id="13221341284331" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322134230565" type="27" source_id="13221341303690" target_id="13221341303691" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322134230565" type="27" source_id="13221341319170" target_id="13221341319171" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322134230565" type="27" source_id="13221341611950" target_id="13221341611951" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+</root>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="LocationDynamics" type="3" parent_name="Quadrotor1.Dynamics.csm">
+  <entry id="13221350177631" name="[A] RollPitchYaw : Angle3D" type="38" x="-105" y="240" width="0" height="0"/>
+  <entry id="13221350202451" name="[A] MeasuredLocation : Point3D = Point3D::Zero" type="39" x="400" y="16" width="0" height="0" is_properties="0"/>
+  <entry id="132213507706222" name="Behavior Model" type="10" x="35" y="35" width="831" height="528">
+    <entry id="13221350770620" name="LocationDynamics" type="11" x="19" y="19" width="791" height="488">
+      <entry id="13221350770621" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0">
+        <entry id="132213507706202" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0"/>
+        <entry id="132213507706213" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0">
+          <entry id="1322135164094" name="[A] Velocity : double = 5.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/>
+        </entry>
+      </entry>
+      <entry id="1322135080914" name="Location" type="17" x="180" y="205" width="496" height="155" is_define_model="0" define_model_name="">
+        <entry id="13221350809140" name="State Model" type="18" x="0" y="0" width="0" height="0">
+          <entry id="13221350809141" name="d(VelocityX) = -u*sin(RollPitchYaw.GetPitch())" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322135104519" name="d(VelocityY) = u*cos(RollPitchYaw.GetPitch())*sin(RollPitchYaw.GetRoll())" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322135106275" name="d(VelocityZ) = u*cos(RollPitchYaw.GetPitch())*cos(RollPitchYaw.GetRoll())-10" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322135107869" name="d(LocationX) = VelocityX" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322135109323" name="d(LocationY) = VelocityY" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322135100990" name="d(LocationZ) = VelocityZ" type="19" x="0" y="0" width="0" height="0"/>
+          <entry id="1322135102970" name="MeasuredLocation = Point3D(LocationX,LocationY,LocationZ)" type="19" x="0" y="0" width="0" height="0"/>
+        </entry>
+      </entry>
+      <entry id="1322135084578" name="Intial State" type="3" x="415" y="99" width="26" height="26"/>
+    </entry>
+    <entry id="13221350177630" name="Port" type="7" x="0" y="188" width="20" height="20" hils=""/>
+    <entry id="13221350202450" name="Port" type="8" x="474" y="0" width="20" height="20" hils=""/>
+  </entry>
+  <connection id="1322135086593" type="2" source_id="1322135084578" target_id="1322135080914" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>
+  <connection id="1322135077062" type="27" source_id="13221350177630" target_id="13221350177631" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+  <connection id="1322135077062" type="27" source_id="13221350202450" target_id="13221350202451" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>
+</root>

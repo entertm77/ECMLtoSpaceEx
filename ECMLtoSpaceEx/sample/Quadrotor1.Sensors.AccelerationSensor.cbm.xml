@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<root name="AccelerationSensor" type="3" parent_name="Quadrotor1.Sensors.csm"> 
+  <entry id="13221212816061" name="[A] Acceleration : double" type="38" x="-50" y="257" width="0" height="0"/>  
+  <entry id="13221212876711" name="[A] MeasuredVelocity : double = 0.0" type="39" x="748" y="254" width="0" height="0" is_properties="0"/>  
+  <entry id="132212134548922" name="Behavior Model" type="10" x="35" y="35" width="700" height="500"> 
+    <entry id="13221213454890" name="AccelerationSensor" type="11" x="19" y="19" width="660" height="460"> 
+      <entry id="13221213454891" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0"> 
+        <entry id="132212134548902" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0"/>  
+        <entry id="132212134548913" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0"/> 
+      </entry>  
+      <entry id="1322121349133" name="Intial State" type="3" x="306" y="112" width="26" height="26"/>  
+      <entry id="1322121350853" name="Accelerating" type="17" x="221" y="195" width="213" height="93" is_define_model="0" define_model_name=""> 
+        <entry id="13221213508530" name="State Model" type="18" x="0" y="0" width="0" height="0"> 
+          <entry id="13221213508531" name="d(Acc_Velocity) = Acceleration" type="19" x="0" y="0" width="0" height="0"/>  
+          <entry id="1322121366443" name="MeasuredVelocity = Acc_Velocity" type="19" x="0" y="0" width="0" height="0"/> 
+        </entry> 
+      </entry> 
+    </entry>  
+    <entry id="13221212816060" name="Port" type="7" x="0" y="222" width="20" height="20" hils=""/>  
+    <entry id="13221212876710" name="Port" type="8" x="678" y="219" width="20" height="20" hils=""/> 
+  </entry>  
+  <connection id="1322121373900" type="2" source_id="1322121349133" target_id="1322121350853" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>  
+  <connection id="1322121345489" type="27" source_id="13221212816060" target_id="13221212816061" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
+  <connection id="1322121345489" type="27" source_id="13221212876710" target_id="13221212876711" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/> 
+</root>
