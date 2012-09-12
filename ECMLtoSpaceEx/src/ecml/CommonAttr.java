@@ -86,6 +86,14 @@ public abstract class CommonAttr {
      * Initial State  
      */
     final public static int INITIAL_STATE = 3;
+    /**
+     * 
+     */
+    final public static int IN_CONNECTION = 27;
+    /**
+     * 
+    */    
+    final public static int OUT_CONNECTION = 2;
     
     
     private Long id;

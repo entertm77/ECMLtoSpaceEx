@@ -9,8 +9,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import ecml.CPSBehavioralModel.BMOuterModel;
-import ecml.CPSBehavioralModel.BMOuterModel.Port;
 import ecml.Variable.PortClass;
 import ecml.Variable.RateClass;
 import ecml.Variable.TypeClass;
@@ -50,17 +48,17 @@ public class CBMReader {
 
 	    NodeList list = document.getChildNodes();
 	    for (int i = 0; i < list.getLength(); i++) {
-		Node childnode = list.item(i);
-		int type = getType(childnode);
+		Node current = list.item(i);
+		int type = getType(current);
 
 		// input/output
 		switch (type) {
 		case CommonAttr.INPUT_VARIABLE:
 		case CommonAttr.OUTPUT_VARIABLE:
-		    setVariable(childnode, type);
+		    setVariable(current, type);
 		    break;
 		case CommonAttr.BEHAVIORAL_MODEL:
-		    createBehavioralModel(childnode);
+		    createBehavioralModel(current);
 		    break;
 		}
 	    }
@@ -80,13 +78,13 @@ public class CBMReader {
 	switch (type) {
 	case CommonAttr.INPUT_VARIABLE:
 	    variable.setPort(PortClass.IN);
+	    cbm.add_in_var(variable);
 	    break;
 	case CommonAttr.OUTPUT_VARIABLE:
 	    variable.setPort(PortClass.OUT);
+	    cbm.add_out_var(variable);
 	    break;
 	case CommonAttr.STATE_CONTINUOUS_VAR:
-	case CommonAttr.STATE_DISCRETE_VAR:
-	    variable.setPort(PortClass.STATE);
 	    break;
 	}
 	String name = varnode.getAttributes().getNamedItem("name")
@@ -94,7 +92,6 @@ public class CBMReader {
 	if (name != null) {
 	    variable.setInitialValue(name);
 	}
-	cbm.addVariable(variable);
     }
 
     /**
@@ -102,10 +99,10 @@ public class CBMReader {
      * 
      * @param bmnode
      *            behavior model node.
+     * @throws IllegalGrammarException 
      */
-    private void createBehavioralModel(Node bmnode) {
-	setBasicAttr(cbm.getOutermodel(), bmnode);
-	BMOuterModel outmodel = cbm.getOutermodel();
+    private void createBehavioralModel(Node bmnode) throws IllegalGrammarException {
+	setBasicAttr(cbm.get_behavior_model(), bmnode);
 
 	NodeList nodelist = bmnode.getChildNodes();
 
@@ -114,23 +111,17 @@ public class CBMReader {
 	    int type = getType(current);
 	    switch (type) {
 	    case CommonAttr.BEHAVIORAL_INNER_MODEL:
+		setBasicAttr(cbm.getInner_behavior_model(), current);
 		createInnerBehavioralModel(current);
 		break;
 	    case CommonAttr.INNER_PORT:
-		Port inner_port = new Port();
-		setBasicAttr(inner_port, current);
-		inner_port.setHils(current.getAttributes().getNamedItem("hils")
-			.getNodeValue());
-		outmodel.addPort(inner_port);
-		break;
 	    case CommonAttr.OUTER_PORT:
-		Port outer_port = new Port();
-		setBasicAttr(outer_port, current);
-		outer_port.setHils(current.getAttributes().getNamedItem("hils")
+		BasicComponent port = new BasicComponent();
+		setBasicAttr(port, current);
+		port.setHils(current.getAttributes().getNamedItem("hils")
 			.getNodeValue());
-		outmodel.addPort(outer_port);
+		cbm.add_port(port);
 		break;
-
 	    }
 	}
     }
@@ -139,16 +130,24 @@ public class CBMReader {
      * parsing entry node with type = 11
      * 
      * @param inbmnode
+     * @throws IllegalGrammarException 
      */
-    private void createInnerBehavioralModel(Node inbmnode) {
-	setBasicAttr(cbm.getInnermodel(), inbmnode);
+    private void createInnerBehavioralModel(Node inbmnode) throws IllegalGrammarException {
 	NodeList childs = inbmnode.getChildNodes();
+
 	for (int i = 0; i < childs.getLength(); i++) {
 	    Node current = childs.item(i);
 	    int type = getType(current);
 	    switch (type) {
 	    case CommonAttr.STATE_VAR_SET:
+		setBasicAttr(cbm.get_var_set(), current);
 		createStateVarSet(current);
+		break;
+	    case CommonAttr.PHASE:		
+		create_phase(current);
+		break;
+	    case CommonAttr.INITIAL_STATE:
+		create_initial_state(current);
 		break;
 	    }
 
@@ -156,12 +155,38 @@ public class CBMReader {
 
     }
 
+    private void create_phase(Node phase_node) {
+	Phase phase = new Phase();
+	setBasicAttr(phase, phase_node);
+	
+	phase.setDefine_model_name(phase_node.getAttributes().getNamedItem("define_model_name").getNodeValue());
+	
+	Node state_model = phase_node.getFirstChild();
+	setBasicAttr(phase.get_state_model(), state_model);
+	
+	NodeList state_models = state_model.getChildNodes();
+	
+	for(int i=0;i<state_models.getLength();i++){
+	    Node current = state_models.item(i);
+	    StateFormula formula = new StateFormula();
+	    setBasicAttr(formula, current);
+	    phase.addFormula(formula);
+	}
+	cbm.add_phase(phase);
+    }
+
+    private void create_initial_state(Node initial_node) {
+	Initial initial = cbm.get_initial();
+	setBasicAttr(initial, initial_node);	
+    }
+
     /**
      * PARSING variable with type = 12
      * 
      * @param currentNode
+     * @throws IllegalGrammarException 
      */
-    private void createStateVarSet(Node currentNode) {
+    private void createStateVarSet(Node currentNode) throws IllegalGrammarException {
 	NodeList childs = currentNode.getChildNodes();
 
 	for (int i = 0; i < childs.getLength(); i++) {
@@ -170,14 +195,19 @@ public class CBMReader {
 
 	    switch (type) {
 	    case CommonAttr.STATE_CONTINUOUS_VAR_SET:
-	    case CommonAttr.STATE_DISCRETE_VAR_SET:
-		NodeList variables = current.getChildNodes();
-		for (int j = 0; j < childs.getLength(); j++) {
-		    Node variablenode = variables.item(i);
-		    int var_type = getType(variablenode);
-		    setVariable(variablenode, var_type);
-		}
+		setBasicAttr(cbm.get_cont_var_set(), current);
 		break;
+	    case CommonAttr.STATE_DISCRETE_VAR_SET:
+		setBasicAttr(cbm.get_disc_var_set(), current);
+		break;
+		default:
+		    throw new IllegalGrammarException();
+	    }
+	    NodeList variables = current.getChildNodes();
+	    for (int j = 0; j < childs.getLength(); j++) {
+		Node variablenode = variables.item(i);
+		int var_type = getType(variablenode);
+		setVariable(variablenode, var_type);
 	    }
 	}
 

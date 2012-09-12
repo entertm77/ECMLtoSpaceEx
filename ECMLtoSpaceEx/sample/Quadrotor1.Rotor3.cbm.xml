@@ -7,14 +7,17 @@
   <entry id="132212557387822" name="Behavior Model" type="10" x="35" y="35" width="933" height="673">
     <entry id="13221255738780" name="Rotor3" type="11" x="19" y="19" width="893" height="633">
       <entry id="13221255738781" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0">
+      
         <entry id="132212557387802" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0">
           <entry id="1322125986329" name="[C] PowerIncreasingRate : double = 5.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
           <entry id="1322125986843" name="[C] PowerDecreasingRate : double = -50.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
           <entry id="1322125987371" name="[C] PowerDecreasingRate : double = -50.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>
         </entry>
+        
         <entry id="132212557387813" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0">
           <entry id="1322125988257" name="[C] Power : double = 10.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/>
         </entry>
+        
       </entry>
       <entry id="1322125961873" name="Increasing" type="17" x="428" y="112" width="221" height="73" is_define_model="0" define_model_name="">
         <entry id="13221259618730" name="State Model" type="18" x="0" y="0" width="0" height="0">
@@ -34,8 +37,10 @@
           <entry id="1322125982651" name="Thrust3 = Power" type="19" x="0" y="0" width="0" height="0"/>
         </entry>
       </entry>
+      
       <entry id="1322126129691" name="Intial State" type="3" x="351" y="305" width="26" height="26"/>
     </entry>
+    
     <entry id="13221230723680" name="Port" type="40" x="440" y="651" width="20" height="20" hils="QuadroterBravo::SWThrustOut"/>
     <entry id="13221252926920" name="Port" type="8" x="911" y="222" width="20" height="20" hils=""/>
   </entry>
