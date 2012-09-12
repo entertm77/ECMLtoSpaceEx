@@ -50,15 +50,26 @@ public abstract class CommonAttr {
      * 
      */
     final public static int STATE_VAR_SET = 12;
+    
+    /**
+     * D Variable set
+     */
+    final public static int STATE_DISCRETE_VAR_SET = 13;
     /**
      * C Variable set 
      * 
      */
     final public static int STATE_CONTINUOUS_VAR_SET = 14;
     /**
-     * D Variable set
+     * State Discrete Variable 
      */
-    final public static int STATE_DISCRETE_VAR_SET = 13;
+    final public static int STATE_DISCRETE_VAR = 15;
+    /**
+     * State Continuous Variable set 
+     * 
+     */
+    final public static int STATE_CONTINUOUS_VAR = 16;
+    
     /**
      * Phase
      */
@@ -71,7 +82,10 @@ public abstract class CommonAttr {
      * StateModel : determine rates
      */
     final public static int RATE = 19;
-
+    /**
+     * Initial State  
+     */
+    final public static int INITIAL_STATE = 3;
     
     
     private Long id;

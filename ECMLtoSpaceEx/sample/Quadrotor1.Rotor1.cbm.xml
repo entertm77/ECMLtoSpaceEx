@@ -6,15 +6,18 @@
   
   <entry id="132212556189622" name="Behavior Model" type="10" x="35" y="35" width="1033" height="666"> 
     <entry id="13221255618960" name="Rotor1" type="11" x="19" y="19" width="993" height="626"> 
-      <entry id="13221255618961" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0"> 
+      <entry id="13221255618961" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0">
+       
         <entry id="132212556189602" name="&lt;Discrete Variable&gt;" type="13" x="0" y="0" width="0" height="0"> 
           <entry id="1322125732380" name="[C] PowerIncreasingRate : double = 5.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>  
           <entry id="1322125732971" name="[C] PowerDecreasingRate : double = -50.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/>  
           <entry id="1322125733547" name="[C] MaximumPower : double = 550.0" type="15" x="0" y="0" width="0" height="0" is_properties="0"/> 
-        </entry>  
+        </entry>
+          
         <entry id="132212556189613" name="&lt;Continuous Variable&gt;" type="14" x="0" y="0" width="0" height="0"> 
           <entry id="1322125750180" name="[C] Power : double = 10.0" type="16" x="0" y="0" width="0" height="0" is_properties="0"/> 
-        </entry> 
+        </entry>
+         
       </entry>  
       <entry id="1322125593632" name="Increasing" type="17" x="410" y="95" width="212" height="75" is_define_model="0" define_model_name=""> 
         <entry id="13221255936320" name="State Model" type="18" x="0" y="0" width="0" height="0"> 
@@ -35,9 +38,11 @@
         </entry> 
       </entry>  
       <entry id="1322125662033" name="Intial State" type="3" x="358" y="280" width="26" height="26"/> 
-    </entry>  
+    </entry>
+      
     <entry id="13221229314530" name="Port" type="40" x="293" y="0" width="20" height="20" hils="QuadroterBravo::SWThrustOut"/>  
-    <entry id="13221252201240" name="Port" type="41" x="275" y="644" width="20" height="20" hils="QuadroterBravo::ActThrustIn"/> 
+    <entry id="13221252201240" name="Port" type="41" x="275" y="644" width="20" height="20" hils="QuadroterBravo::ActThrustIn"/>
+     
   </entry>  
   <connection id="1322125677516" type="2" source_id="1322125593632" target_id="1322125603943" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="HoldThrust [ThrustControl1 &lt;= (Power / MaximumPower)] //" is_source_point="0" is_target_point="1"> 
     <bendpoint x="460" y="270"/> 

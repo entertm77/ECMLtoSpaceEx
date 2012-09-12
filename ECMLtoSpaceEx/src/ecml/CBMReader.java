@@ -69,6 +69,7 @@ public class CBMReader {
 
     /**
      * Create variable structure
+     * 
      * @param childnode
      * @param type
      */
@@ -76,78 +77,110 @@ public class CBMReader {
 	Variable variable = new Variable();
 	setBasicAttr(variable, varnode);
 
-	if (type == CommonAttr.INPUT_VARIABLE)
+	switch (type) {
+	case CommonAttr.INPUT_VARIABLE:
 	    variable.setPort(PortClass.IN);
-	else if (type == CommonAttr.OUTPUT_VARIABLE)
+	    break;
+	case CommonAttr.OUTPUT_VARIABLE:
 	    variable.setPort(PortClass.OUT);
-
+	    break;
+	case CommonAttr.STATE_CONTINUOUS_VAR:
+	case CommonAttr.STATE_DISCRETE_VAR:
+	    variable.setPort(PortClass.STATE);
+	    break;
+	}
 	String name = varnode.getAttributes().getNamedItem("name")
-		.getNodeValue();	
+		.getNodeValue();
 	if (name != null) {
 	    variable.setInitialValue(name);
 	}
 	cbm.addVariable(variable);
     }
-    
-    /**set output behaviormodel
+
+    /**
+     * set output behaviormodel
      * 
-     * @param bmnode behavior model node.
+     * @param bmnode
+     *            behavior model node.
      */
-    private void createBehavioralModel(Node bmnode){
+    private void createBehavioralModel(Node bmnode) {
 	setBasicAttr(cbm.getOutermodel(), bmnode);
 	BMOuterModel outmodel = cbm.getOutermodel();
-	
+
 	NodeList nodelist = bmnode.getChildNodes();
-	
-	for(int i=0;i<nodelist.getLength();i++){
+
+	for (int i = 0; i < nodelist.getLength(); i++) {
 	    Node current = nodelist.item(i);
 	    int type = getType(current);
-	    switch(type){
+	    switch (type) {
 	    case CommonAttr.BEHAVIORAL_INNER_MODEL:
 		createInnerBehavioralModel(current);
 		break;
 	    case CommonAttr.INNER_PORT:
 		Port inner_port = new Port();
 		setBasicAttr(inner_port, current);
-		inner_port.setHils(current.getAttributes().getNamedItem("hils").getNodeValue());
+		inner_port.setHils(current.getAttributes().getNamedItem("hils")
+			.getNodeValue());
 		outmodel.addPort(inner_port);
 		break;
 	    case CommonAttr.OUTER_PORT:
 		Port outer_port = new Port();
 		setBasicAttr(outer_port, current);
-		outer_port.setHils(current.getAttributes().getNamedItem("hils").getNodeValue());
+		outer_port.setHils(current.getAttributes().getNamedItem("hils")
+			.getNodeValue());
 		outmodel.addPort(outer_port);
 		break;
-		
+
 	    }
 	}
     }
+
     /**
      * parsing entry node with type = 11
+     * 
      * @param inbmnode
      */
-    private void createInnerBehavioralModel(Node inbmnode){
+    private void createInnerBehavioralModel(Node inbmnode) {
 	setBasicAttr(cbm.getInnermodel(), inbmnode);
 	NodeList childs = inbmnode.getChildNodes();
-	for(int i=0;i<childs.getLength();i++){
+	for (int i = 0; i < childs.getLength(); i++) {
 	    Node current = childs.item(i);
 	    int type = getType(current);
-	    switch(type){
+	    switch (type) {
 	    case CommonAttr.STATE_VAR_SET:
 		createStateVarSet(current);
-		break;	    
+		break;
 	    }
-	    
+
 	}
-	
+
     }
+
     /**
      * PARSING variable with type = 12
+     * 
      * @param currentNode
      */
-    private void createStateVarSet(Node currentNode){
+    private void createStateVarSet(Node currentNode) {
 	NodeList childs = currentNode.getChildNodes();
-	
+
+	for (int i = 0; i < childs.getLength(); i++) {
+	    Node current = childs.item(i);
+	    int type = getType(current);
+
+	    switch (type) {
+	    case CommonAttr.STATE_CONTINUOUS_VAR_SET:
+	    case CommonAttr.STATE_DISCRETE_VAR_SET:
+		NodeList variables = current.getChildNodes();
+		for (int j = 0; j < childs.getLength(); j++) {
+		    Node variablenode = variables.item(i);
+		    int var_type = getType(variablenode);
+		    setVariable(variablenode, var_type);
+		}
+		break;
+	    }
+	}
+
     }
 
     static private int getType(Node current) {
@@ -234,6 +267,7 @@ public class CBMReader {
 
     /**
      * Create common position
+     * 
      * @param cee
      * @param node
      */
@@ -259,10 +293,10 @@ public class CBMReader {
 	int type = Integer
 		.parseInt(nodemap.getNamedItem("type").getNodeValue());
 	cee.setType(type);
-	
+
 	String name = nodemap.getNamedItem("name").getNodeValue();
 	cee.setName(name);
-	
+
     }
 
 }

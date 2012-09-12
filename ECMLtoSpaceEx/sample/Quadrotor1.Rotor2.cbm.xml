@@ -38,7 +38,8 @@
     </entry>  
     <entry id="13221229359340" name="Port" type="40" x="261" y="0" width="20" height="20" hils="QuadroterBravo::SWThrustOut"/>  
     <entry id="13221252866040" name="Port" type="41" x="287" y="634" width="20" height="20" hils="QuadroterBravo::ActThrustIn"/> 
-  </entry>  
+  </entry>
+    
   <connection id="1322125844789" type="2" source_id="1322125764311" target_id="1322125768480" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="HoldThrust [ThrustControl2 &lt;= (Power / MaximumPower)] //" is_source_point="0" is_target_point="1"> 
     <bendpoint x="351" y="276"/> 
   </connection>  
@@ -50,7 +51,8 @@
   </connection>  
   <connection id="1322125865529" type="2" source_id="1322125772345" target_id="1322125768480" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="HoldThrust [ThrustControl2 &lt;= (Power / MaximumPower)] //" is_source_point="0" is_target_point="1"> 
     <bendpoint x="684" y="453"/> 
-  </connection>  
+  </connection>
+    
   <connection id="1322125908029" type="2" source_id="1322125904809" target_id="1322125768480" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="" is_source_point="0" is_target_point="1"/>  
   <connection id="1322125568178" type="27" source_id="13221229359340" target_id="13221229359341" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
   <connection id="1322125568178" type="27" source_id="13221252866040" target_id="13221252866041" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/> 

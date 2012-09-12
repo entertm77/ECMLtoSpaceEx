@@ -1,5 +1,5 @@
 package ecml;
 
-public class Connection {
-
+public class Connection extends CommonAttr {
+    Long 
 }

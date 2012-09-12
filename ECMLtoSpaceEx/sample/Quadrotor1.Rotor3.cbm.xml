@@ -3,6 +3,7 @@
 <root name="Rotor3" type="3" parent_name="Quadrotor1.domain">
   <entry id="13221230723681" name="[A] ThrustControl3 : double" type="38" x="431" y="727" width="145" height="16"/>
   <entry id="13221252926921" name="[A] Thrust3 : double =0.0" type="39" x="973" y="259" width="0" height="0" is_properties="0"/>
+  
   <entry id="132212557387822" name="Behavior Model" type="10" x="35" y="35" width="933" height="673">
     <entry id="13221255738780" name="Rotor3" type="11" x="19" y="19" width="893" height="633">
       <entry id="13221255738781" name="Variable" type="12" x="-1" y="39" width="0" height="0" collapsed="0">
@@ -38,6 +39,8 @@
     <entry id="13221230723680" name="Port" type="40" x="440" y="651" width="20" height="20" hils="QuadroterBravo::SWThrustOut"/>
     <entry id="13221252926920" name="Port" type="8" x="911" y="222" width="20" height="20" hils=""/>
   </entry>
+  
+  
   <connection id="1322126060633" type="2" source_id="1322125961873" target_id="1322125966959" is_source_label="0" is_target_label="0" is_middle_label="1" middle_content="HoldThrust [ThrustControl3 &lt;= (Power / MaximumPower)] //" is_source_point="0" is_target_point="1">
     <bendpoint x="443" y="283"/>
   </connection>
