@@ -35,7 +35,7 @@ public class CBMTest {
     
     @Test
     public void cbmReaderTest() throws IllegalGrammarException {
-	System.out.println("");
+	System.out.println(cbm.toString());
     }
 
     public static CPSBehavioralModel getCbm() {

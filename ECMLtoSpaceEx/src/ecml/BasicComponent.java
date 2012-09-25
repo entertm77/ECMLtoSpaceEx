@@ -1,7 +1,13 @@
 package ecml;
 
 public class BasicComponent extends CommonAttr {
-    private String hils;
+    @Override
+	public String toString() {
+		return "BasicComponent [getHils()=" + getHils() + ", toString()="
+				+ super.toString()  + "]";
+	}
+
+	private String hils;
 
     public BasicComponent() {
     }
@@ -13,4 +19,6 @@ public class BasicComponent extends CommonAttr {
     public void setHils(String hils) {
 	this.hils = hils;
     }
+
+
 }

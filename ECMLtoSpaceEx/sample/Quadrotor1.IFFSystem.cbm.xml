@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="euc-kr"?>
 
 <root name="IFFSystem" type="3" parent_name="Quadrotor1.domain"> 
-  <entry id="13221216317771" name="[A] NearestFoeLocation : Point3D" type="38" x="69" y="601" width="0" height="0"/>  
+  <entry id="13221216317771" name="[A] NearestFoeLocation : Point3D" type="38" x="69" y="601" width="0" height="0"></entry>  
   <entry id="13221216348491" name="[A] NearestFoeDistance : double" type="38" x="397" y="601" width="0" height="0"/>  
   <entry id="13221216382241" name="[D] FoeDetected : bool = false" type="39" x="949" y="205" width="0" height="0" is_properties="0"/>  
   <entry id="13221216407981" name="[A] FoeLocation : Point3D = Point3D::Origin" type="39" x="949" y="310" width="0" height="0" is_properties="0"/>  
@@ -25,6 +25,7 @@
         </entry> 
       </entry> 
     </entry>  
+    
     <entry id="13221216317770" name="Port" type="7" x="193" y="524" width="20" height="20" hils=""/>  
     <entry id="13221216348490" name="Port" type="7" x="390" y="524" width="20" height="20" hils=""/>  
     <entry id="13221216382240" name="Port" type="8" x="887" y="168" width="20" height="20" hils=""/>  

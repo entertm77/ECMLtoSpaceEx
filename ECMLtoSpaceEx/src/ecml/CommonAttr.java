@@ -6,7 +6,15 @@ package ecml;
  *
  */
 public abstract class CommonAttr {
-    /**
+    @Override
+	public String toString() {
+		return "CommonAttr [getID()=" + getID() + ", getName()=" + getName()
+				+ ", getType()=" + getType() + ", getWidth()=" + getWidth()
+				+ ", getHeight()=" + getHeight() + ", getX()=" + getX()
+				+ ", getY()=" + getY() + "]";
+	}
+
+	/**
      * type of Root node CBM 
      */
     final public static int CPS_BEHAVIORAL_MODEL=3;
@@ -35,6 +43,14 @@ public abstract class CommonAttr {
      * type of inner behavioral model
      */
     final public static int BEHAVIORAL_INNER_MODEL=11;
+    /**
+     * 
+     */
+    final public static int CONNECTION_OUT = 2;
+    /**
+     * 
+     */
+    final public static int CONNECTION_IN = 27;
     /**
      * type of port 
      * 
