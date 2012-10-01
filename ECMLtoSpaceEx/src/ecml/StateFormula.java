@@ -1,5 +1,7 @@
 package ecml;
 
-public class StateFormula extends CommonAttr {
 
+public class StateFormula extends CommonAttr {
+    
+    
 }

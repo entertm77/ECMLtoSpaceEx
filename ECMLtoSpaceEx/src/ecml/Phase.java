@@ -1,5 +1,6 @@
 package ecml;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,5 +33,7 @@ public class Phase extends CommonAttr {
 	public BasicComponent get_state_model() {
 		return state_model;
 	}
-
+	public Collection<StateFormula> get_formulas(){
+	    return formulaMap.values();
+	}
 }

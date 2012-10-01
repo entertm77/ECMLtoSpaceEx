@@ -15,40 +15,40 @@ public abstract class CommonAttr {
 	}
 
 	/**
-     * type of Root node CBM 
+     * type of Root node CBM 3
      */
     final public static int CPS_BEHAVIORAL_MODEL=3;
     
     /**
-     * type of input variable
+     * type of input variable 38
      */
     final public static int INPUT_VARIABLE=38;
     
     /**
-     * type of output variable
+     * type of output variable 39
      */    
     final public static int OUTPUT_VARIABLE=39;
     
     /**
-     * type of behavioral model with port
+     * type of behavioral model with port 10
      */
     final public static int BEHAVIORAL_MODEL_WITH_PORT=10;
     
     /**
-     * type of behavioral model
+     * type of behavioral model 10
      */
     final public static int BEHAVIORAL_MODEL=10;
     
     /**
-     * type of inner behavioral model
+     * type of inner behavioral model 11
      */
     final public static int BEHAVIORAL_INNER_MODEL=11;
     /**
-     * 
+     * 2
      */
     final public static int CONNECTION_OUT = 2;
     /**
-     * 
+     * 27
      */
     final public static int CONNECTION_IN = 27;
     /**

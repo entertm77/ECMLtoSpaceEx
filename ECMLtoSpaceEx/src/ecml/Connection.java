@@ -1,6 +1,9 @@
 package ecml;
 
-public class Connection extends CommonAttr {
+public class Connection {
+    	private long id;
+    	private int type;
+    	 
 	private long source_id;
 	private long target_id;
 	private String is_source_label;
@@ -56,6 +59,18 @@ public class Connection extends CommonAttr {
 	}
 	public void setIs_source_point(String is_source_point) {
 		this.is_source_point = is_source_point;
+	}
+	public long getID() {
+	    return id;
+	}
+	public void setID(long id) {
+	    this.id = id;
+	}
+	public int getType() {
+	    return type;
+	}
+	public void setType(int type) {
+	    this.type = type;
 	}
 		
 }

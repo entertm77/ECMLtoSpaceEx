@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
 public class CBMTest {
     static private CPSBehavioralModel cbm;
     @BeforeClass
@@ -19,6 +18,7 @@ public class CBMTest {
 	
 	reader.parse("sample/Quadrotor1.Rotor2.cbm.xml");
 	setCbm(reader.getCPSBehavioalModel());
+	
     }
 
     @AfterClass

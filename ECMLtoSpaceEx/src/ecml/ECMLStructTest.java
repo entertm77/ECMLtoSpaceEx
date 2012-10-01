@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -35,7 +36,7 @@ public class ECMLStructTest {
     /**
      * Tests cbm document that can be parsed by DOM editor.
      */
-    @Test
+    @Ignore
     public final void parse_available_test() {
 	DOMParser parser = new DOMParser();
 	try {
