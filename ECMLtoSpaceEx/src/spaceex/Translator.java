@@ -3,10 +3,8 @@ package spaceex;
 import java.util.HashMap;
 
 import org.apache.log4j.Logger;
-import org.jdom.Element;
 
 import sspaceex.SXSspaceex;
-import sspaceex.SxComponent;
 import sspaceex.SxComponentBase;
 import sspaceex.SxLocation;
 import sspaceex.SxParam;
