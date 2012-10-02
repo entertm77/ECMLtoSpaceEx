@@ -63,7 +63,7 @@ STRING_LITERAL
   ;
 
 DECIMAL_LITERAL 
-  : ('0' | '1'..'9' '0'..'9'*) 
+  : ('0' | '1'..'9' '0'..'9' *) 
   ;
 FLOATING_POINT_LITERAL
     :   ('0'..'9')+ '.' ('0'..'9')*
