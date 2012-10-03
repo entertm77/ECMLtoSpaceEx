@@ -9,41 +9,41 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CBMTest {
-    static private CPSBehavioralModel cbm;
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
-	File file = new File("sample/Quadrotor1.Rotor2.cbm.xml");
-	System.out.println(file.exists());
-	CBMReader reader = new CBMReader();
-	
-	reader.parse("sample/Quadrotor1.Rotor2.cbm.xml");
-	setCbm(reader.getCPSBehavioalModel());
-	
-    }
+	static private CPSBehavioralModel cbm;
 
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-    }
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		File file = new File("sample/Quadrotor1.Rotor2.cbm.xml");
+		System.out.println(file.exists());
+		CBMReader reader = new CBMReader();
 
-    @Before
-    public void setUp() throws Exception {
-    }
+		setCbm(reader.parse("sample/Quadrotor1.Rotor2.cbm.xml"));
 
-    @After
-    public void tearDown() throws Exception {
-    }
-    
-    @Test
-    public void cbmReaderTest() throws IllegalGrammarException {
-	System.out.println(cbm.toString());
-    }
+	}
 
-    public static CPSBehavioralModel getCbm() {
-	return cbm;
-    }
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
 
-    public static void setCbm(CPSBehavioralModel cbm) {
-	CBMTest.cbm = cbm;
-    }
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void cbmReaderTest() throws IllegalGrammarException {
+		System.out.println(cbm.toString());
+	}
+
+	public static CPSBehavioralModel getCbm() {
+		return cbm;
+	}
+
+	public static void setCbm(CPSBehavioralModel cbm) {
+		CBMTest.cbm = cbm;
+	}
 
 }

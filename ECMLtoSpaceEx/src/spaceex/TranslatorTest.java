@@ -55,8 +55,7 @@ public class TranslatorTest {
 	    IOException {
 
 	CBMReader reader = new CBMReader();
-	reader.parse("C:/Users/Jaeyeon/git/ECMLtoSpaceEX/ECMLtoSpaceEx/sample/Quadrotor1.Rotor2.cbm.xml");
-	CPSBehavioralModel cbm = reader.getCPSBehavioalModel();
+	CPSBehavioralModel cbm =reader.parse("C:/Users/Jaeyeon/git/ECMLtoSpaceEX/ECMLtoSpaceEx/sample/Quadrotor1.Rotor2.cbm.xml");
 	Translator translator = new Translator();
 	SXSspaceex ex = translator.translation(cbm);
 

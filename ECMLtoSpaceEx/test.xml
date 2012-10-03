@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="Rotor2">
+    <param name="PowerIncreasingRate" type="real" local="true" d1="1" d2="1" dynamics="any" controlled="false" />
+    <param name="Thrust2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+    <param name="PowerDecreasingRate" type="real" local="true" d1="1" d2="1" dynamics="any" controlled="false" />
+    <param name="ThrustControl2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+    <param name="MaximumPower" type="real" local="true" d1="1" d2="1" dynamics="any" controlled="false" />
+    <param name="Power" type="real" local="true" d1="1" d2="1" dynamics="any" controlled="false" />
+    <location id="2" name="Holding">
+      <flow>Power' ==0</flow>
+    </location>
+    <location id="3" name="Incrasing">
+      <flow>Power' == PowerIncreasingRate</flow>
+    </location>
+    <location id="4" name="Decreasing">
+      <flow>Power' == PowerDecreasingRate</flow>
+    </location>
+    <transition source="2" target="3">
+      <guard>ThrustControl2  &gt; (Power / MaximumPower)</guard>
+    </transition>
+    <transition source="4" target="2">
+      <guard>ThrustControl2 &lt;= (Power / MaximumPower)</guard>
+    </transition>
+    <transition source="2" target="4">
+      <guard>ThrustControl2 &lt; (Power / MaximumPower)</guard>
+    </transition>
+    <transition source="3" target="2">
+      <guard>ThrustControl2 &lt;= (Power / MaximumPower)</guard>
+    </transition>
+  </component>
+</sspaceex>
+
