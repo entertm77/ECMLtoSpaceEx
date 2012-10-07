@@ -105,11 +105,11 @@ public abstract class CommonAttr {
     /**
      * 
      */
-    final public static int IN_CONNECTION = 27;
+    final public static int PORT_CONNECTION = 27;
     /**
      * 
     */    
-    final public static int OUT_CONNECTION = 2;
+    final public static int PHASE_CONNECTION = 2;
     
     
     private Long id;

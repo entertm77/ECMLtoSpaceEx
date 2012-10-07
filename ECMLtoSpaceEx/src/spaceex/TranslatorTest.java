@@ -24,42 +24,41 @@ import ecml.CPSBehavioralModel;
 import ecml.IllegalGrammarException;
 
 public class TranslatorTest {
-    static {
-	
-	
+	static {
 
-    }
-    private static Logger logger = Logger.getLogger(TranslatorTest.class);
+	}
+	private static Logger logger = Logger.getLogger(TranslatorTest.class);
 
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
-	PropertyConfigurator.configure(TranslatorTest.class.getResource("log4j.config"));
-	
-	
-    }
-    
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-    }
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		PropertyConfigurator.configure(TranslatorTest.class
+				.getResource("log4j.config"));
 
-    @Before
-    public void setUp() throws Exception {
-    }
+	}
 
-    @After
-    public void tearDown() throws Exception {
-    }
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
 
-    @Test
-    public final void test() throws IllegalGrammarException, SAXException,
-	    IOException {
+	@Before
+	public void setUp() throws Exception {
+	}
 
-	CBMReader reader = new CBMReader();
-	CPSBehavioralModel cbm =reader.parse("C:/Users/Jaeyeon/git/ECMLtoSpaceEX/ECMLtoSpaceEx/sample/Quadrotor1.Rotor2.cbm.xml");
-	Translator translator = new Translator();
-	SXSspaceex ex = translator.translation(cbm);
+	@After
+	public void tearDown() throws Exception {
+	}
 
-	logger.debug(ex.getXml());
-    }
+	@Test
+	public final void test() throws IllegalGrammarException, SAXException,
+			IOException {
+
+		CBMReader reader = new CBMReader();
+		CPSBehavioralModel cbm = reader
+				.parse("C:/Users/Jaeyeon/git/ECMLtoSpaceEX/ECMLtoSpaceEx/sample/Quadrotor1.Rotor2.cbm.xml");
+		Translator translator = new Translator();
+		SXSspaceex ex = translator.translation(cbm);
+
+		logger.debug(ex.getXml());
+	}
 
 }

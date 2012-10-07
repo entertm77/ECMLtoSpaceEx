@@ -25,7 +25,7 @@ public class ECMLtoSpaceEx {
 		String target = null;
 		
 		PropertyConfigurator.configure(ECMLtoSpaceEx.class
-				.getResource("log4j.config.main"));
+				.getResource("log4j.config"));
 		
 		if(args.length != 2)
 		{
@@ -63,8 +63,10 @@ public class ECMLtoSpaceEx {
 				System.err.print("File error.");
 				e.printStackTrace();
 			}finally{
-				bais.close();
-				fos.close();
+				if(bais!=null)
+					bais.close();
+				if(fos!=null)
+					fos.close();
 			}
 			
 		}
