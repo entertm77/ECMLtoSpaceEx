@@ -35,8 +35,7 @@ public class Translator {
 		SXSspaceex ex = new SXSspaceex();
 		
 		SxComponentBase componentBase = ex.newComponentBase();
-		
-		
+				
 		ex.add(componentBase);
 		componentBase.setId(cbm.getName());
 		
@@ -135,6 +134,22 @@ public class Translator {
 
 		}
 		return ex;
+	}
+	
+	private void transition_check(){
+		
+	}
+	
+	private void generate_state(){
+		
+	}
+	
+	private void generate_transition(){
+		
+	}
+	
+	private void external_addition(){
+		
 	}
 
 }
