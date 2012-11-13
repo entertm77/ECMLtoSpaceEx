@@ -1,14 +1,17 @@
 package ecml;
 
-import org.antlr.runtime.ANTLRInputStream;
+import java.util.List;
+
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.tree.BaseTree;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.antlr.runtime.tree.Tree;
 import org.apache.log4j.Logger;
 
-import spaceex.SpaceExTransition;
+import parsers.ECMLFormulaLexer;
+import parsers.ECMLFormulaParser;
 
 public class Connection {
 	private long id;
@@ -22,6 +25,7 @@ public class Connection {
 	private String middle_content;
 	private String is_target_point;
 	private String is_source_point;
+	private Tree condition_tree;
 
 	public long getSource_id() {
 		return source_id;
@@ -62,27 +66,24 @@ public class Connection {
 	public void setMiddle_content(String middle_content) {
 		this.middle_content = middle_content;
 		log.debug("middle content : " + middle_content);
+
 		ANTLRStringStream anss = new ANTLRStringStream(middle_content);
 		ECMLFormulaLexer lexer = new ECMLFormulaLexer(anss);
 		CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-		ECMLFormulaParser parser = new ECMLFormulaParser(tokenStream);		
+		ECMLFormulaParser parser = new ECMLFormulaParser(tokenStream);
+
 		try {
-			ECMLFormulaParser.connection_contents_return def_return = parser.connection_contents();
-			
-			log.debug("Tree Status : " + ((Tree)def_return.tree).toStringTree());
-			
-			Tree condition_tree = (Tree)def_return.condition;
-			log.debug("Condition Tree Status : " + condition_tree.toStringTree());
-			CommonTreeNodeStream nodes = new CommonTreeNodeStream(condition_tree);
-			SpaceExTransition transition = new SpaceExTransition(nodes);
-			SpaceExTransition.condition_expression_return cond_express = transition.condition_expression();
-		
-			log.debug("Space expression : " + cond_express.toString());
+			ECMLFormulaParser.connection_contents_return def_return = parser
+					.connection_contents();
+
+			// condition_tree = (Tree)def_return.condition;
+			CommonTreeNodeStream nodes = new CommonTreeNodeStream(
+					condition_tree);
+
 		} catch (RecognitionException e) {
 			log.error(e);
 		}
 	}
-
 
 	public String getIs_middle_label() {
 		return is_middle_label;

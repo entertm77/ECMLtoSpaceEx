@@ -268,3 +268,699 @@ DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
 DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
 DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
 DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : <mismatched token: [@3,6:6='=',<17>,1:6], resync=ab=>
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ab <unexpected: [@4,11:11=']',<23>,1:11], resync=]>)
+DEBUG main spaceex.SpaceExTransition - and_expression : ab==
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ab <unexpected: [@4,11:11=']',<23>,1:11], resync=]>)
+DEBUG main spaceex.SpaceExTransition - and_expression : ab==
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (<= ThrustControl4 ( (/ Power MaximumPower) ))
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4<=(Power/MaximumPower)
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : <mismatched token: [@4,19:19='=',<17>,1:19], resync=ThrustControl4 =>
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 <unexpected: [@6,24:24=']',<23>,1:24], resync=]>)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current List number : 19
+DEBUG main ecml.CBMReader - Current type : 38
+DEBUG main ecml.CBMReader - Current type : 39
+DEBUG main ecml.CBMReader - Current type : 10
+DEBUG main ecml.CBMReader - Current type : 12
+DEBUG main ecml.CBMReader - Current type : 13
+DEBUG main ecml.CBMReader - Current type : 14
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.Connection - Tree Status : HoldThrust [ (<= ThrustControl2 ( (/ Power MaximumPower) )) ] //
+DEBUG main ecml.Connection - Condition Tree Status : (<= ThrustControl2 ( (/ Power MaximumPower) ))
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl2<=(Power/MaximumPower)
+DEBUG main ecml.Connection - Space expression : null
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : DecreaseThrust [ThrustControl2 < (Power / MaximumPower)] //
+DEBUG main ecml.Connection - Tree Status : DecreaseThrust [ (< ThrustControl2 ( (/ Power MaximumPower) )) ] //
+DEBUG main ecml.Connection - Condition Tree Status : (< ThrustControl2 ( (/ Power MaximumPower) ))
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl2<(Power/MaximumPower)
+DEBUG main ecml.Connection - Space expression : null
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : IncreaseThrust [ThrustControl2  > (Power / MaximumPower)] //
+DEBUG main ecml.Connection - Tree Status : IncreaseThrust [ (> ThrustControl2 ( (/ Power MaximumPower) )) ] //
+DEBUG main ecml.Connection - Condition Tree Status : (> ThrustControl2 ( (/ Power MaximumPower) ))
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl2>(Power/MaximumPower)
+DEBUG main ecml.Connection - Space expression : null
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.Connection - Tree Status : HoldThrust [ (<= ThrustControl2 ( (/ Power MaximumPower) )) ] //
+DEBUG main ecml.Connection - Condition Tree Status : (<= ThrustControl2 ( (/ Power MaximumPower) ))
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl2<=(Power/MaximumPower)
+DEBUG main ecml.Connection - Space expression : null
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main spaceex.Translator - New Parameter : PowerIncreasingRate
+DEBUG main spaceex.Translator - New Parameter : Thrust2
+DEBUG main spaceex.Translator - New Parameter : PowerDecreasingRate
+DEBUG main spaceex.Translator - New Parameter : ThrustControl2
+DEBUG main spaceex.Translator - New Parameter : MaximumPower
+DEBUG main spaceex.Translator - New Parameter : Power
+DEBUG main spaceex.Translator - New Parameter : Holding, ID : 1322125768480
+DEBUG main spaceex.Translator - New Parameter : Incrasing, ID : 1322125764311
+DEBUG main spaceex.Translator - New Parameter : Decreasing, ID : 1322125772345
+DEBUG main spaceex.Translator - source : 13221252866040, target : 13221252866041
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
+DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
+DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Space expression : null
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current List number : 19
+DEBUG main ecml.CBMReader - Current type : 38
+DEBUG main ecml.CBMReader - Current type : 39
+DEBUG main ecml.CBMReader - Current type : 10
+DEBUG main ecml.CBMReader - Current type : 12
+DEBUG main ecml.CBMReader - Current type : 13
+DEBUG main ecml.CBMReader - Current type : 14
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.Connection - Tree Status : HoldThrust [ (<= ThrustControl2 ( (/ Power MaximumPower) )) ] //
+DEBUG main ecml.Connection - Condition Tree Status : (<= ThrustControl2 ( (/ Power MaximumPower) ))
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl2<=(Power/MaximumPower)
+DEBUG main ecml.Connection - Space expression : null
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : DecreaseThrust [ThrustControl2 < (Power / MaximumPower)] //
+DEBUG main ecml.Connection - Tree Status : DecreaseThrust [ (< ThrustControl2 ( (/ Power MaximumPower) )) ] //
+DEBUG main ecml.Connection - Condition Tree Status : (< ThrustControl2 ( (/ Power MaximumPower) ))
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl2<(Power/MaximumPower)
+DEBUG main ecml.Connection - Space expression : null
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : IncreaseThrust [ThrustControl2  > (Power / MaximumPower)] //
+DEBUG main ecml.Connection - Tree Status : IncreaseThrust [ (> ThrustControl2 ( (/ Power MaximumPower) )) ] //
+DEBUG main ecml.Connection - Condition Tree Status : (> ThrustControl2 ( (/ Power MaximumPower) ))
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl2>(Power/MaximumPower)
+DEBUG main ecml.Connection - Space expression : null
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.Connection - Tree Status : HoldThrust [ (<= ThrustControl2 ( (/ Power MaximumPower) )) ] //
+DEBUG main ecml.Connection - Condition Tree Status : (<= ThrustControl2 ( (/ Power MaximumPower) ))
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl2<=(Power/MaximumPower)
+DEBUG main ecml.Connection - Space expression : null
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main spaceex.Translator - New Parameter : PowerIncreasingRate
+DEBUG main spaceex.Translator - New Parameter : Thrust2
+DEBUG main spaceex.Translator - New Parameter : PowerDecreasingRate
+DEBUG main spaceex.Translator - New Parameter : ThrustControl2
+DEBUG main spaceex.Translator - New Parameter : MaximumPower
+DEBUG main spaceex.Translator - New Parameter : Power
+DEBUG main spaceex.Translator - New Parameter : Holding, ID : 1322125768480
+DEBUG main spaceex.Translator - New Parameter : Incrasing, ID : 1322125764311
+DEBUG main spaceex.Translator - New Parameter : Decreasing, ID : 1322125772345
+DEBUG main spaceex.Translator - source : 13221252866040, target : 13221252866041
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
+DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
+DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Template template : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Template template : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.SpaceExTransition - and_expression : ThrustControl4==23
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ]
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ThrustControl4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ThrustControl4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main parsers.SpaceExTransition - error?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main parsers.SpaceExTransition - error?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main parsers.SpaceExTransition - error?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main parsers.SpaceExTransition - error?
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current List number : 19
+DEBUG main ecml.CBMReader - Current type : 38
+DEBUG main ecml.CBMReader - Current type : 39
+DEBUG main ecml.CBMReader - Current type : 10
+DEBUG main ecml.CBMReader - Current type : 12
+DEBUG main ecml.CBMReader - Current type : 13
+DEBUG main ecml.CBMReader - Current type : 14
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : DecreaseThrust [ThrustControl2 < (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : IncreaseThrust [ThrustControl2  > (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main spaceex.Translator - New Parameter : PowerIncreasingRate
+DEBUG main spaceex.Translator - New Parameter : Thrust2
+DEBUG main spaceex.Translator - New Parameter : PowerDecreasingRate
+DEBUG main spaceex.Translator - New Parameter : ThrustControl2
+DEBUG main spaceex.Translator - New Parameter : MaximumPower
+DEBUG main spaceex.Translator - New Parameter : Power
+DEBUG main spaceex.Translator - New Parameter : Holding, ID : 1322125768480
+DEBUG main spaceex.Translator - New Parameter : Incrasing, ID : 1322125764311
+DEBUG main spaceex.Translator - New Parameter : Decreasing, ID : 1322125772345
+DEBUG main spaceex.Translator - source : 13221252866040, target : 13221252866041
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
+DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
+DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current List number : 19
+DEBUG main ecml.CBMReader - Current type : 38
+DEBUG main ecml.CBMReader - Current type : 39
+DEBUG main ecml.CBMReader - Current type : 10
+DEBUG main ecml.CBMReader - Current type : 12
+DEBUG main ecml.CBMReader - Current type : 13
+DEBUG main ecml.CBMReader - Current type : 14
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : DecreaseThrust [ThrustControl2 < (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : IncreaseThrust [ThrustControl2  > (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main spaceex.Translator - New Parameter : PowerIncreasingRate
+DEBUG main spaceex.Translator - New Parameter : Thrust2
+DEBUG main spaceex.Translator - New Parameter : PowerDecreasingRate
+DEBUG main spaceex.Translator - New Parameter : ThrustControl2
+DEBUG main spaceex.Translator - New Parameter : MaximumPower
+DEBUG main spaceex.Translator - New Parameter : Power
+DEBUG main spaceex.Translator - New Parameter : Holding, ID : 1322125768480
+DEBUG main spaceex.Translator - New Parameter : Incrasing, ID : 1322125764311
+DEBUG main spaceex.Translator - New Parameter : Decreasing, ID : 1322125772345
+DEBUG main spaceex.Translator - source : 13221252866040, target : 13221252866041
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
+DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
+DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main parsers.SpaceExTransition - error1?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main parsers.SpaceExTransition - error1?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main parsers.SpaceExTransition - error1?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main parsers.SpaceExTransition - error1?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (>= T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (>= T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (>= T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (>= T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (>= T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (>= T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (>= T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (>= T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current List number : 19
+DEBUG main ecml.CBMReader - Current type : 38
+DEBUG main ecml.CBMReader - Current type : 39
+DEBUG main ecml.CBMReader - Current type : 10
+DEBUG main ecml.CBMReader - Current type : 12
+DEBUG main ecml.CBMReader - Current type : 13
+DEBUG main ecml.CBMReader - Current type : 14
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : DecreaseThrust [ThrustControl2 < (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : IncreaseThrust [ThrustControl2  > (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main spaceex.Translator - New Parameter : PowerIncreasingRate
+DEBUG main spaceex.Translator - New Parameter : Thrust2
+DEBUG main spaceex.Translator - New Parameter : PowerDecreasingRate
+DEBUG main spaceex.Translator - New Parameter : ThrustControl2
+DEBUG main spaceex.Translator - New Parameter : MaximumPower
+DEBUG main spaceex.Translator - New Parameter : Power
+DEBUG main spaceex.Translator - New Parameter : Holding, ID : 1322125768480
+DEBUG main spaceex.Translator - New Parameter : Incrasing, ID : 1322125764311
+DEBUG main spaceex.Translator - New Parameter : Decreasing, ID : 1322125772345
+DEBUG main spaceex.Translator - source : 13221252866040, target : 13221252866041
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
+DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
+DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main parsers.SpaceExTransition - error1?
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current List number : 19
+DEBUG main ecml.CBMReader - Current type : 38
+DEBUG main ecml.CBMReader - Current type : 39
+DEBUG main ecml.CBMReader - Current type : 10
+DEBUG main ecml.CBMReader - Current type : 12
+DEBUG main ecml.CBMReader - Current type : 13
+DEBUG main ecml.CBMReader - Current type : 14
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : DecreaseThrust [ThrustControl2 < (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : IncreaseThrust [ThrustControl2  > (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main spaceex.Translator - New Parameter : PowerIncreasingRate
+DEBUG main spaceex.Translator - New Parameter : Thrust2
+DEBUG main spaceex.Translator - New Parameter : PowerDecreasingRate
+DEBUG main spaceex.Translator - New Parameter : ThrustControl2
+DEBUG main spaceex.Translator - New Parameter : MaximumPower
+DEBUG main spaceex.Translator - New Parameter : Power
+DEBUG main spaceex.Translator - New Parameter : Holding, ID : 1322125768480
+DEBUG main spaceex.Translator - New Parameter : Incrasing, ID : 1322125764311
+DEBUG main spaceex.Translator - New Parameter : Decreasing, ID : 1322125772345
+DEBUG main spaceex.Translator - source : 13221252866040, target : 13221252866041
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
+DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
+DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current List number : 19
+DEBUG main ecml.CBMReader - Current type : 38
+DEBUG main ecml.CBMReader - Current type : 39
+DEBUG main ecml.CBMReader - Current type : 10
+DEBUG main ecml.CBMReader - Current type : 12
+DEBUG main ecml.CBMReader - Current type : 13
+DEBUG main ecml.CBMReader - Current type : 14
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : DecreaseThrust [ThrustControl2 < (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : IncreaseThrust [ThrustControl2  > (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main spaceex.Translator - New Parameter : PowerIncreasingRate
+DEBUG main spaceex.Translator - New Parameter : Thrust2
+DEBUG main spaceex.Translator - New Parameter : PowerDecreasingRate
+DEBUG main spaceex.Translator - New Parameter : ThrustControl2
+DEBUG main spaceex.Translator - New Parameter : MaximumPower
+DEBUG main spaceex.Translator - New Parameter : Power
+DEBUG main spaceex.Translator - New Parameter : Holding, ID : 1322125768480
+DEBUG main spaceex.Translator - New Parameter : Incrasing, ID : 1322125764311
+DEBUG main spaceex.Translator - New Parameter : Decreasing, ID : 1322125772345
+DEBUG main spaceex.Translator - source : 13221252866040, target : 13221252866041
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
+DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
+DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main parsers.SpaceExTransition - error1?
+DEBUG main parsers.SpaceExTransition - error4?
+DEBUG main parsers.SpaceExTransition - error2?
+DEBUG main parsers.SpaceExTransition - error5?
+DEBUG main parsers.SpaceExTransition - error3?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== T4 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== T4 23)
+DEBUG main parsers.SpaceExTransition - error1?
+DEBUG main parsers.SpaceExTransition - error4?
+DEBUG main parsers.SpaceExTransition - error2?
+DEBUG main parsers.SpaceExTransition - error5?
+DEBUG main parsers.SpaceExTransition - error3?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ( T4 <missing ')'> 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ( T4 <missing ')'> 23)
+DEBUG main parsers.SpaceExTransition - error1?
+DEBUG main parsers.SpaceExTransition - error2?
+DEBUG main parsers.SpaceExTransition - error4?
+DEBUG main parsers.SpaceExTransition - error3?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.SpaceExTransition - error1?
+DEBUG main parsers.SpaceExTransition - error2?
+DEBUG main parsers.SpaceExTransition - error4?
+DEBUG main parsers.SpaceExTransition - error5?
+DEBUG main parsers.SpaceExTransition - error3?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.SpaceExTransition - error1?
+DEBUG main parsers.SpaceExTransition - error2?
+DEBUG main parsers.SpaceExTransition - error4?
+DEBUG main parsers.SpaceExTransition - error5?
+DEBUG main parsers.SpaceExTransition - error3?
+DEBUG main spaceex.TranslatorTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main spaceex.TranslatorTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current List number : 19
+DEBUG main ecml.CBMReader - Current type : 38
+DEBUG main ecml.CBMReader - Current type : 39
+DEBUG main ecml.CBMReader - Current type : 10
+DEBUG main ecml.CBMReader - Current type : 12
+DEBUG main ecml.CBMReader - Current type : 13
+DEBUG main ecml.CBMReader - Current type : 14
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : DecreaseThrust [ThrustControl2 < (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : IncreaseThrust [ThrustControl2  > (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main spaceex.Translator - New Parameter : PowerIncreasingRate
+DEBUG main spaceex.Translator - New Parameter : Thrust2
+DEBUG main spaceex.Translator - New Parameter : PowerDecreasingRate
+DEBUG main spaceex.Translator - New Parameter : ThrustControl2
+DEBUG main spaceex.Translator - New Parameter : MaximumPower
+DEBUG main spaceex.Translator - New Parameter : Power
+DEBUG main spaceex.Translator - New Parameter : Holding, ID : 1322125768480
+DEBUG main spaceex.Translator - New Parameter : Incrasing, ID : 1322125764311
+DEBUG main spaceex.Translator - New Parameter : Decreasing, ID : 1322125772345
+DEBUG main spaceex.Translator - source : 13221252866040, target : 13221252866041
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
+DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
+DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current List number : 19
+DEBUG main ecml.CBMReader - Current type : 38
+DEBUG main ecml.CBMReader - Current type : 39
+DEBUG main ecml.CBMReader - Current type : 10
+DEBUG main ecml.CBMReader - Current type : 12
+DEBUG main ecml.CBMReader - Current type : 13
+DEBUG main ecml.CBMReader - Current type : 14
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : DecreaseThrust [ThrustControl2 < (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : IncreaseThrust [ThrustControl2  > (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main spaceex.Translator - New Parameter : PowerIncreasingRate
+DEBUG main spaceex.Translator - New Parameter : Thrust2
+DEBUG main spaceex.Translator - New Parameter : PowerDecreasingRate
+DEBUG main spaceex.Translator - New Parameter : ThrustControl2
+DEBUG main spaceex.Translator - New Parameter : MaximumPower
+DEBUG main spaceex.Translator - New Parameter : Power
+DEBUG main spaceex.Translator - New Parameter : Holding, ID : 1322125768480
+DEBUG main spaceex.Translator - New Parameter : Incrasing, ID : 1322125764311
+DEBUG main spaceex.Translator - New Parameter : Decreasing, ID : 1322125772345
+DEBUG main spaceex.Translator - source : 13221252866040, target : 13221252866041
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
+DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
+DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current List number : 19
+DEBUG main ecml.CBMReader - Current type : 38
+DEBUG main ecml.CBMReader - Current type : 39
+DEBUG main ecml.CBMReader - Current type : 10
+DEBUG main ecml.CBMReader - Current type : 12
+DEBUG main ecml.CBMReader - Current type : 13
+DEBUG main ecml.CBMReader - Current type : 14
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 17
+DEBUG main ecml.CBMReader - Current type : 3
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : DecreaseThrust [ThrustControl2 < (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : IncreaseThrust [ThrustControl2  > (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 2
+DEBUG main ecml.Connection - middle content : HoldThrust [ThrustControl2 <= (Power / MaximumPower)] //
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main ecml.CBMReader - Current type : 27
+DEBUG main spaceex.Translator - New Parameter : PowerIncreasingRate
+DEBUG main spaceex.Translator - New Parameter : Thrust2
+DEBUG main spaceex.Translator - New Parameter : PowerDecreasingRate
+DEBUG main spaceex.Translator - New Parameter : ThrustControl2
+DEBUG main spaceex.Translator - New Parameter : MaximumPower
+DEBUG main spaceex.Translator - New Parameter : Power
+DEBUG main spaceex.Translator - New Parameter : Holding, ID : 1322125768480
+DEBUG main spaceex.Translator - New Parameter : Incrasing, ID : 1322125764311
+DEBUG main spaceex.Translator - New Parameter : Decreasing, ID : 1322125772345
+DEBUG main spaceex.Translator - source : 13221252866040, target : 13221252866041
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125764311
+DEBUG main spaceex.Translator - source : 1322125772345, target : 1322125768480
+DEBUG main spaceex.Translator - source : 1322125768480, target : 1322125772345
+DEBUG main spaceex.Translator - source : 1322125764311, target : 1322125768480
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
+DEBUG main parsers.ParserTest - Tree Status : abc [ (== ( (+ T4 3) ) 23) ] //
+DEBUG main parsers.ParserTest - Condition Tree Status : (== ( (+ T4 3) ) 23)
+DEBUG main parsers.ParserTest - Invariant for node stream
+DEBUG main parsers.SpaceExInvariant - create neginvariant
