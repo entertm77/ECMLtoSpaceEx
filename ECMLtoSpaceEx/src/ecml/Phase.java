@@ -33,7 +33,7 @@ public class Phase extends CommonAttr {
 	public BasicComponent get_state_model() {
 		return state_model;
 	}
-	public Collection<StateFormula> get_formulas(){
-	    return formulaMap.values();
+	public StateFormula[] get_formulas(){
+	    return formulaMap.values().toArray(new StateFormula[formulaMap.values().size()]);
 	}
 }

@@ -25,7 +25,7 @@ public class Connection {
 	private String middle_content;
 	private String is_target_point;
 	private String is_source_point;
-	private Tree condition_tree;
+	private ECMLFormulaParser.connection_contents_return middle_content_tree;
 
 	public long getSource_id() {
 		return source_id;
@@ -63,26 +63,13 @@ public class Connection {
 		return middle_content;
 	}
 
-	public void setMiddle_content(String middle_content) {
+	public void setMiddle_content(String middle_content) throws RecognitionException {
 		this.middle_content = middle_content;
-		log.debug("middle content : " + middle_content);
-
 		ANTLRStringStream anss = new ANTLRStringStream(middle_content);
 		ECMLFormulaLexer lexer = new ECMLFormulaLexer(anss);
 		CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-		ECMLFormulaParser parser = new ECMLFormulaParser(tokenStream);
-
-		try {
-			ECMLFormulaParser.connection_contents_return def_return = parser
-					.connection_contents();
-
-			// condition_tree = (Tree)def_return.condition;
-			CommonTreeNodeStream nodes = new CommonTreeNodeStream(
-					condition_tree);
-
-		} catch (RecognitionException e) {
-			log.error(e);
-		}
+		ECMLFormulaParser parser = new ECMLFormulaParser(tokenStream);		
+		this.middle_content_tree = parser.connection_contents();		
 	}
 
 	public String getIs_middle_label() {
@@ -123,6 +110,10 @@ public class Connection {
 
 	public void setType(int type) {
 		this.type = type;
+	}
+
+	public ECMLFormulaParser.connection_contents_return get_middle_content_tree() {
+		return middle_content_tree;
 	}
 
 }

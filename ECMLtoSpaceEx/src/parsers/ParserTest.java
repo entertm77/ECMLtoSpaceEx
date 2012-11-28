@@ -58,7 +58,7 @@ public class ParserTest {
 	@Test
 	public void test() throws IllegalGrammarException, SAXException,
 			IOException {
-		String test_expression = "abc[(T4+3) == 23]//";
+		String test_expression = "abc[T4+3 == 23]//";
 		ANTLRStringStream anss = new ANTLRStringStream(test_expression);
 		ECMLFormulaLexer lexer = new ECMLFormulaLexer(anss);
 		CommonTokenStream tokenStream = new CommonTokenStream(lexer);
@@ -70,20 +70,22 @@ public class ParserTest {
 			
 			for(Tree cond_tree:def_return.conditions){
 				log.debug("Condition Tree Status : " + cond_tree.toStringTree());
+				
 				CommonTreeNodeStream nodes = new CommonTreeNodeStream(cond_tree);
 				
-				SpaceExTransition transition = new SpaceExTransition(nodes);
-				SpaceExTransition.cond_exp_return cond_express = transition.cond_exp();
+				SxExpression transition = new SxExpression(nodes);
+				SxExpression.cond_exp_return cond_express = transition.cond_exp();
 				
+				log.debug(cond_express.st.toString());
 				log.debug("Invariant for node stream");
-				nodes = new CommonTreeNodeStream(cond_tree);				
-				SpaceExInvariant variant = new SpaceExInvariant(nodes);
-				SpaceExInvariant.and_exp_return and_exp = variant.and_exp();
 				
+				nodes = new CommonTreeNodeStream(cond_tree);
 				
-				assertTrue(and_exp.atoms.get(0).boundary!=null);
+				SxNegTree variant = new SxNegTree(nodes);
+				SxNegTree.and_exp_return and_exp = variant.and_exp();
 				
-				
+				assertNotNull(and_exp.tree);
+				assertNotNull(and_exp.tree.token);
 			}
 		} catch (RecognitionException e) {
 			log.error(e);

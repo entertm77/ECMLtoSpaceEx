@@ -1,5 +1,7 @@
 package ecml;
 
+import org.antlr.runtime.RecognitionException;
+
 /**
  * Attribute structure for common element 
  * @author Jaeyeon
@@ -137,8 +139,9 @@ public abstract class CommonAttr {
 
     /**
      * @param name the name to set
+     * @throws RecognitionException 
      */
-    public void setName(String name) {
+    public void setName(String name) throws RecognitionException {
         this.name = name;
     }
 

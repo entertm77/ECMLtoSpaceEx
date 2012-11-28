@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.PropertyConfigurator;
 import org.xml.sax.SAXException;
 
@@ -61,6 +62,9 @@ public class ECMLtoSpaceEx {
 				e.printStackTrace();
 			} catch (IOException e) {
 				System.err.print("File error.");
+				e.printStackTrace();
+			} catch (RecognitionException e) {
+				System.err.print("Grammar is not legal.");
 				e.printStackTrace();
 			}finally{
 				if(bais!=null)

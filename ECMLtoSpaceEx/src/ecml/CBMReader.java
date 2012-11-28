@@ -2,6 +2,7 @@ package ecml;
 
 import java.io.IOException;
 
+import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
 import org.apache.xerces.parsers.DOMParser;
 import org.w3c.dom.Document;
@@ -23,7 +24,7 @@ public class CBMReader {
 	}
 
 	public CPSBehavioralModel parse(String filename)
-			throws IllegalGrammarException, SAXException, IOException {
+			throws IllegalGrammarException, SAXException, IOException, RecognitionException {
 		DOMParser parser = new DOMParser();
 		parser.parse(filename);
 		document = parser.getDocument();
@@ -73,7 +74,7 @@ public class CBMReader {
 		return cbm;
 	}
 
-	public void createVariable(Node node) throws IllegalGrammarException {
+	public void createVariable(Node node) throws IllegalGrammarException, RecognitionException {
 		int porttype = Integer.parseInt(getAttrValue(node, "type"));
 		Variable var = new Variable();
 		setBasicAttr(var, node);
@@ -162,7 +163,7 @@ public class CBMReader {
 		return current.getAttributes().getNamedItem(attr_name).getNodeValue();
 	}
 
-	private void setConnection(Node varnode) {
+	private void setConnection(Node varnode) throws RecognitionException {
 		Connection connection = new Connection();
 
 		connection.setID(Long.parseLong(getAttrValue(varnode, "id")));
@@ -190,9 +191,10 @@ public class CBMReader {
 	 * @param bmnode
 	 *            behavior model node.
 	 * @throws IllegalGrammarException
+	 * @throws RecognitionException 
 	 */
 	private void createBehavioralModel(Node bmnode)
-			throws IllegalGrammarException {
+			throws IllegalGrammarException, RecognitionException {
 		setBasicAttr(cbm.get_behavior_model(), bmnode);
 
 		NodeList nodelist = bmnode.getChildNodes();
@@ -225,9 +227,10 @@ public class CBMReader {
 	 * 
 	 * @param inbmnode
 	 * @throws IllegalGrammarException
+	 * @throws RecognitionException 
 	 */
 	private void createInnerBehavioralModel(Node inbmnode)
-			throws IllegalGrammarException {
+			throws IllegalGrammarException, RecognitionException {
 		NodeList childs = inbmnode.getChildNodes();
 
 		for (int i = 0; i < childs.getLength(); i++) {
@@ -259,8 +262,9 @@ public class CBMReader {
 	 * create phase
 	 * 
 	 * @param phase_node
+	 * @throws RecognitionException 
 	 */
-	private void create_phase(Node phase_node) {
+	private void create_phase(Node phase_node) throws RecognitionException {
 
 		Phase phase = new Phase();
 		setBasicAttr(phase, phase_node);
@@ -295,7 +299,7 @@ public class CBMReader {
 		cbm.add_phase(phase);
 	}
 
-	private void create_initial_state(Node initial_node) {
+	private void create_initial_state(Node initial_node) throws RecognitionException {
 		Initial initial = cbm.get_initial();
 		setBasicAttr(initial, initial_node);
 	}
@@ -305,9 +309,10 @@ public class CBMReader {
 	 * 
 	 * @param currentNode
 	 * @throws IllegalGrammarException
+	 * @throws RecognitionException 
 	 */
 	private void createStateVarSet(Node currentNode)
-			throws IllegalGrammarException {
+			throws IllegalGrammarException, RecognitionException {
 		NodeList childs = currentNode.getChildNodes();
 
 		for (int i = 0; i < childs.getLength(); i++) {
@@ -351,8 +356,9 @@ public class CBMReader {
 	 * 
 	 * @param cee
 	 * @param node
+	 * @throws RecognitionException 
 	 */
-	static public void setBasicAttr(CommonAttr cee, Node node) {
+	static public void setBasicAttr(CommonAttr cee, Node node) throws RecognitionException {
 		NamedNodeMap nodemap = node.getAttributes();
 		long id = Long.parseLong(nodemap.getNamedItem("id").getNodeValue());
 		cee.setId(id);

@@ -1,4 +1,4 @@
-// $ANTLR 3.4 ECMLFormula.g 2012-11-13 19:53:16
+// $ANTLR 3.4 ECMLFormula.g 2012-11-19 19:07:09
 
 package parsers;
 import org.apache.log4j.Logger;
@@ -8,6 +8,8 @@ import org.antlr.runtime.*;
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.antlr.runtime.tree.*;
 
@@ -15,12 +17,10 @@ import org.antlr.runtime.tree.*;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class ECMLFormulaParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "CONTVAR", "DISCVAR", "EQUAL", "FLOAT", "ID", "INT", "OPER", "RELOP", "WS", "'&&'", "'('", "')'", "'//'", "':'", "';'", "'='", "'A'", "'C'", "'D'", "'E'", "'['", "']'", "'||'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ECMLAND", "ECMLOR", "EQUAL", "FLOAT", "ID", "INT", "OPER", "RELOP", "SXAND", "SXOR", "WS", "'('", "')'", "'//'", "':'", "';'", "'='", "'A'", "'C'", "'D'", "'E'", "'['", "']'", "'d'"
     };
 
     public static final int EOF=-1;
-    public static final int T__13=13;
-    public static final int T__14=14;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
@@ -33,15 +33,18 @@ public class ECMLFormulaParser extends Parser {
     public static final int T__24=24;
     public static final int T__25=25;
     public static final int T__26=26;
-    public static final int CONTVAR=4;
-    public static final int DISCVAR=5;
+    public static final int T__27=27;
+    public static final int ECMLAND=4;
+    public static final int ECMLOR=5;
     public static final int EQUAL=6;
     public static final int FLOAT=7;
     public static final int ID=8;
     public static final int INT=9;
     public static final int OPER=10;
     public static final int RELOP=11;
-    public static final int WS=12;
+    public static final int SXAND=12;
+    public static final int SXOR=13;
+    public static final int WS=14;
 
     // delegates
     public Parser[] getDelegates() {
@@ -80,88 +83,90 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "var_def"
-    // ECMLFormula.g:28:1: var_def : var_rate_class identifier ':' var_type ( '=' constant )? ;
+    // ECMLFormula.g:26:1: var_def : var_rate_class ID ':' var_type ( '=' constant )? ;
     public final ECMLFormulaParser.var_def_return var_def() throws RecognitionException {
-        traceIn("var_def", 1);
         ECMLFormulaParser.var_def_return retval = new ECMLFormulaParser.var_def_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
+        Token ID2=null;
         Token char_literal3=null;
         Token char_literal5=null;
         ECMLFormulaParser.var_rate_class_return var_rate_class1 =null;
-
-        ECMLFormulaParser.identifier_return identifier2 =null;
 
         ECMLFormulaParser.var_type_return var_type4 =null;
 
         ECMLFormulaParser.constant_return constant6 =null;
 
 
+        Object ID2_tree=null;
         Object char_literal3_tree=null;
         Object char_literal5_tree=null;
 
         try {
-            // ECMLFormula.g:29:3: ( var_rate_class identifier ':' var_type ( '=' constant )? )
-            // ECMLFormula.g:30:3: var_rate_class identifier ':' var_type ( '=' constant )?
+            // ECMLFormula.g:27:3: ( var_rate_class ID ':' var_type ( '=' constant )? )
+            // ECMLFormula.g:28:3: var_rate_class ID ':' var_type ( '=' constant )?
             {
             root_0 = (Object)adaptor.nil();
 
 
-            pushFollow(FOLLOW_var_rate_class_in_var_def85);
+            pushFollow(FOLLOW_var_rate_class_in_var_def80);
             var_rate_class1=var_rate_class();
 
             state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, var_rate_class1.getTree());
 
-            adaptor.addChild(root_0, var_rate_class1.getTree());
+            ID2=(Token)match(input,ID,FOLLOW_ID_in_var_def82); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            ID2_tree = 
+            (Object)adaptor.create(ID2)
+            ;
+            adaptor.addChild(root_0, ID2_tree);
+            }
 
-            pushFollow(FOLLOW_identifier_in_var_def87);
-            identifier2=identifier();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, identifier2.getTree());
-
-            char_literal3=(Token)match(input,17,FOLLOW_17_in_var_def89); 
+            char_literal3=(Token)match(input,18,FOLLOW_18_in_var_def84); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
             char_literal3_tree = 
             (Object)adaptor.create(char_literal3)
             ;
             adaptor.addChild(root_0, char_literal3_tree);
+            }
 
-
-            pushFollow(FOLLOW_var_type_in_var_def91);
+            pushFollow(FOLLOW_var_type_in_var_def86);
             var_type4=var_type();
 
             state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, var_type4.getTree());
 
-            adaptor.addChild(root_0, var_type4.getTree());
-
-            // ECMLFormula.g:30:42: ( '=' constant )?
+            // ECMLFormula.g:28:34: ( '=' constant )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==19) ) {
+            if ( (LA1_0==20) ) {
                 alt1=1;
             }
             switch (alt1) {
                 case 1 :
-                    // ECMLFormula.g:30:43: '=' constant
+                    // ECMLFormula.g:28:35: '=' constant
                     {
-                    char_literal5=(Token)match(input,19,FOLLOW_19_in_var_def94); 
+                    char_literal5=(Token)match(input,20,FOLLOW_20_in_var_def89); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
                     char_literal5_tree = 
                     (Object)adaptor.create(char_literal5)
                     ;
                     adaptor.addChild(root_0, char_literal5_tree);
+                    }
 
-
-                    pushFollow(FOLLOW_constant_in_var_def96);
+                    pushFollow(FOLLOW_constant_in_var_def91);
                     constant6=constant();
 
                     state._fsp--;
-
-                    adaptor.addChild(root_0, constant6.getTree());
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, constant6.getTree());
 
                     }
                     break;
@@ -174,9 +179,11 @@ public TreeAdaptor getTreeAdaptor() {
             retval.stop = input.LT(-1);
 
 
+            if ( state.backtracking==0 ) {
+
             retval.tree = (Object)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -187,7 +194,6 @@ public TreeAdaptor getTreeAdaptor() {
 
         finally {
         	// do for sure before leaving
-            traceOut("var_def", 1);
         }
         return retval;
     }
@@ -201,9 +207,8 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "var_rate_class"
-    // ECMLFormula.g:33:1: var_rate_class : '[' var_rate_class_alphabet ']' ;
+    // ECMLFormula.g:31:1: var_rate_class : '[' var_rate_class_alphabet ']' ;
     public final ECMLFormulaParser.var_rate_class_return var_rate_class() throws RecognitionException {
-        traceIn("var_rate_class", 2);
         ECMLFormulaParser.var_rate_class_return retval = new ECMLFormulaParser.var_rate_class_return();
         retval.start = input.LT(1);
 
@@ -219,41 +224,45 @@ public TreeAdaptor getTreeAdaptor() {
         Object char_literal9_tree=null;
 
         try {
-            // ECMLFormula.g:34:3: ( '[' var_rate_class_alphabet ']' )
-            // ECMLFormula.g:35:3: '[' var_rate_class_alphabet ']'
+            // ECMLFormula.g:32:3: ( '[' var_rate_class_alphabet ']' )
+            // ECMLFormula.g:33:3: '[' var_rate_class_alphabet ']'
             {
             root_0 = (Object)adaptor.nil();
 
 
-            char_literal7=(Token)match(input,24,FOLLOW_24_in_var_rate_class113); 
+            char_literal7=(Token)match(input,25,FOLLOW_25_in_var_rate_class108); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
             char_literal7_tree = 
             (Object)adaptor.create(char_literal7)
             ;
             adaptor.addChild(root_0, char_literal7_tree);
+            }
 
-
-            pushFollow(FOLLOW_var_rate_class_alphabet_in_var_rate_class115);
+            pushFollow(FOLLOW_var_rate_class_alphabet_in_var_rate_class110);
             var_rate_class_alphabet8=var_rate_class_alphabet();
 
             state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, var_rate_class_alphabet8.getTree());
 
-            adaptor.addChild(root_0, var_rate_class_alphabet8.getTree());
-
-            char_literal9=(Token)match(input,25,FOLLOW_25_in_var_rate_class117); 
+            char_literal9=(Token)match(input,26,FOLLOW_26_in_var_rate_class112); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
             char_literal9_tree = 
             (Object)adaptor.create(char_literal9)
             ;
             adaptor.addChild(root_0, char_literal9_tree);
-
+            }
 
             }
 
             retval.stop = input.LT(-1);
 
 
+            if ( state.backtracking==0 ) {
+
             retval.tree = (Object)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -264,7 +273,6 @@ public TreeAdaptor getTreeAdaptor() {
 
         finally {
         	// do for sure before leaving
-            traceOut("var_rate_class", 2);
         }
         return retval;
     }
@@ -278,9 +286,8 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "var_rate_class_alphabet"
-    // ECMLFormula.g:38:1: var_rate_class_alphabet : ( 'A' | 'C' | 'D' | 'E' );
+    // ECMLFormula.g:36:1: var_rate_class_alphabet : ( 'A' | 'C' | 'D' | 'E' );
     public final ECMLFormulaParser.var_rate_class_alphabet_return var_rate_class_alphabet() throws RecognitionException {
-        traceIn("var_rate_class_alphabet", 3);
         ECMLFormulaParser.var_rate_class_alphabet_return retval = new ECMLFormulaParser.var_rate_class_alphabet_return();
         retval.start = input.LT(1);
 
@@ -292,7 +299,7 @@ public TreeAdaptor getTreeAdaptor() {
         Object set10_tree=null;
 
         try {
-            // ECMLFormula.g:39:3: ( 'A' | 'C' | 'D' | 'E' )
+            // ECMLFormula.g:37:3: ( 'A' | 'C' | 'D' | 'E' )
             // ECMLFormula.g:
             {
             root_0 = (Object)adaptor.nil();
@@ -300,14 +307,16 @@ public TreeAdaptor getTreeAdaptor() {
 
             set10=(Token)input.LT(1);
 
-            if ( (input.LA(1) >= 20 && input.LA(1) <= 23) ) {
+            if ( (input.LA(1) >= 21 && input.LA(1) <= 24) ) {
                 input.consume();
-                adaptor.addChild(root_0, 
+                if ( state.backtracking==0 ) adaptor.addChild(root_0, 
                 (Object)adaptor.create(set10)
                 );
                 state.errorRecovery=false;
+                state.failed=false;
             }
             else {
+                if (state.backtracking>0) {state.failed=true; return retval;}
                 MismatchedSetException mse = new MismatchedSetException(null,input);
                 throw mse;
             }
@@ -318,9 +327,11 @@ public TreeAdaptor getTreeAdaptor() {
             retval.stop = input.LT(-1);
 
 
+            if ( state.backtracking==0 ) {
+
             retval.tree = (Object)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -331,7 +342,6 @@ public TreeAdaptor getTreeAdaptor() {
 
         finally {
         	// do for sure before leaving
-            traceOut("var_rate_class_alphabet", 3);
         }
         return retval;
     }
@@ -345,41 +355,43 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "var_type"
-    // ECMLFormula.g:46:1: var_type : identifier ;
+    // ECMLFormula.g:44:1: var_type : ID ;
     public final ECMLFormulaParser.var_type_return var_type() throws RecognitionException {
-        traceIn("var_type", 4);
         ECMLFormulaParser.var_type_return retval = new ECMLFormulaParser.var_type_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
-        ECMLFormulaParser.identifier_return identifier11 =null;
+        Token ID11=null;
 
-
+        Object ID11_tree=null;
 
         try {
-            // ECMLFormula.g:47:3: ( identifier )
-            // ECMLFormula.g:48:3: identifier
+            // ECMLFormula.g:45:3: ( ID )
+            // ECMLFormula.g:46:3: ID
             {
             root_0 = (Object)adaptor.nil();
 
 
-            pushFollow(FOLLOW_identifier_in_var_type165);
-            identifier11=identifier();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, identifier11.getTree());
+            ID11=(Token)match(input,ID,FOLLOW_ID_in_var_type160); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            ID11_tree = 
+            (Object)adaptor.create(ID11)
+            ;
+            adaptor.addChild(root_0, ID11_tree);
+            }
 
             }
 
             retval.stop = input.LT(-1);
 
 
+            if ( state.backtracking==0 ) {
+
             retval.tree = (Object)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -390,32 +402,197 @@ public TreeAdaptor getTreeAdaptor() {
 
         finally {
         	// do for sure before leaving
-            traceOut("var_type", 4);
         }
         return retval;
     }
     // $ANTLR end "var_type"
 
 
+    public static class state_model_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "state_model"
+    // ECMLFormula.g:48:1: state_model : ( 'd' '(' ID ')' '=' bi_expression | ID '=' bi_expression );
+    public final ECMLFormulaParser.state_model_return state_model() throws RecognitionException {
+        ECMLFormulaParser.state_model_return retval = new ECMLFormulaParser.state_model_return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token char_literal12=null;
+        Token char_literal13=null;
+        Token ID14=null;
+        Token char_literal15=null;
+        Token char_literal16=null;
+        Token ID18=null;
+        Token char_literal19=null;
+        ECMLFormulaParser.bi_expression_return bi_expression17 =null;
+
+        ECMLFormulaParser.bi_expression_return bi_expression20 =null;
+
+
+        Object char_literal12_tree=null;
+        Object char_literal13_tree=null;
+        Object ID14_tree=null;
+        Object char_literal15_tree=null;
+        Object char_literal16_tree=null;
+        Object ID18_tree=null;
+        Object char_literal19_tree=null;
+
+        try {
+            // ECMLFormula.g:49:2: ( 'd' '(' ID ')' '=' bi_expression | ID '=' bi_expression )
+            int alt2=2;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0==27) ) {
+                alt2=1;
+            }
+            else if ( (LA2_0==ID) ) {
+                alt2=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 2, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt2) {
+                case 1 :
+                    // ECMLFormula.g:49:3: 'd' '(' ID ')' '=' bi_expression
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+
+                    char_literal12=(Token)match(input,27,FOLLOW_27_in_state_model170); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    char_literal12_tree = 
+                    (Object)adaptor.create(char_literal12)
+                    ;
+                    adaptor.addChild(root_0, char_literal12_tree);
+                    }
+
+                    char_literal13=(Token)match(input,15,FOLLOW_15_in_state_model172); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    char_literal13_tree = 
+                    (Object)adaptor.create(char_literal13)
+                    ;
+                    adaptor.addChild(root_0, char_literal13_tree);
+                    }
+
+                    ID14=(Token)match(input,ID,FOLLOW_ID_in_state_model174); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    ID14_tree = 
+                    (Object)adaptor.create(ID14)
+                    ;
+                    adaptor.addChild(root_0, ID14_tree);
+                    }
+
+                    char_literal15=(Token)match(input,16,FOLLOW_16_in_state_model176); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    char_literal15_tree = 
+                    (Object)adaptor.create(char_literal15)
+                    ;
+                    adaptor.addChild(root_0, char_literal15_tree);
+                    }
+
+                    char_literal16=(Token)match(input,20,FOLLOW_20_in_state_model178); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    char_literal16_tree = 
+                    (Object)adaptor.create(char_literal16)
+                    ;
+                    adaptor.addChild(root_0, char_literal16_tree);
+                    }
+
+                    pushFollow(FOLLOW_bi_expression_in_state_model180);
+                    bi_expression17=bi_expression();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, bi_expression17.getTree());
+
+                    }
+                    break;
+                case 2 :
+                    // ECMLFormula.g:50:4: ID '=' bi_expression
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+
+                    ID18=(Token)match(input,ID,FOLLOW_ID_in_state_model185); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    ID18_tree = 
+                    (Object)adaptor.create(ID18)
+                    ;
+                    adaptor.addChild(root_0, ID18_tree);
+                    }
+
+                    char_literal19=(Token)match(input,20,FOLLOW_20_in_state_model187); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    char_literal19_tree = 
+                    (Object)adaptor.create(char_literal19)
+                    ;
+                    adaptor.addChild(root_0, char_literal19_tree);
+                    }
+
+                    pushFollow(FOLLOW_bi_expression_in_state_model189);
+                    bi_expression20=bi_expression();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, bi_expression20.getTree());
+
+                    }
+                    break;
+
+            }
+            retval.stop = input.LT(-1);
+
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "state_model"
+
+
     protected static class connection_contents_scope {
         List<Tree> cond_arr;
-        List<Tree> act_arr;
     }
     protected Stack connection_contents_stack = new Stack();
 
 
     public static class connection_contents_return extends ParserRuleReturnScope {
+        public String label;
         public Tree[] conditions;
-        public Tree[] actions;
+        public Tree actions;
         Object tree;
         public Object getTree() { return tree; }
     };
 
 
     // $ANTLR start "connection_contents"
-    // ECMLFormula.g:53:1: connection_contents returns [Tree[] conditions, Tree[] actions] : identifier '[' condition_expression ']' ( '//' b= action_expression | '//' )? ;
+    // ECMLFormula.g:55:1: connection_contents returns [String label, Tree[] conditions, Tree actions] : ID '[' condition_expression ']' ( '//' b= action_expression | '//' )? ;
     public final ECMLFormulaParser.connection_contents_return connection_contents() throws RecognitionException {
-        traceIn("connection_contents", 5);
         connection_contents_stack.push(new connection_contents_scope());
         ECMLFormulaParser.connection_contents_return retval = new ECMLFormulaParser.connection_contents_return();
         retval.start = input.LT(1);
@@ -423,105 +600,110 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object root_0 = null;
 
-        Token char_literal13=null;
-        Token char_literal15=null;
-        Token string_literal16=null;
-        Token string_literal17=null;
+        Token ID21=null;
+        Token char_literal22=null;
+        Token char_literal24=null;
+        Token string_literal25=null;
+        Token string_literal26=null;
         ECMLFormulaParser.action_expression_return b =null;
 
-        ECMLFormulaParser.identifier_return identifier12 =null;
-
-        ECMLFormulaParser.condition_expression_return condition_expression14 =null;
+        ECMLFormulaParser.condition_expression_return condition_expression23 =null;
 
 
-        Object char_literal13_tree=null;
-        Object char_literal15_tree=null;
-        Object string_literal16_tree=null;
-        Object string_literal17_tree=null;
+        Object ID21_tree=null;
+        Object char_literal22_tree=null;
+        Object char_literal24_tree=null;
+        Object string_literal25_tree=null;
+        Object string_literal26_tree=null;
 
-        ((connection_contents_scope)connection_contents_stack.peek()).act_arr = new ArrayList<Tree>();
+
           ((connection_contents_scope)connection_contents_stack.peek()).cond_arr = new ArrayList<Tree>();
           
         try {
-            // ECMLFormula.g:60:3: ( identifier '[' condition_expression ']' ( '//' b= action_expression | '//' )? )
-            // ECMLFormula.g:61:3: identifier '[' condition_expression ']' ( '//' b= action_expression | '//' )?
+            // ECMLFormula.g:62:3: ( ID '[' condition_expression ']' ( '//' b= action_expression | '//' )? )
+            // ECMLFormula.g:63:3: ID '[' condition_expression ']' ( '//' b= action_expression | '//' )?
             {
             root_0 = (Object)adaptor.nil();
 
 
-            pushFollow(FOLLOW_identifier_in_connection_contents205);
-            identifier12=identifier();
+            ID21=(Token)match(input,ID,FOLLOW_ID_in_connection_contents229); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            ID21_tree = 
+            (Object)adaptor.create(ID21)
+            ;
+            adaptor.addChild(root_0, ID21_tree);
+            }
+
+            char_literal22=(Token)match(input,25,FOLLOW_25_in_connection_contents231); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            char_literal22_tree = 
+            (Object)adaptor.create(char_literal22)
+            ;
+            adaptor.addChild(root_0, char_literal22_tree);
+            }
+
+            pushFollow(FOLLOW_condition_expression_in_connection_contents233);
+            condition_expression23=condition_expression();
 
             state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, condition_expression23.getTree());
 
-            adaptor.addChild(root_0, identifier12.getTree());
-
-            char_literal13=(Token)match(input,24,FOLLOW_24_in_connection_contents207); 
-            char_literal13_tree = 
-            (Object)adaptor.create(char_literal13)
+            char_literal24=(Token)match(input,26,FOLLOW_26_in_connection_contents236); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            char_literal24_tree = 
+            (Object)adaptor.create(char_literal24)
             ;
-            adaptor.addChild(root_0, char_literal13_tree);
+            adaptor.addChild(root_0, char_literal24_tree);
+            }
 
+            // ECMLFormula.g:64:3: ( '//' b= action_expression | '//' )?
+            int alt3=3;
+            int LA3_0 = input.LA(1);
 
-            pushFollow(FOLLOW_condition_expression_in_connection_contents209);
-            condition_expression14=condition_expression();
+            if ( (LA3_0==17) ) {
+                int LA3_1 = input.LA(2);
 
-            state._fsp--;
-
-            adaptor.addChild(root_0, condition_expression14.getTree());
-
-            char_literal15=(Token)match(input,25,FOLLOW_25_in_connection_contents212); 
-            char_literal15_tree = 
-            (Object)adaptor.create(char_literal15)
-            ;
-            adaptor.addChild(root_0, char_literal15_tree);
-
-
-            // ECMLFormula.g:62:3: ( '//' b= action_expression | '//' )?
-            int alt2=3;
-            int LA2_0 = input.LA(1);
-
-            if ( (LA2_0==16) ) {
-                int LA2_1 = input.LA(2);
-
-                if ( (LA2_1==ID) ) {
-                    alt2=1;
+                if ( (LA3_1==ID) ) {
+                    alt3=1;
                 }
-                else if ( (LA2_1==EOF) ) {
-                    alt2=2;
+                else if ( (LA3_1==EOF) ) {
+                    alt3=2;
                 }
             }
-            switch (alt2) {
+            switch (alt3) {
                 case 1 :
-                    // ECMLFormula.g:63:5: '//' b= action_expression
+                    // ECMLFormula.g:65:5: '//' b= action_expression
                     {
-                    string_literal16=(Token)match(input,16,FOLLOW_16_in_connection_contents222); 
-                    string_literal16_tree = 
-                    (Object)adaptor.create(string_literal16)
+                    string_literal25=(Token)match(input,17,FOLLOW_17_in_connection_contents246); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    string_literal25_tree = 
+                    (Object)adaptor.create(string_literal25)
                     ;
-                    adaptor.addChild(root_0, string_literal16_tree);
+                    adaptor.addChild(root_0, string_literal25_tree);
+                    }
 
-
-                    pushFollow(FOLLOW_action_expression_in_connection_contents226);
+                    pushFollow(FOLLOW_action_expression_in_connection_contents250);
                     b=action_expression();
 
                     state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, b.getTree());
 
-                    adaptor.addChild(root_0, b.getTree());
-
-                     ((connection_contents_scope)connection_contents_stack.peek()).act_arr.add((Tree)(b!=null?((Object)b.tree):null));
+                    if ( state.backtracking==0 ) { retval.actions = (Tree)(b!=null?((Object)b.tree):null);}
 
                     }
                     break;
                 case 2 :
-                    // ECMLFormula.g:64:7: '//'
+                    // ECMLFormula.g:66:7: '//'
                     {
-                    string_literal17=(Token)match(input,16,FOLLOW_16_in_connection_contents235); 
-                    string_literal17_tree = 
-                    (Object)adaptor.create(string_literal17)
+                    string_literal26=(Token)match(input,17,FOLLOW_17_in_connection_contents259); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    string_literal26_tree = 
+                    (Object)adaptor.create(string_literal26)
                     ;
-                    adaptor.addChild(root_0, string_literal17_tree);
-
+                    adaptor.addChild(root_0, string_literal26_tree);
+                    }
 
                     }
                     break;
@@ -534,11 +716,13 @@ public TreeAdaptor getTreeAdaptor() {
             retval.stop = input.LT(-1);
 
 
+            if ( state.backtracking==0 ) {
+
             retval.tree = (Object)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
-            retval.conditions = ((connection_contents_scope)connection_contents_stack.peek()).cond_arr.toArray(new Tree[((connection_contents_scope)connection_contents_stack.peek()).cond_arr.size()]);
-              retval.actions = ((connection_contents_scope)connection_contents_stack.peek()).act_arr.toArray(new Tree[((connection_contents_scope)connection_contents_stack.peek()).act_arr.size()]);
+            }
+            if ( state.backtracking==0 ) {retval.conditions = ((connection_contents_scope)connection_contents_stack.peek()).cond_arr.toArray(new Tree[((connection_contents_scope)connection_contents_stack.peek()).cond_arr.size()]);
+              }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -549,7 +733,6 @@ public TreeAdaptor getTreeAdaptor() {
 
         finally {
         	// do for sure before leaving
-            traceOut("connection_contents", 5);
             connection_contents_stack.pop();
         }
         return retval;
@@ -564,170 +747,69 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "condition_expression"
-    // ECMLFormula.g:68:1: condition_expression : a= and_expression ( '||' ^b= and_expression )* ;
+    // ECMLFormula.g:70:1: condition_expression : a= and_expression ( ECMLOR b= and_expression )* ;
     public final ECMLFormulaParser.condition_expression_return condition_expression() throws RecognitionException {
-        traceIn("condition_expression", 6);
         ECMLFormulaParser.condition_expression_return retval = new ECMLFormulaParser.condition_expression_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
-        Token string_literal18=null;
+        Token ECMLOR27=null;
         ECMLFormulaParser.and_expression_return a =null;
 
         ECMLFormulaParser.and_expression_return b =null;
 
 
-        Object string_literal18_tree=null;
+        Object ECMLOR27_tree=null;
 
         try {
-            // ECMLFormula.g:69:3: (a= and_expression ( '||' ^b= and_expression )* )
-            // ECMLFormula.g:70:3: a= and_expression ( '||' ^b= and_expression )*
+            // ECMLFormula.g:71:3: (a= and_expression ( ECMLOR b= and_expression )* )
+            // ECMLFormula.g:72:3: a= and_expression ( ECMLOR b= and_expression )*
             {
             root_0 = (Object)adaptor.nil();
 
 
-            pushFollow(FOLLOW_and_expression_in_condition_expression258);
+            pushFollow(FOLLOW_and_expression_in_condition_expression282);
             a=and_expression();
 
             state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, a.getTree());
 
-            adaptor.addChild(root_0, a.getTree());
+            if ( state.backtracking==0 ) {((connection_contents_scope)connection_contents_stack.peek()).cond_arr.add((Tree)(a!=null?((Object)a.tree):null));}
 
-            ((connection_contents_scope)connection_contents_stack.peek()).cond_arr.add((Tree)(a!=null?((Object)a.tree):null));
-
-            // ECMLFormula.g:70:72: ( '||' ^b= and_expression )*
-            loop3:
-            do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
-
-                if ( (LA3_0==26) ) {
-                    alt3=1;
-                }
-
-
-                switch (alt3) {
-            	case 1 :
-            	    // ECMLFormula.g:70:73: '||' ^b= and_expression
-            	    {
-            	    string_literal18=(Token)match(input,26,FOLLOW_26_in_condition_expression262); 
-            	    string_literal18_tree = 
-            	    (Object)adaptor.create(string_literal18)
-            	    ;
-            	    root_0 = (Object)adaptor.becomeRoot(string_literal18_tree, root_0);
-
-
-            	    pushFollow(FOLLOW_and_expression_in_condition_expression267);
-            	    b=and_expression();
-
-            	    state._fsp--;
-
-            	    adaptor.addChild(root_0, b.getTree());
-
-            	    ((connection_contents_scope)connection_contents_stack.peek()).cond_arr.add((Tree)(b!=null?((Object)b.tree):null));
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop3;
-                }
-            } while (true);
-
-
-            }
-
-            retval.stop = input.LT(-1);
-
-
-            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-
-        finally {
-        	// do for sure before leaving
-            traceOut("condition_expression", 6);
-        }
-        return retval;
-    }
-    // $ANTLR end "condition_expression"
-
-
-    public static class and_expression_return extends ParserRuleReturnScope {
-        Object tree;
-        public Object getTree() { return tree; }
-    };
-
-
-    // $ANTLR start "and_expression"
-    // ECMLFormula.g:73:1: and_expression : relational_expression ( '&&' ^ relational_expression )* ;
-    public final ECMLFormulaParser.and_expression_return and_expression() throws RecognitionException {
-        traceIn("and_expression", 7);
-        ECMLFormulaParser.and_expression_return retval = new ECMLFormulaParser.and_expression_return();
-        retval.start = input.LT(1);
-
-
-        Object root_0 = null;
-
-        Token string_literal20=null;
-        ECMLFormulaParser.relational_expression_return relational_expression19 =null;
-
-        ECMLFormulaParser.relational_expression_return relational_expression21 =null;
-
-
-        Object string_literal20_tree=null;
-
-        try {
-            // ECMLFormula.g:74:3: ( relational_expression ( '&&' ^ relational_expression )* )
-            // ECMLFormula.g:75:3: relational_expression ( '&&' ^ relational_expression )*
-            {
-            root_0 = (Object)adaptor.nil();
-
-
-            pushFollow(FOLLOW_relational_expression_in_and_expression285);
-            relational_expression19=relational_expression();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, relational_expression19.getTree());
-
-            // ECMLFormula.g:75:25: ( '&&' ^ relational_expression )*
+            // ECMLFormula.g:72:72: ( ECMLOR b= and_expression )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==13) ) {
+                if ( (LA4_0==ECMLOR) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // ECMLFormula.g:75:26: '&&' ^ relational_expression
+            	    // ECMLFormula.g:72:73: ECMLOR b= and_expression
             	    {
-            	    string_literal20=(Token)match(input,13,FOLLOW_13_in_and_expression288); 
-            	    string_literal20_tree = 
-            	    (Object)adaptor.create(string_literal20)
+            	    ECMLOR27=(Token)match(input,ECMLOR,FOLLOW_ECMLOR_in_condition_expression286); if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) {
+            	    ECMLOR27_tree = 
+            	    (Object)adaptor.create(ECMLOR27)
             	    ;
-            	    root_0 = (Object)adaptor.becomeRoot(string_literal20_tree, root_0);
+            	    adaptor.addChild(root_0, ECMLOR27_tree);
+            	    }
 
-
-            	    pushFollow(FOLLOW_relational_expression_in_and_expression291);
-            	    relational_expression21=relational_expression();
+            	    pushFollow(FOLLOW_and_expression_in_condition_expression290);
+            	    b=and_expression();
 
             	    state._fsp--;
+            	    if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, b.getTree());
 
-            	    adaptor.addChild(root_0, relational_expression21.getTree());
+            	    if ( state.backtracking==0 ) {((connection_contents_scope)connection_contents_stack.peek()).cond_arr.add((Tree)(b!=null?((Object)b.tree):null));}
 
             	    }
             	    break;
@@ -743,9 +825,11 @@ public TreeAdaptor getTreeAdaptor() {
             retval.stop = input.LT(-1);
 
 
+            if ( state.backtracking==0 ) {
+
             retval.tree = (Object)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -756,7 +840,207 @@ public TreeAdaptor getTreeAdaptor() {
 
         finally {
         	// do for sure before leaving
-            traceOut("and_expression", 7);
+        }
+        return retval;
+    }
+    // $ANTLR end "condition_expression"
+
+
+    public static class and_expression_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "and_expression"
+    // ECMLFormula.g:75:1: and_expression : ( relational_expression ECMLAND and_expression -> ^( SXAND relational_expression and_expression ) | relational_expression );
+    public final ECMLFormulaParser.and_expression_return and_expression() throws RecognitionException {
+        ECMLFormulaParser.and_expression_return retval = new ECMLFormulaParser.and_expression_return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token ECMLAND29=null;
+        ECMLFormulaParser.relational_expression_return relational_expression28 =null;
+
+        ECMLFormulaParser.and_expression_return and_expression30 =null;
+
+        ECMLFormulaParser.relational_expression_return relational_expression31 =null;
+
+
+        Object ECMLAND29_tree=null;
+        RewriteRuleTokenStream stream_ECMLAND=new RewriteRuleTokenStream(adaptor,"token ECMLAND");
+        RewriteRuleSubtreeStream stream_and_expression=new RewriteRuleSubtreeStream(adaptor,"rule and_expression");
+        RewriteRuleSubtreeStream stream_relational_expression=new RewriteRuleSubtreeStream(adaptor,"rule relational_expression");
+        try {
+            // ECMLFormula.g:76:3: ( relational_expression ECMLAND and_expression -> ^( SXAND relational_expression and_expression ) | relational_expression )
+            int alt5=2;
+            switch ( input.LA(1) ) {
+            case ID:
+                {
+                int LA5_1 = input.LA(2);
+
+                if ( (synpred9_ECMLFormula()) ) {
+                    alt5=1;
+                }
+                else if ( (true) ) {
+                    alt5=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return retval;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 5, 1, input);
+
+                    throw nvae;
+
+                }
+                }
+                break;
+            case FLOAT:
+            case INT:
+                {
+                int LA5_2 = input.LA(2);
+
+                if ( (synpred9_ECMLFormula()) ) {
+                    alt5=1;
+                }
+                else if ( (true) ) {
+                    alt5=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return retval;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 5, 2, input);
+
+                    throw nvae;
+
+                }
+                }
+                break;
+            case 15:
+                {
+                int LA5_3 = input.LA(2);
+
+                if ( (synpred9_ECMLFormula()) ) {
+                    alt5=1;
+                }
+                else if ( (true) ) {
+                    alt5=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return retval;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 5, 3, input);
+
+                    throw nvae;
+
+                }
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
+
+                throw nvae;
+
+            }
+
+            switch (alt5) {
+                case 1 :
+                    // ECMLFormula.g:77:4: relational_expression ECMLAND and_expression
+                    {
+                    pushFollow(FOLLOW_relational_expression_in_and_expression309);
+                    relational_expression28=relational_expression();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) stream_relational_expression.add(relational_expression28.getTree());
+
+                    ECMLAND29=(Token)match(input,ECMLAND,FOLLOW_ECMLAND_in_and_expression311); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_ECMLAND.add(ECMLAND29);
+
+
+                    pushFollow(FOLLOW_and_expression_in_and_expression313);
+                    and_expression30=and_expression();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) stream_and_expression.add(and_expression30.getTree());
+
+                    // AST REWRITE
+                    // elements: relational_expression, and_expression
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 77:49: -> ^( SXAND relational_expression and_expression )
+                    {
+                        // ECMLFormula.g:77:52: ^( SXAND relational_expression and_expression )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot(
+                        (Object)adaptor.create(SXAND, "SXAND")
+                        , root_1);
+
+                        adaptor.addChild(root_1, stream_relational_expression.nextTree());
+
+                        adaptor.addChild(root_1, stream_and_expression.nextTree());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+
+                    retval.tree = root_0;
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // ECMLFormula.g:78:5: relational_expression
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+
+                    pushFollow(FOLLOW_relational_expression_in_and_expression329);
+                    relational_expression31=relational_expression();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, relational_expression31.getTree());
+
+                    }
+                    break;
+
+            }
+            retval.stop = input.LT(-1);
+
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
         }
         return retval;
     }
@@ -770,9 +1054,8 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "relational_expression"
-    // ECMLFormula.g:78:1: relational_expression : a= bi_expression o= ( RELOP ) b= bi_expression -> ^( RELOP $a $b) ;
+    // ECMLFormula.g:81:1: relational_expression : a= bi_expression o= ( RELOP ) b= bi_expression -> ^( RELOP $a $b) ;
     public final ECMLFormulaParser.relational_expression_return relational_expression() throws RecognitionException {
-        traceIn("relational_expression", 8);
         ECMLFormulaParser.relational_expression_return retval = new ECMLFormulaParser.relational_expression_return();
         retval.start = input.LT(1);
 
@@ -780,60 +1063,62 @@ public TreeAdaptor getTreeAdaptor() {
         Object root_0 = null;
 
         Token o=null;
-        Token RELOP22=null;
+        Token RELOP32=null;
         ECMLFormulaParser.bi_expression_return a =null;
 
         ECMLFormulaParser.bi_expression_return b =null;
 
 
         Object o_tree=null;
-        Object RELOP22_tree=null;
+        Object RELOP32_tree=null;
         RewriteRuleTokenStream stream_RELOP=new RewriteRuleTokenStream(adaptor,"token RELOP");
         RewriteRuleSubtreeStream stream_bi_expression=new RewriteRuleSubtreeStream(adaptor,"rule bi_expression");
         try {
-            // ECMLFormula.g:79:3: (a= bi_expression o= ( RELOP ) b= bi_expression -> ^( RELOP $a $b) )
-            // ECMLFormula.g:80:3: a= bi_expression o= ( RELOP ) b= bi_expression
+            // ECMLFormula.g:82:3: (a= bi_expression o= ( RELOP ) b= bi_expression -> ^( RELOP $a $b) )
+            // ECMLFormula.g:83:3: a= bi_expression o= ( RELOP ) b= bi_expression
             {
-            pushFollow(FOLLOW_bi_expression_in_relational_expression310);
+            pushFollow(FOLLOW_bi_expression_in_relational_expression349);
             a=bi_expression();
 
             state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) stream_bi_expression.add(a.getTree());
 
-            stream_bi_expression.add(a.getTree());
-
-            // ECMLFormula.g:80:21: ( RELOP )
-            // ECMLFormula.g:80:22: RELOP
+            // ECMLFormula.g:83:21: ( RELOP )
+            // ECMLFormula.g:83:22: RELOP
             {
-            RELOP22=(Token)match(input,RELOP,FOLLOW_RELOP_in_relational_expression315);  
-            stream_RELOP.add(RELOP22);
+            RELOP32=(Token)match(input,RELOP,FOLLOW_RELOP_in_relational_expression354); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_RELOP.add(RELOP32);
 
 
             }
 
 
-            pushFollow(FOLLOW_bi_expression_in_relational_expression320);
+            pushFollow(FOLLOW_bi_expression_in_relational_expression359);
             b=bi_expression();
 
             state._fsp--;
-
-            stream_bi_expression.add(b.getTree());
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) stream_bi_expression.add(b.getTree());
 
             // AST REWRITE
-            // elements: RELOP, a, b
+            // elements: a, b, RELOP
             // token labels: 
             // rule labels: retval, b, a
             // token list labels: 
             // rule list labels: 
             // wildcard labels: 
+            if ( state.backtracking==0 ) {
+
             retval.tree = root_0;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
             RewriteRuleSubtreeStream stream_b=new RewriteRuleSubtreeStream(adaptor,"rule b",b!=null?b.tree:null);
             RewriteRuleSubtreeStream stream_a=new RewriteRuleSubtreeStream(adaptor,"rule a",a!=null?a.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 81:5: -> ^( RELOP $a $b)
+            // 84:5: -> ^( RELOP $a $b)
             {
-                // ECMLFormula.g:82:7: ^( RELOP $a $b)
+                // ECMLFormula.g:85:7: ^( RELOP $a $b)
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(
@@ -851,15 +1136,18 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             retval.tree = root_0;
+            }
 
             }
 
             retval.stop = input.LT(-1);
 
 
+            if ( state.backtracking==0 ) {
+
             retval.tree = (Object)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -870,7 +1158,6 @@ public TreeAdaptor getTreeAdaptor() {
 
         finally {
         	// do for sure before leaving
-            traceOut("relational_expression", 8);
         }
         return retval;
     }
@@ -884,249 +1171,65 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "action_expressions"
-    // ECMLFormula.g:85:1: action_expressions : action_expression ( ';' ^ action_expression )* ;
+    // ECMLFormula.g:88:1: action_expressions : action_expression ( ';' ^ action_expression )* ;
     public final ECMLFormulaParser.action_expressions_return action_expressions() throws RecognitionException {
-        traceIn("action_expressions", 9);
         ECMLFormulaParser.action_expressions_return retval = new ECMLFormulaParser.action_expressions_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
-        Token char_literal24=null;
-        ECMLFormulaParser.action_expression_return action_expression23 =null;
+        Token char_literal34=null;
+        ECMLFormulaParser.action_expression_return action_expression33 =null;
 
-        ECMLFormulaParser.action_expression_return action_expression25 =null;
+        ECMLFormulaParser.action_expression_return action_expression35 =null;
 
 
-        Object char_literal24_tree=null;
+        Object char_literal34_tree=null;
 
         try {
-            // ECMLFormula.g:86:3: ( action_expression ( ';' ^ action_expression )* )
-            // ECMLFormula.g:87:3: action_expression ( ';' ^ action_expression )*
+            // ECMLFormula.g:89:3: ( action_expression ( ';' ^ action_expression )* )
+            // ECMLFormula.g:90:3: action_expression ( ';' ^ action_expression )*
             {
             root_0 = (Object)adaptor.nil();
 
 
-            pushFollow(FOLLOW_action_expression_in_action_expressions357);
-            action_expression23=action_expression();
+            pushFollow(FOLLOW_action_expression_in_action_expressions396);
+            action_expression33=action_expression();
 
             state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, action_expression33.getTree());
 
-            adaptor.addChild(root_0, action_expression23.getTree());
-
-            // ECMLFormula.g:87:21: ( ';' ^ action_expression )*
-            loop5:
-            do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
-
-                if ( (LA5_0==18) ) {
-                    alt5=1;
-                }
-
-
-                switch (alt5) {
-            	case 1 :
-            	    // ECMLFormula.g:87:22: ';' ^ action_expression
-            	    {
-            	    char_literal24=(Token)match(input,18,FOLLOW_18_in_action_expressions360); 
-            	    char_literal24_tree = 
-            	    (Object)adaptor.create(char_literal24)
-            	    ;
-            	    root_0 = (Object)adaptor.becomeRoot(char_literal24_tree, root_0);
-
-
-            	    pushFollow(FOLLOW_action_expression_in_action_expressions364);
-            	    action_expression25=action_expression();
-
-            	    state._fsp--;
-
-            	    adaptor.addChild(root_0, action_expression25.getTree());
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop5;
-                }
-            } while (true);
-
-
-            }
-
-            retval.stop = input.LT(-1);
-
-
-            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-
-        finally {
-        	// do for sure before leaving
-            traceOut("action_expressions", 9);
-        }
-        return retval;
-    }
-    // $ANTLR end "action_expressions"
-
-
-    public static class action_expression_return extends ParserRuleReturnScope {
-        Object tree;
-        public Object getTree() { return tree; }
-    };
-
-
-    // $ANTLR start "action_expression"
-    // ECMLFormula.g:90:1: action_expression : ID '=' bi_expression ;
-    public final ECMLFormulaParser.action_expression_return action_expression() throws RecognitionException {
-        traceIn("action_expression", 10);
-        ECMLFormulaParser.action_expression_return retval = new ECMLFormulaParser.action_expression_return();
-        retval.start = input.LT(1);
-
-
-        Object root_0 = null;
-
-        Token ID26=null;
-        Token char_literal27=null;
-        ECMLFormulaParser.bi_expression_return bi_expression28 =null;
-
-
-        Object ID26_tree=null;
-        Object char_literal27_tree=null;
-
-        try {
-            // ECMLFormula.g:91:3: ( ID '=' bi_expression )
-            // ECMLFormula.g:92:3: ID '=' bi_expression
-            {
-            root_0 = (Object)adaptor.nil();
-
-
-            ID26=(Token)match(input,ID,FOLLOW_ID_in_action_expression381); 
-            ID26_tree = 
-            (Object)adaptor.create(ID26)
-            ;
-            adaptor.addChild(root_0, ID26_tree);
-
-
-            char_literal27=(Token)match(input,19,FOLLOW_19_in_action_expression383); 
-            char_literal27_tree = 
-            (Object)adaptor.create(char_literal27)
-            ;
-            adaptor.addChild(root_0, char_literal27_tree);
-
-
-            pushFollow(FOLLOW_bi_expression_in_action_expression385);
-            bi_expression28=bi_expression();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, bi_expression28.getTree());
-
-            }
-
-            retval.stop = input.LT(-1);
-
-
-            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-
-        finally {
-        	// do for sure before leaving
-            traceOut("action_expression", 10);
-        }
-        return retval;
-    }
-    // $ANTLR end "action_expression"
-
-
-    public static class bi_expression_return extends ParserRuleReturnScope {
-        Object tree;
-        public Object getTree() { return tree; }
-    };
-
-
-    // $ANTLR start "bi_expression"
-    // ECMLFormula.g:95:1: bi_expression : ( primary_expression ) ( OPER ^ primary_expression )* ;
-    public final ECMLFormulaParser.bi_expression_return bi_expression() throws RecognitionException {
-        traceIn("bi_expression", 11);
-        ECMLFormulaParser.bi_expression_return retval = new ECMLFormulaParser.bi_expression_return();
-        retval.start = input.LT(1);
-
-
-        Object root_0 = null;
-
-        Token OPER30=null;
-        ECMLFormulaParser.primary_expression_return primary_expression29 =null;
-
-        ECMLFormulaParser.primary_expression_return primary_expression31 =null;
-
-
-        Object OPER30_tree=null;
-
-        try {
-            // ECMLFormula.g:96:3: ( ( primary_expression ) ( OPER ^ primary_expression )* )
-            // ECMLFormula.g:97:3: ( primary_expression ) ( OPER ^ primary_expression )*
-            {
-            root_0 = (Object)adaptor.nil();
-
-
-            // ECMLFormula.g:97:3: ( primary_expression )
-            // ECMLFormula.g:97:4: primary_expression
-            {
-            pushFollow(FOLLOW_primary_expression_in_bi_expression401);
-            primary_expression29=primary_expression();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, primary_expression29.getTree());
-
-            }
-
-
-            // ECMLFormula.g:97:24: ( OPER ^ primary_expression )*
+            // ECMLFormula.g:90:21: ( ';' ^ action_expression )*
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( (LA6_0==OPER) ) {
+                if ( (LA6_0==19) ) {
                     alt6=1;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // ECMLFormula.g:97:25: OPER ^ primary_expression
+            	    // ECMLFormula.g:90:22: ';' ^ action_expression
             	    {
-            	    OPER30=(Token)match(input,OPER,FOLLOW_OPER_in_bi_expression405); 
-            	    OPER30_tree = 
-            	    (Object)adaptor.create(OPER30)
+            	    char_literal34=(Token)match(input,19,FOLLOW_19_in_action_expressions399); if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) {
+            	    char_literal34_tree = 
+            	    (Object)adaptor.create(char_literal34)
             	    ;
-            	    root_0 = (Object)adaptor.becomeRoot(OPER30_tree, root_0);
+            	    root_0 = (Object)adaptor.becomeRoot(char_literal34_tree, root_0);
+            	    }
 
-
-            	    pushFollow(FOLLOW_primary_expression_in_bi_expression408);
-            	    primary_expression31=primary_expression();
+            	    pushFollow(FOLLOW_action_expression_in_action_expressions403);
+            	    action_expression35=action_expression();
 
             	    state._fsp--;
-
-            	    adaptor.addChild(root_0, primary_expression31.getTree());
+            	    if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, action_expression35.getTree());
 
             	    }
             	    break;
@@ -1142,9 +1245,11 @@ public TreeAdaptor getTreeAdaptor() {
             retval.stop = input.LT(-1);
 
 
+            if ( state.backtracking==0 ) {
+
             retval.tree = (Object)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -1155,7 +1260,193 @@ public TreeAdaptor getTreeAdaptor() {
 
         finally {
         	// do for sure before leaving
-            traceOut("bi_expression", 11);
+        }
+        return retval;
+    }
+    // $ANTLR end "action_expressions"
+
+
+    public static class action_expression_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "action_expression"
+    // ECMLFormula.g:93:1: action_expression : ID '=' bi_expression ;
+    public final ECMLFormulaParser.action_expression_return action_expression() throws RecognitionException {
+        ECMLFormulaParser.action_expression_return retval = new ECMLFormulaParser.action_expression_return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token ID36=null;
+        Token char_literal37=null;
+        ECMLFormulaParser.bi_expression_return bi_expression38 =null;
+
+
+        Object ID36_tree=null;
+        Object char_literal37_tree=null;
+
+        try {
+            // ECMLFormula.g:94:3: ( ID '=' bi_expression )
+            // ECMLFormula.g:95:3: ID '=' bi_expression
+            {
+            root_0 = (Object)adaptor.nil();
+
+
+            ID36=(Token)match(input,ID,FOLLOW_ID_in_action_expression420); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            ID36_tree = 
+            (Object)adaptor.create(ID36)
+            ;
+            adaptor.addChild(root_0, ID36_tree);
+            }
+
+            char_literal37=(Token)match(input,20,FOLLOW_20_in_action_expression422); if (state.failed) return retval;
+            if ( state.backtracking==0 ) {
+            char_literal37_tree = 
+            (Object)adaptor.create(char_literal37)
+            ;
+            adaptor.addChild(root_0, char_literal37_tree);
+            }
+
+            pushFollow(FOLLOW_bi_expression_in_action_expression424);
+            bi_expression38=bi_expression();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, bi_expression38.getTree());
+
+            }
+
+            retval.stop = input.LT(-1);
+
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "action_expression"
+
+
+    public static class bi_expression_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "bi_expression"
+    // ECMLFormula.g:98:1: bi_expression : ( primary_expression ) ( OPER ^ primary_expression )* ;
+    public final ECMLFormulaParser.bi_expression_return bi_expression() throws RecognitionException {
+        ECMLFormulaParser.bi_expression_return retval = new ECMLFormulaParser.bi_expression_return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token OPER40=null;
+        ECMLFormulaParser.primary_expression_return primary_expression39 =null;
+
+        ECMLFormulaParser.primary_expression_return primary_expression41 =null;
+
+
+        Object OPER40_tree=null;
+
+        try {
+            // ECMLFormula.g:99:3: ( ( primary_expression ) ( OPER ^ primary_expression )* )
+            // ECMLFormula.g:100:3: ( primary_expression ) ( OPER ^ primary_expression )*
+            {
+            root_0 = (Object)adaptor.nil();
+
+
+            // ECMLFormula.g:100:3: ( primary_expression )
+            // ECMLFormula.g:100:4: primary_expression
+            {
+            pushFollow(FOLLOW_primary_expression_in_bi_expression440);
+            primary_expression39=primary_expression();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) adaptor.addChild(root_0, primary_expression39.getTree());
+
+            }
+
+
+            // ECMLFormula.g:100:24: ( OPER ^ primary_expression )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==OPER) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // ECMLFormula.g:100:25: OPER ^ primary_expression
+            	    {
+            	    OPER40=(Token)match(input,OPER,FOLLOW_OPER_in_bi_expression444); if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) {
+            	    OPER40_tree = 
+            	    (Object)adaptor.create(OPER40)
+            	    ;
+            	    root_0 = (Object)adaptor.becomeRoot(OPER40_tree, root_0);
+            	    }
+
+            	    pushFollow(FOLLOW_primary_expression_in_bi_expression447);
+            	    primary_expression41=primary_expression();
+
+            	    state._fsp--;
+            	    if (state.failed) return retval;
+            	    if ( state.backtracking==0 ) adaptor.addChild(root_0, primary_expression41.getTree());
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+
+            }
+
+            retval.stop = input.LT(-1);
+
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
         }
         return retval;
     }
@@ -1169,112 +1460,115 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "primary_expression"
-    // ECMLFormula.g:100:1: primary_expression : ( identifier | constant | '(' bi_expression ')' );
+    // ECMLFormula.g:103:1: primary_expression : ( ID | constant | '(' bi_expression ')' );
     public final ECMLFormulaParser.primary_expression_return primary_expression() throws RecognitionException {
-        traceIn("primary_expression", 12);
         ECMLFormulaParser.primary_expression_return retval = new ECMLFormulaParser.primary_expression_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
-        Token char_literal34=null;
-        Token char_literal36=null;
-        ECMLFormulaParser.identifier_return identifier32 =null;
+        Token ID42=null;
+        Token char_literal44=null;
+        Token char_literal46=null;
+        ECMLFormulaParser.constant_return constant43 =null;
 
-        ECMLFormulaParser.constant_return constant33 =null;
-
-        ECMLFormulaParser.bi_expression_return bi_expression35 =null;
+        ECMLFormulaParser.bi_expression_return bi_expression45 =null;
 
 
-        Object char_literal34_tree=null;
-        Object char_literal36_tree=null;
+        Object ID42_tree=null;
+        Object char_literal44_tree=null;
+        Object char_literal46_tree=null;
 
         try {
-            // ECMLFormula.g:101:3: ( identifier | constant | '(' bi_expression ')' )
-            int alt7=3;
+            // ECMLFormula.g:104:3: ( ID | constant | '(' bi_expression ')' )
+            int alt8=3;
             switch ( input.LA(1) ) {
             case ID:
                 {
-                alt7=1;
+                alt8=1;
                 }
                 break;
             case FLOAT:
             case INT:
                 {
-                alt7=2;
+                alt8=2;
                 }
                 break;
-            case 14:
+            case 15:
                 {
-                alt7=3;
+                alt8=3;
                 }
                 break;
             default:
+                if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // ECMLFormula.g:102:3: identifier
+                    // ECMLFormula.g:105:3: ID
                     {
                     root_0 = (Object)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_identifier_in_primary_expression425);
-                    identifier32=identifier();
-
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, identifier32.getTree());
+                    ID42=(Token)match(input,ID,FOLLOW_ID_in_primary_expression464); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    ID42_tree = 
+                    (Object)adaptor.create(ID42)
+                    ;
+                    adaptor.addChild(root_0, ID42_tree);
+                    }
 
                     }
                     break;
                 case 2 :
-                    // ECMLFormula.g:103:5: constant
+                    // ECMLFormula.g:106:5: constant
                     {
                     root_0 = (Object)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_constant_in_primary_expression431);
-                    constant33=constant();
+                    pushFollow(FOLLOW_constant_in_primary_expression470);
+                    constant43=constant();
 
                     state._fsp--;
-
-                    adaptor.addChild(root_0, constant33.getTree());
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, constant43.getTree());
 
                     }
                     break;
                 case 3 :
-                    // ECMLFormula.g:104:5: '(' bi_expression ')'
+                    // ECMLFormula.g:107:5: '(' bi_expression ')'
                     {
                     root_0 = (Object)adaptor.nil();
 
 
-                    char_literal34=(Token)match(input,14,FOLLOW_14_in_primary_expression437); 
-                    char_literal34_tree = 
-                    (Object)adaptor.create(char_literal34)
+                    char_literal44=(Token)match(input,15,FOLLOW_15_in_primary_expression476); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    char_literal44_tree = 
+                    (Object)adaptor.create(char_literal44)
                     ;
-                    adaptor.addChild(root_0, char_literal34_tree);
+                    adaptor.addChild(root_0, char_literal44_tree);
+                    }
 
-
-                    pushFollow(FOLLOW_bi_expression_in_primary_expression439);
-                    bi_expression35=bi_expression();
+                    pushFollow(FOLLOW_bi_expression_in_primary_expression478);
+                    bi_expression45=bi_expression();
 
                     state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, bi_expression45.getTree());
 
-                    adaptor.addChild(root_0, bi_expression35.getTree());
-
-                    char_literal36=(Token)match(input,15,FOLLOW_15_in_primary_expression441); 
-                    char_literal36_tree = 
-                    (Object)adaptor.create(char_literal36)
+                    char_literal46=(Token)match(input,16,FOLLOW_16_in_primary_expression480); if (state.failed) return retval;
+                    if ( state.backtracking==0 ) {
+                    char_literal46_tree = 
+                    (Object)adaptor.create(char_literal46)
                     ;
-                    adaptor.addChild(root_0, char_literal36_tree);
-
+                    adaptor.addChild(root_0, char_literal46_tree);
+                    }
 
                     }
                     break;
@@ -1283,9 +1577,11 @@ public TreeAdaptor getTreeAdaptor() {
             retval.stop = input.LT(-1);
 
 
+            if ( state.backtracking==0 ) {
+
             retval.tree = (Object)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -1296,70 +1592,10 @@ public TreeAdaptor getTreeAdaptor() {
 
         finally {
         	// do for sure before leaving
-            traceOut("primary_expression", 12);
         }
         return retval;
     }
     // $ANTLR end "primary_expression"
-
-
-    public static class identifier_return extends ParserRuleReturnScope {
-        Object tree;
-        public Object getTree() { return tree; }
-    };
-
-
-    // $ANTLR start "identifier"
-    // ECMLFormula.g:107:1: identifier : ID ;
-    public final ECMLFormulaParser.identifier_return identifier() throws RecognitionException {
-        traceIn("identifier", 13);
-        ECMLFormulaParser.identifier_return retval = new ECMLFormulaParser.identifier_return();
-        retval.start = input.LT(1);
-
-
-        Object root_0 = null;
-
-        Token ID37=null;
-
-        Object ID37_tree=null;
-
-        try {
-            // ECMLFormula.g:108:3: ( ID )
-            // ECMLFormula.g:109:3: ID
-            {
-            root_0 = (Object)adaptor.nil();
-
-
-            ID37=(Token)match(input,ID,FOLLOW_ID_in_identifier456); 
-            ID37_tree = 
-            (Object)adaptor.create(ID37)
-            ;
-            adaptor.addChild(root_0, ID37_tree);
-
-
-            }
-
-            retval.stop = input.LT(-1);
-
-
-            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
-            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
-
-        }
-
-        finally {
-        	// do for sure before leaving
-            traceOut("identifier", 13);
-        }
-        return retval;
-    }
-    // $ANTLR end "identifier"
 
 
     public static class constant_return extends ParserRuleReturnScope {
@@ -1369,36 +1605,37 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "constant"
-    // ECMLFormula.g:112:1: constant : ( INT | FLOAT );
+    // ECMLFormula.g:110:1: constant : ( INT | FLOAT );
     public final ECMLFormulaParser.constant_return constant() throws RecognitionException {
-        traceIn("constant", 14);
         ECMLFormulaParser.constant_return retval = new ECMLFormulaParser.constant_return();
         retval.start = input.LT(1);
 
 
         Object root_0 = null;
 
-        Token set38=null;
+        Token set47=null;
 
-        Object set38_tree=null;
+        Object set47_tree=null;
 
         try {
-            // ECMLFormula.g:113:3: ( INT | FLOAT )
+            // ECMLFormula.g:111:3: ( INT | FLOAT )
             // ECMLFormula.g:
             {
             root_0 = (Object)adaptor.nil();
 
 
-            set38=(Token)input.LT(1);
+            set47=(Token)input.LT(1);
 
             if ( input.LA(1)==FLOAT||input.LA(1)==INT ) {
                 input.consume();
-                adaptor.addChild(root_0, 
-                (Object)adaptor.create(set38)
+                if ( state.backtracking==0 ) adaptor.addChild(root_0, 
+                (Object)adaptor.create(set47)
                 );
                 state.errorRecovery=false;
+                state.failed=false;
             }
             else {
+                if (state.backtracking>0) {state.failed=true; return retval;}
                 MismatchedSetException mse = new MismatchedSetException(null,input);
                 throw mse;
             }
@@ -1409,9 +1646,11 @@ public TreeAdaptor getTreeAdaptor() {
             retval.stop = input.LT(-1);
 
 
+            if ( state.backtracking==0 ) {
+
             retval.tree = (Object)adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -1422,57 +1661,107 @@ public TreeAdaptor getTreeAdaptor() {
 
         finally {
         	// do for sure before leaving
-            traceOut("constant", 14);
         }
         return retval;
     }
     // $ANTLR end "constant"
 
+    // $ANTLR start synpred9_ECMLFormula
+    public final void synpred9_ECMLFormula_fragment() throws RecognitionException {
+        // ECMLFormula.g:77:4: ( relational_expression ECMLAND and_expression )
+        // ECMLFormula.g:77:4: relational_expression ECMLAND and_expression
+        {
+        pushFollow(FOLLOW_relational_expression_in_synpred9_ECMLFormula309);
+        relational_expression();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        match(input,ECMLAND,FOLLOW_ECMLAND_in_synpred9_ECMLFormula311); if (state.failed) return ;
+
+        pushFollow(FOLLOW_and_expression_in_synpred9_ECMLFormula313);
+        and_expression();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+
+    }
+    // $ANTLR end synpred9_ECMLFormula
+
     // Delegated rules
+
+    public final boolean synpred9_ECMLFormula() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred9_ECMLFormula_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
 
 
  
 
-    public static final BitSet FOLLOW_var_rate_class_in_var_def85 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_identifier_in_var_def87 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_var_def89 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_var_type_in_var_def91 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_19_in_var_def94 = new BitSet(new long[]{0x0000000000000280L});
-    public static final BitSet FOLLOW_constant_in_var_def96 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_var_rate_class113 = new BitSet(new long[]{0x0000000000F00000L});
-    public static final BitSet FOLLOW_var_rate_class_alphabet_in_var_rate_class115 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_var_rate_class117 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_identifier_in_var_type165 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_identifier_in_connection_contents205 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_connection_contents207 = new BitSet(new long[]{0x0000000000004380L});
-    public static final BitSet FOLLOW_condition_expression_in_connection_contents209 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_connection_contents212 = new BitSet(new long[]{0x0000000000010002L});
-    public static final BitSet FOLLOW_16_in_connection_contents222 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_action_expression_in_connection_contents226 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_connection_contents235 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_and_expression_in_condition_expression258 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_26_in_condition_expression262 = new BitSet(new long[]{0x0000000000004380L});
-    public static final BitSet FOLLOW_and_expression_in_condition_expression267 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_relational_expression_in_and_expression285 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_13_in_and_expression288 = new BitSet(new long[]{0x0000000000004380L});
-    public static final BitSet FOLLOW_relational_expression_in_and_expression291 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_bi_expression_in_relational_expression310 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_RELOP_in_relational_expression315 = new BitSet(new long[]{0x0000000000004380L});
-    public static final BitSet FOLLOW_bi_expression_in_relational_expression320 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_action_expression_in_action_expressions357 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_18_in_action_expressions360 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_action_expression_in_action_expressions364 = new BitSet(new long[]{0x0000000000040002L});
-    public static final BitSet FOLLOW_ID_in_action_expression381 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_action_expression383 = new BitSet(new long[]{0x0000000000004380L});
-    public static final BitSet FOLLOW_bi_expression_in_action_expression385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primary_expression_in_bi_expression401 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_OPER_in_bi_expression405 = new BitSet(new long[]{0x0000000000004380L});
-    public static final BitSet FOLLOW_primary_expression_in_bi_expression408 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_identifier_in_primary_expression425 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_constant_in_primary_expression431 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_primary_expression437 = new BitSet(new long[]{0x0000000000004380L});
-    public static final BitSet FOLLOW_bi_expression_in_primary_expression439 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_primary_expression441 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_identifier456 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_var_rate_class_in_var_def80 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_ID_in_var_def82 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_var_def84 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_var_type_in_var_def86 = new BitSet(new long[]{0x0000000000100002L});
+    public static final BitSet FOLLOW_20_in_var_def89 = new BitSet(new long[]{0x0000000000000280L});
+    public static final BitSet FOLLOW_constant_in_var_def91 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_var_rate_class108 = new BitSet(new long[]{0x0000000001E00000L});
+    public static final BitSet FOLLOW_var_rate_class_alphabet_in_var_rate_class110 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_var_rate_class112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_var_type160 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_state_model170 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_state_model172 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_ID_in_state_model174 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_state_model176 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_state_model178 = new BitSet(new long[]{0x0000000000008380L});
+    public static final BitSet FOLLOW_bi_expression_in_state_model180 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_state_model185 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_state_model187 = new BitSet(new long[]{0x0000000000008380L});
+    public static final BitSet FOLLOW_bi_expression_in_state_model189 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_connection_contents229 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_connection_contents231 = new BitSet(new long[]{0x0000000000008380L});
+    public static final BitSet FOLLOW_condition_expression_in_connection_contents233 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_connection_contents236 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_17_in_connection_contents246 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_action_expression_in_connection_contents250 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_connection_contents259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_and_expression_in_condition_expression282 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_ECMLOR_in_condition_expression286 = new BitSet(new long[]{0x0000000000008380L});
+    public static final BitSet FOLLOW_and_expression_in_condition_expression290 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_relational_expression_in_and_expression309 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ECMLAND_in_and_expression311 = new BitSet(new long[]{0x0000000000008380L});
+    public static final BitSet FOLLOW_and_expression_in_and_expression313 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_relational_expression_in_and_expression329 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_bi_expression_in_relational_expression349 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_RELOP_in_relational_expression354 = new BitSet(new long[]{0x0000000000008380L});
+    public static final BitSet FOLLOW_bi_expression_in_relational_expression359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_action_expression_in_action_expressions396 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_19_in_action_expressions399 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_action_expression_in_action_expressions403 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_ID_in_action_expression420 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_action_expression422 = new BitSet(new long[]{0x0000000000008380L});
+    public static final BitSet FOLLOW_bi_expression_in_action_expression424 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primary_expression_in_bi_expression440 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_OPER_in_bi_expression444 = new BitSet(new long[]{0x0000000000008380L});
+    public static final BitSet FOLLOW_primary_expression_in_bi_expression447 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_ID_in_primary_expression464 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_constant_in_primary_expression470 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_primary_expression476 = new BitSet(new long[]{0x0000000000008380L});
+    public static final BitSet FOLLOW_bi_expression_in_primary_expression478 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_primary_expression480 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_relational_expression_in_synpred9_ECMLFormula309 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ECMLAND_in_synpred9_ECMLFormula311 = new BitSet(new long[]{0x0000000000008380L});
+    public static final BitSet FOLLOW_and_expression_in_synpred9_ECMLFormula313 = new BitSet(new long[]{0x0000000000000002L});
 
 }

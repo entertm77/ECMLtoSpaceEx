@@ -1,7 +1,9 @@
 package ecml;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -89,6 +91,14 @@ public class CPSBehavioralModel {
 	public  Collection<Variable> get_variables(){
 	    return var_map.values();
 	}
+	public Variable find_variable(String name){
+		for(Variable var : var_map.values()){
+			if(var.getName().equals(name)){
+				return var;
+			}
+		}
+		return null;
+	}
 
 	public BasicComponent get_cont_var_set_node() {
 		return cont_var_set_node;
@@ -107,6 +117,25 @@ public class CPSBehavioralModel {
 	public Initial get_initial() {
 		return initial;
 	}
+	
+	public List<Connection> get_out_connections(Long phaseID){
+		List<Connection> out_conns = new ArrayList<Connection>();
+		for(Connection conn:this.get_connections()){
+			if(conn.getSource_id()==phaseID)
+				out_conns.add(conn);
+		}
+		return out_conns;
+	}
+	public List<Connection> get_in_connections(Long phaseID){
+		List<Connection> in_conns = new ArrayList<Connection>();
+		
+		for(Connection conn:this.get_connections()){
+			if(conn.getTarget_id()==phaseID)
+				in_conns.add(conn);
+		}
+		return in_conns;
+	}
+	
 	
 	public void add_connection(Connection conn){
 		connection_map.put(conn.getID(), conn);

@@ -22,7 +22,7 @@
       <entry id="1322125593632" name="Increasing" type="17" x="410" y="95" width="212" height="75" is_define_model="0" define_model_name=""> 
         <entry id="13221255936320" name="State Model" type="18" x="0" y="0" width="0" height="0"> 
           <entry id="13221255936321" name="d(Power) = PowerIncreasingRate" type="19" x="0" y="0" width="0" height="0"/>  
-          <entry id="1322125601884" name="Thrust 1= Power" type="19" x="0" y="0" width="0" height="0"/> 
+          <entry id="1322125601884" name="Thrust1= Power" type="19" x="0" y="0" width="0" height="0"/> 
         </entry> 
       </entry>  
       <entry id="1322125603943" name="Holding" type="17" x="427" y="253" width="178" height="71" is_define_model="0" define_model_name=""> 
