@@ -1,0 +1,6 @@
+Reduce (Free CSL version), 14-Apr-11 ...
+
+
+
+***** service rl_cnf not implemented in context nil 
+
