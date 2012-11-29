@@ -27,11 +27,15 @@ import parsers.SxExpression;
 import parsers.SxNegTree;
 
 import sspaceex.SXSspaceex;
+import sspaceex.SxBind;
+import sspaceex.SxComponent;
 import sspaceex.SxComponentBase;
+import sspaceex.SxComponentNetwork;
+import sspaceex.SxElement;
 import sspaceex.SxLocation;
 import sspaceex.SxParam;
 import sspaceex.SxTransition;
-import ecml.CPSBehavioralModel;
+import ecml.BehavioralModel;
 import ecml.CommonAttr;
 import ecml.Connection;
 import ecml.Phase;
@@ -56,18 +60,52 @@ public class Translator {
 	 * @return
 	 * @throws RecognitionException
 	 */
-	public SXSspaceex translation(CPSBehavioralModel cbm)
+	public SXSspaceex translation(BehavioralModel cbm)
 			throws RecognitionException {
 		SXSspaceex ex = new SXSspaceex();
-		SxComponentBase componentBase = ex.newComponentBase();
-		ex.add(componentBase);
-		create_param(cbm, ex, componentBase);
-		transition_check(cbm, ex, componentBase);
-		componentBase.setId(cbm.getName());
+		
+		List<SxComponentBase> component_list = new ArrayList<SxComponentBase>();
+		component_list.add(create_generated_automata(ex, cbm));
+					
+		SxComponentBase timing_automaton = create_timing_automaton(ex);
+		SxComponentBase[] lists = component_list.toArray(new SxComponentBase[component_list.size()]);
+		ex.add(create_composed_network(ex, timing_automaton, lists));
+		
 		return ex;
 	}
+	private SxComponentBase create_generated_automata(SXSspaceex ex, BehavioralModel cbm) throws RecognitionException{
+		log.debug("create generated automata");
+		SxComponentBase componentBase = ex.newComponentBase();
+		
+		componentBase.setId(cbm.getName());
+		
+		
+		ex.add(componentBase);
+		create_param(cbm, ex, componentBase);
+		translation(cbm, ex, componentBase);
+		componentBase.remove((SxLocation) componentBase.getLocations().toArray()[0]);
+		return componentBase;
+	}
+	private SxComponentNetwork create_composed_network(SXSspaceex ex, SxComponentBase timing_automaton, SxComponentBase [] model_list ){
+		SxComponentNetwork composed_network = ex.newComponentNetwork();
+		
+		composed_network.setId("overall_network1");
+		
+		SxBind bind_timing_automaton = new SxBind(ex, composed_network, timing_automaton, "timed_component");		
+		composed_network.add(bind_timing_automaton);
+		for(SxComponentBase sxc_base: model_list){
+			SxBind bind_model = new SxBind(ex, composed_network, sxc_base, sxc_base.getId());
+			composed_network.add(bind_model);
+		}
+		
+		return composed_network;
+	}
+	
+	
+	
+	
 
-	private void create_param(CPSBehavioralModel cbm, SXSspaceex ex,
+	private void create_param(BehavioralModel cbm, SXSspaceex ex,
 			SxComponentBase cbase) {
 		for (Variable var : cbm.get_variables()) {
 			String name = var.getName();
@@ -94,13 +132,32 @@ public class Translator {
 				break;
 			}
 			cbase.add(param);
-
 		}
-
+	}
+	private SxComponentBase create_timing_automaton(SXSspaceex ex){
+		log.debug("create timing_automaton");
+		SxComponentBase base = new SxComponentBase(ex, "timing_automaton");
+				
+		log.debug("parameter add");
+		SxParam param = new SxParam(ex,"t", "real");
+		param.setControlled(true);
+		param.setLocal(true);
+		base.add(param);
+		
+		log.debug("location add");
+		SxLocation loc = new SxLocation(ex, base);
+		loc.setName("init");
+		loc.setInvariant("t<=" + 600);
+		loc.setFlow("t'==1");
+		base.add(loc);
+		
+		ex.add(base);
+		
+		return base;
 	}
 
 	// Transition을 통해서 Location을 생성하고 Location의 Invarant를 설정한다.
-	private void transition_check(CPSBehavioralModel cbm, SXSspaceex ex,
+	private void translation(BehavioralModel cbm, SXSspaceex ex,
 			SxComponentBase cbase) throws RecognitionException {
 		Collection<Connection> conns = cbm.get_connections();
 		Map<Long, List<SxLocation>> location_groups = new HashMap<Long, List<SxLocation>>();

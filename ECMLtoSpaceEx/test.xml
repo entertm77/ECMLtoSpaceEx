@@ -7,7 +7,6 @@
     <param name="ThrustControl2" type="real" local="false" d1="1" d2="1" dynamics="any" />
     <param name="MaximumPower" type="real" local="true" d1="1" d2="1" dynamics="const" />
     <param name="Power" type="real" local="true" d1="1" d2="1" dynamics="const" />
-    <location id="1" name="new1" />
     <location id="2" name="Holding_1">
       <invariant>ThrustControl2&gt;=(Power/MaximumPower)&amp;ThrustControl2&lt;=(Power/MaximumPower)</invariant>
       <flow>Power'==0</flow>
@@ -36,6 +35,10 @@
       <guard>ThrustControl2&lt;=(Power/MaximumPower)</guard>
       <assignment>Thrust2:=Power</assignment>
     </transition>
+  </component>
+  <component id="overall_network1">
+    <bind component="timing_automaton" as="timed_component" />
+    <bind component="Rotor2" as="Rotor2" />
   </component>
 </sspaceex>
 

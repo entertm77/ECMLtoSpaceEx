@@ -11,7 +11,7 @@ import java.util.Map;
  * @author Jaeyeon
  * 
  */
-public class CPSBehavioralModel {
+public class BehavioralModel {
 	@Override
 	public String toString() {
 		return "CPSBehavioralModel [getName()=" + getName()

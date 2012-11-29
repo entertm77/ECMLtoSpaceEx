@@ -9,7 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CBMTest {
-	static private CPSBehavioralModel cbm;
+	static private BehavioralModel cbm;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -38,11 +38,11 @@ public class CBMTest {
 		System.out.println(cbm.toString());
 	}
 
-	public static CPSBehavioralModel getCbm() {
+	public static BehavioralModel getCbm() {
 		return cbm;
 	}
 
-	public static void setCbm(CPSBehavioralModel cbm) {
+	public static void setCbm(BehavioralModel cbm) {
 		CBMTest.cbm = cbm;
 	}
 

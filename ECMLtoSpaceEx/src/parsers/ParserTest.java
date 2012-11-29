@@ -27,7 +27,7 @@ import org.xml.sax.SAXException;
 import sspaceex.SXSspaceex;
 
 import ecml.CBMReader;
-import ecml.CPSBehavioralModel;
+import ecml.BehavioralModel;
 import ecml.IllegalGrammarException;
 
 public class ParserTest {

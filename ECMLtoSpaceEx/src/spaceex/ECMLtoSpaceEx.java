@@ -12,7 +12,7 @@ import org.xml.sax.SAXException;
 import sspaceex.SXSspaceex;
 
 import ecml.CBMReader;
-import ecml.CPSBehavioralModel;
+import ecml.BehavioralModel;
 import ecml.IllegalGrammarException;
 
 public class ECMLtoSpaceEx {
@@ -42,7 +42,7 @@ public class ECMLtoSpaceEx {
 			ByteArrayInputStream bais = null;
 			FileOutputStream fos = null;
 			try {
-				CPSBehavioralModel cbm = reader.parse(source);
+				BehavioralModel cbm = reader.parse(source);
 				Translator translator = new Translator();
 				SXSspaceex spaceex = translator.translation(cbm);
 				File file = new File(target);

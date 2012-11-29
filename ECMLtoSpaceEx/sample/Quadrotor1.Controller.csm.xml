@@ -12,8 +12,10 @@
   <entry id="13221229429801" name="[A] ThrustControl2 : double" type="39" x="898" y="730" width="0" height="0" is_properties="0"/>  
   <entry id="13221230003701" name="[A] ThrustControl3 : double" type="39" x="1183" y="237" width="0" height="0" is_properties="0"/>  
   <entry id="13221230601201" name="[A] ThrustControl4 : double" type="39" x="1181" y="267" width="0" height="0" is_properties="0"/>  
+  
   <entry id="132212328007422" name="Structural Model" type="9" x="35" y="35" width="1143" height="717"> 
     <entry id="13221232800740" name="Controller" type="1" x="19" y="19" width="1103" height="677"> 
+    
       <entry id="1322123292815" name="Structural Children Model" type="30" x="151" y="316" width="361" height="284" is_define_model="1" define_model_name="Quadrotor1.Controller.NavigationController.cbm"> 
         <entry id="13221232928150" name="NavigationController" type="29" x="19" y="19" width="321" height="244"/>  
         <entry id="13221233698260" name="Port" type="7" x="0" y="67" width="20" height="20" hils=""/>  
@@ -25,7 +27,8 @@
         <entry id="13221234300820" name="Port" type="8" x="339" y="94" width="20" height="20" hils=""/>  
         <entry id="13221234321740" name="Port" type="8" x="339" y="145" width="20" height="20" hils=""/>  
         <entry id="13221234347180" name="Port" type="8" x="339" y="189" width="20" height="20" hils=""/> 
-      </entry>  
+      </entry>
+        
       <entry id="1322123314186" name="Structural Children Model" type="30" x="574" y="55" width="344" height="283" is_define_model="1" define_model_name="Quadrotor1.Controller.ThrustController.cbm"> 
         <entry id="13221233141860" name="ThrustController" type="29" x="19" y="19" width="304" height="243"/>  
         <entry id="13221234663200" name="Port" type="7" x="0" y="95" width="20" height="20" hils=""/>  
@@ -36,7 +39,8 @@
         <entry id="13221236406420" name="Port" type="8" x="322" y="166" width="20" height="20" hils=""/>  
         <entry id="13221236452860" name="Port" type="8" x="192" y="261" width="20" height="20" hils=""/>  
         <entry id="13221236477280" name="Port" type="8" x="251" y="261" width="20" height="20" hils=""/> 
-      </entry>  
+      </entry>
+        
       <entry id="13221233698261" name="[A] Location : Point3D" type="38" x="37" y="398" width="116" height="16"/>  
       <entry id="13221233752321" name="[D] FoeDetected : bool" type="38" x="27" y="531" width="121" height="16"/>  
       <entry id="13221233770761" name="[A] FoeLocation : Point3D" type="38" x="13" y="571" width="137" height="16"/>  
@@ -53,7 +57,8 @@
       <entry id="13221236388381" name="[A] ThrustControl3 : double" type="39" x="926" y="154" width="145" height="16" is_properties="0"/>  
       <entry id="13221236406421" name="[A] ThrustControl4 : double" type="39" x="928" y="212" width="145" height="16" is_properties="0"/>  
       <entry id="13221236452861" name="[A] ThrustControl1 : double" type="39" x="712" y="370" width="145" height="16" is_properties="0"/>  
-      <entry id="13221236477281" name="[A] ThrustControl2 : double" type="39" x="763" y="397" width="145" height="16" is_properties="0"/> 
+      <entry id="13221236477281" name="[A] ThrustControl2 : double" type="39" x="763" y="397" width="145" height="16" is_properties="0"/>
+       
     </entry>  
     <entry id="13221222800160" name="Port" type="7" x="0" y="71" width="20" height="20" hils=""/>  
     <entry id="13221222838970" name="Port" type="7" x="0" y="114" width="20" height="20" hils=""/>  
@@ -66,7 +71,8 @@
     <entry id="13221229429800" name="Port" type="8" x="828" y="695" width="20" height="20" hils=""/>  
     <entry id="13221230003700" name="Port" type="8" x="1121" y="187" width="20" height="20" hils=""/>  
     <entry id="13221230601200" name="Port" type="8" x="1121" y="244" width="20" height="20" hils=""/> 
-  </entry>  
+  </entry>
+    
   <connection id="1322123374116" type="27" source_id="13221233698260" target_id="13221233698261" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
   <connection id="1322123376088" type="27" source_id="13221233752320" target_id="13221233752321" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  
   <connection id="1322123377687" type="27" source_id="13221233770760" target_id="13221233770761" is_source_label="0" is_target_label="0" is_middle_label="0" is_source_point="0" is_target_point="0"/>  

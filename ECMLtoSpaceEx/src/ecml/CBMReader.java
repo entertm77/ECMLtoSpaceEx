@@ -16,14 +16,14 @@ import ecml.Variable.RateClass;
 import ecml.Variable.TypeClass;
 
 public class CBMReader {
-	private CPSBehavioralModel cbm;
+	private BehavioralModel cbm;
 	private Document document;
 	static private Logger log = Logger.getLogger(CBMReader.class);
 
 	public CBMReader() {
 	}
 
-	public CPSBehavioralModel parse(String filename)
+	public BehavioralModel parse(String filename)
 			throws IllegalGrammarException, SAXException, IOException, RecognitionException {
 		DOMParser parser = new DOMParser();
 		parser.parse(filename);
@@ -41,7 +41,7 @@ public class CBMReader {
 			throw new IllegalGrammarException();
 		} else {
 			// Parse Root Node
-			cbm = new CPSBehavioralModel();
+			cbm = new BehavioralModel();
 			cbm.setName(rootattr.getNamedItem("name").getNodeValue());
 			cbm.setParent_name(rootattr.getNamedItem("parent_name")
 					.getNodeValue());
