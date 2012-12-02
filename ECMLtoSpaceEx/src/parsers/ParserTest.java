@@ -82,10 +82,7 @@ public class ParserTest {
 				nodes = new CommonTreeNodeStream(cond_tree);
 				
 				SxNegTree variant = new SxNegTree(nodes);
-				SxNegTree.and_exp_return and_exp = variant.and_exp();
 				
-				assertNotNull(and_exp.tree);
-				assertNotNull(and_exp.tree.token);
 			}
 		} catch (RecognitionException e) {
 			log.error(e);

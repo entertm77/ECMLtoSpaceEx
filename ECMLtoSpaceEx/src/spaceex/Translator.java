@@ -25,6 +25,7 @@ import parsers.ECMLFormulaLexer;
 import parsers.ECMLFormulaParser;
 import parsers.SxExpression;
 import parsers.SxNegTree;
+import parsers.SxNegTree.neg_bnd_rel_exp_return;
 
 import sspaceex.SXSspaceex;
 import sspaceex.SxBind;
@@ -73,6 +74,13 @@ public class Translator {
 		
 		return ex;
 	}
+	/**
+	 * 시간을 분석하기 위한 automaton생성
+	 * @param ex
+	 * @param cbm
+	 * @return
+	 * @throws RecognitionException
+	 */
 	private SxComponentBase create_generated_automata(SXSspaceex ex, BehavioralModel cbm) throws RecognitionException{
 		log.debug("create generated automata");
 		SxComponentBase componentBase = ex.newComponentBase();
@@ -82,10 +90,17 @@ public class Translator {
 		
 		ex.add(componentBase);
 		create_param(cbm, ex, componentBase);
-		translation(cbm, ex, componentBase);
+		translation_from_phase(cbm, ex, componentBase);
 		componentBase.remove((SxLocation) componentBase.getLocations().toArray()[0]);
 		return componentBase;
 	}
+	/**
+	 * 여러개의 automata를 연결하기 위한 Network 생성
+	 * @param ex
+	 * @param timing_automaton
+	 * @param model_list
+	 * @return
+	 */
 	private SxComponentNetwork create_composed_network(SXSspaceex ex, SxComponentBase timing_automaton, SxComponentBase [] model_list ){
 		SxComponentNetwork composed_network = ex.newComponentNetwork();
 		
@@ -101,12 +116,24 @@ public class Translator {
 		return composed_network;
 	}
 	
-	
-	
-	
-
+	/**
+	 * variable들을 생성
+	 * @param cbm
+	 * @param ex
+	 * @param cbase
+	 */
 	private void create_param(BehavioralModel cbm, SXSspaceex ex,
 			SxComponentBase cbase) {
+		
+		log.debug("implementation for asap");
+		SxParam time_param = new SxParam(ex, "e", "real");
+		time_param.setControlled(true);
+		time_param.setDynamics("any");
+		time_param.setLocal(true);
+		cbase.add(time_param);
+		
+		
+		log.debug("variables are from ECML model");
 		for (Variable var : cbm.get_variables()) {
 			String name = var.getName();
 			SxParam param = new SxParam(ex, name, "real");
@@ -134,6 +161,11 @@ public class Translator {
 			cbase.add(param);
 		}
 	}
+	/**
+	 * Automata를 time에 따라 분석하기 위한 automaton
+	 * @param ex
+	 * @return
+	 */
 	private SxComponentBase create_timing_automaton(SXSspaceex ex){
 		log.debug("create timing_automaton");
 		SxComponentBase base = new SxComponentBase(ex, "timing_automaton");
@@ -156,11 +188,21 @@ public class Translator {
 		return base;
 	}
 
+	
+	private void create_location(Phase phase, BehavioralModel cbm, SXSspaceex ex,
+			SxComponentBase cbase){
+		
+	}
+	
+	private void create_invariants(Phase phase, BehavioralModel cbm, SXSspaceex ex,
+			SxComponentBase cbase){
+		
+	}
 	// Transition을 통해서 Location을 생성하고 Location의 Invarant를 설정한다.
-	private void translation(BehavioralModel cbm, SXSspaceex ex,
+	private void translation_from_phase(BehavioralModel cbm, SXSspaceex ex,
 			SxComponentBase cbase) throws RecognitionException {
 		Collection<Connection> conns = cbm.get_connections();
-		Map<Long, List<SxLocation>> location_groups = new HashMap<Long, List<SxLocation>>();
+		Map<Long, LocationGroup> location_groups = new HashMap<Long, LocationGroup>();
 
 		// 각 Phase마다 대응되는 Location Group을 생성한다.
 
@@ -168,8 +210,11 @@ public class Translator {
 			Long id = phase.getID();
 			int phase_appendix = 1;
 			log.debug("generate location from phase ID : " + id);
-			List<SxLocation> loc_list = new ArrayList<SxLocation>();
-			location_groups.put(id, loc_list);
+			LocationGroup loc_group = new LocationGroup(phase);
+			
+			location_groups.put(id, loc_group);			
+			
+			
 			List<Connection> conn_list = cbm.get_out_connections(id);
 			List<List<Tree>> neg_table = new ArrayList<List<Tree>>();
 
@@ -185,7 +230,7 @@ public class Translator {
 						CommonTreeNodeStream stream = new CommonTreeNodeStream(
 								cond);
 						SxNegTree sxNegTree = new SxNegTree(stream);
-						SxNegTree.and_exp_return and_exp = sxNegTree.and_exp();
+						neg_bnd_rel_exp_return and_exp = sxNegTree.neg_bnd_rel_exp();
 
 						List<Tree> neg_list = new ArrayList<Tree>();
 						Tree root_tree = (Tree) and_exp.getTree();
@@ -213,7 +258,7 @@ public class Translator {
 				}
 			}
 			// 연결하기 전
-			log.debug("before connection");
+			log.debug("before connection, combined using and operator");
 			List<Tree> neg_list = new ArrayList<Tree>();
 			for (int i = 0; i < neg_table.size(); i++) {
 				if (i == 0) {
@@ -238,12 +283,16 @@ public class Translator {
 			}
 
 			// Tree로부터 String을 얻어낸 뒤, Location의 Invariant로 설정한다.
+			log.debug("setting invariant of location");
+			
 			for (Tree neg_tree : neg_list) {
+				//NegTree로부터 String 를 얻음
 				CommonTreeNodeStream stream = new CommonTreeNodeStream(neg_tree);
 				SxExpression sx_exp = new SxExpression(stream);
 				SxExpression.cond_exp_return cond_exp = sx_exp.cond_exp();
 				log.debug(cond_exp.st.toString());
 
+				//Location의 이름 설정
 				SxLocation location = new SxLocation(ex, cbase);
 				location.setName(phase.getName() + "_" + phase_appendix++);
 				location.setInvariant(cond_exp.st.toString());
@@ -261,13 +310,13 @@ public class Translator {
 					SxExpression expression = new SxExpression(token_stream);
 					SxExpression.state_model_return state_model_return = expression
 							.state_model();
-
 					
 					if (state_model_return.is_flow) {
 						flows.add(state_model_return.st.toString());						
 					}
 				}
 				
+				//flow 설정
 				String flow_str = "";
 				for(int i=0;i<flows.size();i++){
 					flow_str += flows.get(i);
@@ -276,12 +325,14 @@ public class Translator {
 					}
 				}
 				location.setFlow(flow_str);
-				loc_list.add(location);
+				loc_group.add_negative_location(location);
 				cbase.add(location);
 			}
+			
+			SxLocation[] neg_loc_list = loc_group.get_negative_locations();
 			//각 location들 간에 transition을 추가한다.
-			for(int i=0;i<loc_list.size()-1;i++){				
-				for(int j=i;j<loc_list.size();j++){
+			for(int i=0;i<neg_loc_list.size()-1;i++){				
+				for(int j=i;j<neg_loc .size();j++){
 					SxLocation loc1 = loc_list.get(i);
 					SxLocation loc2 = loc_list.get(j);
 					
@@ -371,7 +422,6 @@ public class Translator {
 						}
 					}
 				}
-
 			}
 		}
 	}

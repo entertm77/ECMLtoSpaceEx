@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ecml.Variable.RateClass;
+
 /**
  * 
  * @author Jaeyeon
@@ -98,6 +100,13 @@ public class BehavioralModel {
 			}
 		}
 		return null;
+	}
+	public boolean is_disc(String name){
+		Variable var = find_variable(name);
+		if(var.getRate().equals(RateClass.EVENT) || var.getRate().equals(RateClass.DISCRETE)){
+			return true;
+		}
+		return false;
 	}
 
 	public BasicComponent get_cont_var_set_node() {

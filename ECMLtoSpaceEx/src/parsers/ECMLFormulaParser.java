@@ -1,4 +1,4 @@
-// $ANTLR 3.4 ECMLFormula.g 2012-11-19 19:07:09
+// $ANTLR 3.4 ECMLFormula.g 2012-11-30 17:22:01
 
 package parsers;
 import org.apache.log4j.Logger;
@@ -970,7 +970,7 @@ public TreeAdaptor getTreeAdaptor() {
                     if ( state.backtracking==0 ) stream_and_expression.add(and_expression30.getTree());
 
                     // AST REWRITE
-                    // elements: relational_expression, and_expression
+                    // elements: and_expression, relational_expression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -1102,7 +1102,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_bi_expression.add(b.getTree());
 
             // AST REWRITE
-            // elements: a, b, RELOP
+            // elements: a, RELOP, b
             // token labels: 
             // rule labels: retval, b, a
             // token list labels: 

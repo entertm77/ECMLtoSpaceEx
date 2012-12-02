@@ -38,7 +38,7 @@ cond_exp
     ; 
   
 rel_exp
-:^(o=RELOP a=bi_exp b=bi_exp) -> template(a={$a.st}, b={$b.st}, o={$o.text})"<a><o><b>"
+:^(o=(RELOP|CONT_RELOP|DISC_RELOP) a=bi_exp b=bi_exp) -> template(a={$a.st}, b={$b.st}, o={$o.text})"<a><o><b>"
 ;
 
 bi_exp

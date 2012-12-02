@@ -16,14 +16,42 @@ package parsers;
 
 }
 
-and_exp
+//discrete expression negation
+//continuos expression unbounded negation
+disc_neg_exp
+  :	
+   ^(SXAND disc_neg_exp disc_rel_exp) -> ^(SXOR disc_neg_exp disc_rel_exp)
+  | disc_rel_exp
+  ;
+
+disc_rel_exp :
+^(o=DISC_RELOP a=bi_exp b=bi_exp)->{$o.text.equals("==")}? ^(SXOR ^(RELOP[">"] $a $b) ^(RELOP["<"] $a $b))
+			     ->{$o.text.equals(">=")}? ^(RELOP["<"] $a $b)
+			     ->{$o.text.equals("<=")}? ^(RELOP[">"] $a $b)
+			     ->{$o.text.equals(">")}? ^(RELOP["<="] $a $b)
+			     ->{$o.text.equals("<")}? ^(RELOP[">="] $a $b)
+			     ->;  
+
+//continuos expression unbounded negation
+neg_unbnd_cont_exp
+  :	
+   ^(SXAND neg_unbnd_cont_exp neg_unbnd_rel_exp) -> ^(SXOR neg_unbnd_cont_exp neg_unbnd_rel_exp)
+  | neg_unbnd_rel_exp 
+  ;
+
+neg_unbnd_rel_exp :
+^(o=CONT_RELOP a=bi_exp b=bi_exp)->{$o.text.equals("==")}? ^(SXOR ^(RELOP[">"] $a $b) ^(RELOP["<"] $a $b))
+			     ->{$o.text.equals(">=")||$o.text.equals(">")}? ^(RELOP["<"] $a $b)
+			     ->{$o.text.equals("<=")||$o.text.equals("<")}? ^(RELOP[">"] $a $b)
+			     ->;  
+//continuous expression bounded negation
+cont_exp_neg_bnd
   :
-  ^(SXAND and_exp rel_exp) -> ^(SXOR and_exp rel_exp)
-  | rel_exp 
-  ; 
-  
-rel_exp :
-^(o=RELOP a=bi_exp b=bi_exp)->{$o.text.equals("==")}? ^(SXOR ^(RELOP[">="] $a $b) ^(RELOP["<="] $a $b))
+  ^(SXAND cont_exp_neg_bnd neg_bnd_rel_exp) -> ^(SXOR cont_exp_neg_bnd neg_bnd_rel_exp)
+  | neg_bnd_rel_exp 
+  ;   
+neg_bnd_rel_exp :
+^(o=CONT_RELOP a=bi_exp b=bi_exp)->{$o.text.equals("==")}? ^(SXOR ^(RELOP[">="] $a $b) ^(RELOP["<="] $a $b))
 			     ->{$o.text.equals(">=")||$o.text.equals(">")}? ^(RELOP["<="] $a $b)
 			     ->{$o.text.equals("<=")||$o.text.equals("<")}? ^(RELOP[">="] $a $b)
 			     ->;  

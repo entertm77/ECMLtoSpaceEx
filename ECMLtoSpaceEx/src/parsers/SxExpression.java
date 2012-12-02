@@ -1,4 +1,4 @@
-// $ANTLR 3.4 SxExpression.g 2012-11-19 19:07:10
+// $ANTLR 3.4 SxExpression.g 2012-11-30 18:11:56
 
 package parsers;
   import org.apache.log4j.Logger;
@@ -16,12 +16,10 @@ import java.util.HashMap;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class SxExpression extends TreeParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ECMLAND", "ECMLOR", "EQUAL", "FLOAT", "ID", "INT", "OPER", "RELOP", "SXAND", "SXOR", "WS", "'('", "')'", "'//'", "':'", "';'", "'='", "'A'", "'C'", "'D'", "'E'", "'['", "']'", "'d'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "CONT_RELOP", "DISC_RELOP", "ECMLAND", "ECMLOR", "EQUAL", "FLOAT", "ID", "INT", "OPER", "RELOP", "SXAND", "SXOR", "WS", "'('", "')'", "'//'", "':'", "';'", "'='", "'A'", "'C'", "'D'", "'E'", "'['", "']'", "'d'"
     };
 
     public static final int EOF=-1;
-    public static final int T__15=15;
-    public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__19=19;
@@ -33,17 +31,21 @@ public class SxExpression extends TreeParser {
     public static final int T__25=25;
     public static final int T__26=26;
     public static final int T__27=27;
-    public static final int ECMLAND=4;
-    public static final int ECMLOR=5;
-    public static final int EQUAL=6;
-    public static final int FLOAT=7;
-    public static final int ID=8;
-    public static final int INT=9;
-    public static final int OPER=10;
-    public static final int RELOP=11;
-    public static final int SXAND=12;
-    public static final int SXOR=13;
-    public static final int WS=14;
+    public static final int T__28=28;
+    public static final int T__29=29;
+    public static final int CONT_RELOP=4;
+    public static final int DISC_RELOP=5;
+    public static final int ECMLAND=6;
+    public static final int ECMLOR=7;
+    public static final int EQUAL=8;
+    public static final int FLOAT=9;
+    public static final int ID=10;
+    public static final int INT=11;
+    public static final int OPER=12;
+    public static final int RELOP=13;
+    public static final int SXAND=14;
+    public static final int SXOR=15;
+    public static final int WS=16;
 
     // delegates
     public TreeParser[] getDelegates() {
@@ -114,7 +116,7 @@ public static class STAttrMap extends HashMap {
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==27) ) {
+            if ( (LA1_0==29) ) {
                 alt1=1;
             }
             else if ( (LA1_0==ID) ) {
@@ -131,15 +133,15 @@ public static class STAttrMap extends HashMap {
                 case 1 :
                     // SxExpression.g:20:3: 'd' '(' a= ID ')' '=' b= bi_exp
                     {
-                    match(input,27,FOLLOW_27_in_state_model83); 
+                    match(input,29,FOLLOW_29_in_state_model83); 
 
-                    match(input,15,FOLLOW_15_in_state_model85); 
+                    match(input,17,FOLLOW_17_in_state_model85); 
 
                     a=(CommonTree)match(input,ID,FOLLOW_ID_in_state_model89); 
 
-                    match(input,16,FOLLOW_16_in_state_model91); 
+                    match(input,18,FOLLOW_18_in_state_model91); 
 
-                    match(input,20,FOLLOW_20_in_state_model93); 
+                    match(input,22,FOLLOW_22_in_state_model93); 
 
                     pushFollow(FOLLOW_bi_exp_in_state_model97);
                     b=bi_exp();
@@ -164,7 +166,7 @@ public static class STAttrMap extends HashMap {
                     {
                     a=(CommonTree)match(input,ID,FOLLOW_ID_in_state_model120); 
 
-                    match(input,20,FOLLOW_20_in_state_model122); 
+                    match(input,22,FOLLOW_22_in_state_model122); 
 
                     pushFollow(FOLLOW_bi_exp_in_state_model126);
                     b=bi_exp();
@@ -226,7 +228,7 @@ public static class STAttrMap extends HashMap {
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==19) ) {
+            if ( (LA2_0==21) ) {
                 alt2=1;
             }
             else if ( (LA2_0==ID) ) {
@@ -243,7 +245,7 @@ public static class STAttrMap extends HashMap {
                 case 1 :
                     // SxExpression.g:26:3: ^( ';' a= action_exp b= action_exps )
                     {
-                    match(input,19,FOLLOW_19_in_action_exps159); 
+                    match(input,21,FOLLOW_21_in_action_exps159); 
 
                     match(input, Token.DOWN, null); 
                     pushFollow(FOLLOW_action_exp_in_action_exps163);
@@ -330,7 +332,7 @@ public static class STAttrMap extends HashMap {
             {
             ID2=(CommonTree)match(input,ID,FOLLOW_ID_in_action_exp209); 
 
-            match(input,20,FOLLOW_20_in_action_exp211); 
+            match(input,22,FOLLOW_22_in_action_exp211); 
 
             pushFollow(FOLLOW_bi_exp_in_action_exp213);
             bi_exp3=bi_exp();
@@ -392,7 +394,7 @@ public static class STAttrMap extends HashMap {
             if ( (LA3_0==SXAND) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==RELOP) ) {
+            else if ( ((LA3_0 >= CONT_RELOP && LA3_0 <= DISC_RELOP)||LA3_0==RELOP) ) {
                 alt3=2;
             }
             else {
@@ -477,7 +479,7 @@ public static class STAttrMap extends HashMap {
 
 
     // $ANTLR start "rel_exp"
-    // SxExpression.g:40:1: rel_exp : ^(o= RELOP a= bi_exp b= bi_exp ) -> template(a=$a.stb=$b.sto=$o.text) \"<a><o><b>\";
+    // SxExpression.g:40:1: rel_exp : ^(o= ( RELOP | CONT_RELOP | DISC_RELOP ) a= bi_exp b= bi_exp ) -> template(a=$a.stb=$b.sto=$o.text) \"<a><o><b>\";
     public final SxExpression.rel_exp_return rel_exp() throws RecognitionException {
         SxExpression.rel_exp_return retval = new SxExpression.rel_exp_return();
         retval.start = input.LT(1);
@@ -490,19 +492,69 @@ public static class STAttrMap extends HashMap {
 
 
         try {
-            // SxExpression.g:41:2: ( ^(o= RELOP a= bi_exp b= bi_exp ) -> template(a=$a.stb=$b.sto=$o.text) \"<a><o><b>\")
-            // SxExpression.g:41:2: ^(o= RELOP a= bi_exp b= bi_exp )
+            // SxExpression.g:41:2: ( ^(o= ( RELOP | CONT_RELOP | DISC_RELOP ) a= bi_exp b= bi_exp ) -> template(a=$a.stb=$b.sto=$o.text) \"<a><o><b>\")
+            // SxExpression.g:41:2: ^(o= ( RELOP | CONT_RELOP | DISC_RELOP ) a= bi_exp b= bi_exp )
             {
-            o=(CommonTree)match(input,RELOP,FOLLOW_RELOP_in_rel_exp307); 
+            // SxExpression.g:41:6: ( RELOP | CONT_RELOP | DISC_RELOP )
+            int alt4=3;
+            switch ( input.LA(1) ) {
+            case RELOP:
+                {
+                alt4=1;
+                }
+                break;
+            case CONT_RELOP:
+                {
+                alt4=2;
+                }
+                break;
+            case DISC_RELOP:
+                {
+                alt4=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 4, 0, input);
+
+                throw nvae;
+
+            }
+
+            switch (alt4) {
+                case 1 :
+                    // SxExpression.g:41:7: RELOP
+                    {
+                    match(input,RELOP,FOLLOW_RELOP_in_rel_exp308); 
+
+                    }
+                    break;
+                case 2 :
+                    // SxExpression.g:41:13: CONT_RELOP
+                    {
+                    match(input,CONT_RELOP,FOLLOW_CONT_RELOP_in_rel_exp310); 
+
+                    }
+                    break;
+                case 3 :
+                    // SxExpression.g:41:24: DISC_RELOP
+                    {
+                    match(input,DISC_RELOP,FOLLOW_DISC_RELOP_in_rel_exp312); 
+
+                    }
+                    break;
+
+            }
+
 
             match(input, Token.DOWN, null); 
-            pushFollow(FOLLOW_bi_exp_in_rel_exp311);
+            pushFollow(FOLLOW_bi_exp_in_rel_exp317);
             a=bi_exp();
 
             state._fsp--;
 
 
-            pushFollow(FOLLOW_bi_exp_in_rel_exp315);
+            pushFollow(FOLLOW_bi_exp_in_rel_exp321);
             b=bi_exp();
 
             state._fsp--;
@@ -512,7 +564,7 @@ public static class STAttrMap extends HashMap {
 
 
             // TEMPLATE REWRITE
-            // 41:31: -> template(a=$a.stb=$b.sto=$o.text) \"<a><o><b>\"
+            // 41:55: -> template(a=$a.stb=$b.sto=$o.text) \"<a><o><b>\"
             {
                 retval.st = new StringTemplate(templateLib, "<a><o><b>",new STAttrMap().put("a", (a!=null?a.st:null)).put("b", (b!=null?b.st:null)).put("o", (o!=null?o.getText():null)));
             }
@@ -559,36 +611,36 @@ public static class STAttrMap extends HashMap {
 
         try {
             // SxExpression.g:45:2: ( ^(o= OPER a= primary_exp b= bi_exp ) -> template(a=$a.stb=$b.sto=$o.text) \"<a><o><b>\"| primary_exp -> template(a=$primary_exp.st) \"<a>\")
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA4_0==OPER) ) {
-                alt4=1;
+            if ( (LA5_0==OPER) ) {
+                alt5=1;
             }
-            else if ( ((LA4_0 >= FLOAT && LA4_0 <= INT)||LA4_0==15) ) {
-                alt4=2;
+            else if ( ((LA5_0 >= FLOAT && LA5_0 <= INT)||LA5_0==17) ) {
+                alt5=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
 
             }
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
                     // SxExpression.g:45:2: ^(o= OPER a= primary_exp b= bi_exp )
                     {
-                    o=(CommonTree)match(input,OPER,FOLLOW_OPER_in_bi_exp347); 
+                    o=(CommonTree)match(input,OPER,FOLLOW_OPER_in_bi_exp353); 
 
                     match(input, Token.DOWN, null); 
-                    pushFollow(FOLLOW_primary_exp_in_bi_exp351);
+                    pushFollow(FOLLOW_primary_exp_in_bi_exp357);
                     a=primary_exp();
 
                     state._fsp--;
 
 
-                    pushFollow(FOLLOW_bi_exp_in_bi_exp355);
+                    pushFollow(FOLLOW_bi_exp_in_bi_exp361);
                     b=bi_exp();
 
                     state._fsp--;
@@ -610,7 +662,7 @@ public static class STAttrMap extends HashMap {
                 case 2 :
                     // SxExpression.g:46:2: primary_exp
                     {
-                    pushFollow(FOLLOW_primary_exp_in_bi_exp379);
+                    pushFollow(FOLLOW_primary_exp_in_bi_exp385);
                     primary_exp5=primary_exp();
 
                     state._fsp--;
@@ -664,41 +716,41 @@ public static class STAttrMap extends HashMap {
 
         try {
             // SxExpression.g:50:1: ( ID -> {%{$ID.text}}| INT -> {%{$INT.text}}| FLOAT -> {%{$FLOAT.text}}| '(' bi_exp ')' -> template(a=$bi_exp.st) \"(<a>)\")
-            int alt5=4;
+            int alt6=4;
             switch ( input.LA(1) ) {
             case ID:
                 {
-                alt5=1;
+                alt6=1;
                 }
                 break;
             case INT:
                 {
-                alt5=2;
+                alt6=2;
                 }
                 break;
             case FLOAT:
                 {
-                alt5=3;
+                alt6=3;
                 }
                 break;
-            case 15:
+            case 17:
                 {
-                alt5=4;
+                alt6=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
                     // SxExpression.g:51:1: ID
                     {
-                    ID6=(CommonTree)match(input,ID,FOLLOW_ID_in_primary_exp401); 
+                    ID6=(CommonTree)match(input,ID,FOLLOW_ID_in_primary_exp407); 
 
                     // TEMPLATE REWRITE
                     // 51:4: -> {%{$ID.text}}
@@ -713,7 +765,7 @@ public static class STAttrMap extends HashMap {
                 case 2 :
                     // SxExpression.g:52:3: INT
                     {
-                    INT7=(CommonTree)match(input,INT,FOLLOW_INT_in_primary_exp409); 
+                    INT7=(CommonTree)match(input,INT,FOLLOW_INT_in_primary_exp415); 
 
                     // TEMPLATE REWRITE
                     // 52:7: -> {%{$INT.text}}
@@ -728,7 +780,7 @@ public static class STAttrMap extends HashMap {
                 case 3 :
                     // SxExpression.g:53:3: FLOAT
                     {
-                    FLOAT8=(CommonTree)match(input,FLOAT,FOLLOW_FLOAT_in_primary_exp417); 
+                    FLOAT8=(CommonTree)match(input,FLOAT,FOLLOW_FLOAT_in_primary_exp423); 
 
                     // TEMPLATE REWRITE
                     // 53:9: -> {%{$FLOAT.text}}
@@ -743,15 +795,15 @@ public static class STAttrMap extends HashMap {
                 case 4 :
                     // SxExpression.g:54:3: '(' bi_exp ')'
                     {
-                    match(input,15,FOLLOW_15_in_primary_exp425); 
+                    match(input,17,FOLLOW_17_in_primary_exp431); 
 
-                    pushFollow(FOLLOW_bi_exp_in_primary_exp427);
+                    pushFollow(FOLLOW_bi_exp_in_primary_exp433);
                     bi_exp9=bi_exp();
 
                     state._fsp--;
 
 
-                    match(input,16,FOLLOW_16_in_primary_exp429); 
+                    match(input,18,FOLLOW_18_in_primary_exp435); 
 
                     // TEMPLATE REWRITE
                     // 54:18: -> template(a=$bi_exp.st) \"(<a>)\"
@@ -783,38 +835,40 @@ public static class STAttrMap extends HashMap {
 
  
 
-    public static final BitSet FOLLOW_27_in_state_model83 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_state_model85 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_ID_in_state_model89 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_state_model91 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_state_model93 = new BitSet(new long[]{0x0000000000008780L});
+    public static final BitSet FOLLOW_29_in_state_model83 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_state_model85 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_ID_in_state_model89 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_state_model91 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_state_model93 = new BitSet(new long[]{0x0000000000021E00L});
     public static final BitSet FOLLOW_bi_exp_in_state_model97 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_state_model120 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_state_model122 = new BitSet(new long[]{0x0000000000008780L});
+    public static final BitSet FOLLOW_ID_in_state_model120 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_state_model122 = new BitSet(new long[]{0x0000000000021E00L});
     public static final BitSet FOLLOW_bi_exp_in_state_model126 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_action_exps159 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_action_exp_in_action_exps163 = new BitSet(new long[]{0x0000000000080100L});
+    public static final BitSet FOLLOW_21_in_action_exps159 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_action_exp_in_action_exps163 = new BitSet(new long[]{0x0000000000200400L});
     public static final BitSet FOLLOW_action_exps_in_action_exps167 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_action_exp_in_action_exps188 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_action_exp209 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_action_exp211 = new BitSet(new long[]{0x0000000000008780L});
+    public static final BitSet FOLLOW_ID_in_action_exp209 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_action_exp211 = new BitSet(new long[]{0x0000000000021E00L});
     public static final BitSet FOLLOW_bi_exp_in_action_exp213 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_SXAND_in_cond_exp245 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_rel_exp_in_cond_exp249 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_rel_exp_in_cond_exp249 = new BitSet(new long[]{0x0000000000006030L});
     public static final BitSet FOLLOW_cond_exp_in_cond_exp253 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_rel_exp_in_cond_exp279 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RELOP_in_rel_exp307 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_bi_exp_in_rel_exp311 = new BitSet(new long[]{0x0000000000008780L});
-    public static final BitSet FOLLOW_bi_exp_in_rel_exp315 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_OPER_in_bi_exp347 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_primary_exp_in_bi_exp351 = new BitSet(new long[]{0x0000000000008780L});
-    public static final BitSet FOLLOW_bi_exp_in_bi_exp355 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_primary_exp_in_bi_exp379 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_primary_exp401 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INT_in_primary_exp409 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOAT_in_primary_exp417 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_primary_exp425 = new BitSet(new long[]{0x0000000000008780L});
-    public static final BitSet FOLLOW_bi_exp_in_primary_exp427 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_primary_exp429 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RELOP_in_rel_exp308 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_CONT_RELOP_in_rel_exp310 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_DISC_RELOP_in_rel_exp312 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_bi_exp_in_rel_exp317 = new BitSet(new long[]{0x0000000000021E00L});
+    public static final BitSet FOLLOW_bi_exp_in_rel_exp321 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_OPER_in_bi_exp353 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_primary_exp_in_bi_exp357 = new BitSet(new long[]{0x0000000000021E00L});
+    public static final BitSet FOLLOW_bi_exp_in_bi_exp361 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_primary_exp_in_bi_exp385 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_primary_exp407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INT_in_primary_exp415 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOAT_in_primary_exp423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_primary_exp431 = new BitSet(new long[]{0x0000000000021E00L});
+    public static final BitSet FOLLOW_bi_exp_in_primary_exp433 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_primary_exp435 = new BitSet(new long[]{0x0000000000000002L});
 
 }

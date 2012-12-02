@@ -7,7 +7,9 @@ options {
 }
 
 tokens {
-  EQUAL; 
+  EQUAL;
+  DISC_RELOP;
+  CONT_RELOP;
 }
 
 @lexer::header {
@@ -52,10 +54,12 @@ state_model
 	
 //DecreaseThrust [ThrustControl1 &lt; (Power / MaximumPower)] //
 
-connection_contents returns [String label, Tree[\] conditions, Tree actions]
-  scope{List<Tree> cond_arr;}
+connection_contents[BehavioralModel cbm_in] returns [String label, Tree[\] conditions, Tree actions]
+  scope{List<Tree> cond_arr;
+  BehavioralModel cbm;}
   @init{
   $connection_contents::cond_arr = new ArrayList<Tree>();
+  $connection_contents::cbm = cbm_in;
   }
   @after{$conditions = $connection_contents::cond_arr.toArray(new Tree[$connection_contents::cond_arr.size()]);
   }
@@ -79,10 +83,13 @@ and_expression
   ;  
 
 relational_expression
+  scope {boolean is_disc;}
+  @init{is_disc=false;}
   :
   a=bi_expression o=(RELOP) b=bi_expression
+    ->{$relational_expression::is_disc==true}?^(DISC_RELOP[$o.text] $a $b)
+    ->{$relational_expression::is_disc==false;}?^(CONT_RELOP[$o.text] $a $b)
     ->
-      ^(RELOP $a $b)
   ;
 
 action_expressions
@@ -102,7 +109,8 @@ bi_expression
 
 primary_expression
   :
-  ID
+  ID{if($connection_contents::cbm.is_disc($ID.text))
+  $relational_expression::is_disc=true;}
   | constant
   | '(' bi_expression ')'
   ;
